@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".NewJodi">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txtBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/ic_keyboard_backspace_black_24dp"/>
+
+            <TextView
+                android:id="@+id/board"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Dhani Night -Single Digits Board"
+                android:layout_toRightOf="@id/txtBack"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textSize="17dp"
+                android:textColor="@color/textColor"/>
+
+            <TextView
+                android:id="@+id/w_image"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/icons8_rupee_24px"
+                android:layout_toLeftOf="@+id/wallet_amount"
+                android:layout_marginRight="2dp"
+                android:backgroundTint="@color/textColor"
+                android:layout_marginTop="2dp"/>
+            <TextView
+                android:id="@+id/wallet_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/textColor"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <include layout="@layout/timer_layout"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/homebg"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/matkaname"
+
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jodi_digit"
+                        android:textAllCaps="true"
+                        android:textColor="@color/textColor"
+                        android:layout_centerVertical="true"
+
+                        android:textSize="16dp"/>
+
+                    <Button
+                        android:id="@+id/btnBetStatus"
+                        android:layout_width="match_parent"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/shape2"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:text="26/06/2019 - FRIDAY - BET OPEN"
+                        android:textSize="9dp"
+                        android:textColor="@color/white"/>
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                      <androidx.recyclerview.widget.RecyclerView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:id="@+id/jodi_points"
+                       android:nestedScrollingEnabled="false"/>
+                        </RelativeLayout>
+                    </ScrollView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <Button
+                            android:id="@+id/btnreset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Reset"
+                            android:visibility="gone"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/shape2"
+                            android:textColor="@color/white"/>
+                        <Button
+                            android:id="@+id/btn_sbmit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Submit"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:background="@drawable/shape2"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

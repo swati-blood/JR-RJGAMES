@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "609303645989",
+    "firebase_url": "https://chiragmatka.firebaseio.com",
+    "project_id": "chiragmatka",
+    "storage_bucket": "chiragmatka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609303645989:android:bbde80e21ccee5b9e754cc",
+        "android_client_info": {
+          "package_name": "in.games.ChiragMatka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609303645989-lflj4v0et2e3l1qrqof2b0j0fkv25o0c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.games.ChiragMatka",
+            "certificate_hash": "1f7a21d1af31096927e98a4780ea71907c2784de"
+          }
+        },
+        {
+          "client_id": "609303645989-bn6etojltp5383c1pt2dvcmv0ort52cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnMilNrv62iHZD2FQ8Be0tUwCUxIt-jKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609303645989-bn6etojltp5383c1pt2dvcmv0ort52cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

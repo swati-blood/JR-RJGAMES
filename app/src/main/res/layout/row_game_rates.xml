@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+       android:weightSum="9"
+        android:background="@drawable/outline"
+        android:backgroundTint="@android:color/darker_gray"
+
+        >
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+           android:gravity="center_vertical"
+            android:text="Fund Id "
+            android:textSize="14dp"
+            android:background="@drawable/outline"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@color/rates_color"/>
+
+        <TextView
+            android:id="@+id/fund_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Fund Id "
+            android:textSize="15dp"
+            android:visibility="gone"
+            android:background="@drawable/outline"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/tv_rate"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:text="Fund Id "
+            android:textSize="14dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/outline"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
