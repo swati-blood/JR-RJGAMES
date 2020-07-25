@@ -14,12 +14,18 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.cardview.widget.CardView;
 
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
@@ -32,14 +38,23 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.MatkaObject;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.fragments.HomeFragment;
+import in.games.ChiragMatka.utils.CustomJsonRequest;
+import in.games.ChiragMatka.utils.CustomSlider;
 import in.games.ChiragMatka.utils.LoadingBar;
 import maes.tech.intentanim.CustomIntent;
 
@@ -63,7 +78,7 @@ public class HomeActivity extends MyBaseActivity
     Common common;
     public static String mainName="";
     int flag =0 ;
-
+    SliderLayout home_slider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +96,7 @@ public class HomeActivity extends MyBaseActivity
         tv_admin=findViewById(R.id.tv_admin);
         txt_coadmin=findViewById(R.id.txt_coadmin);
         tv_coadmin=findViewById(R.id.tv_coadmin);
+        home_slider=findViewById(R.id.home_slider);
        common=new Common(HomeActivity.this);
         txt_tagline.setText(Html.fromHtml(message.toString()).toString().toUpperCase());
 //        txt_game_name.setText(Html.fromHtml(home_text.toString()).toString().toUpperCase());
@@ -92,6 +108,7 @@ public class HomeActivity extends MyBaseActivity
         tv_coadmin.setText(common.getNumbers(home_text.toString())[3]);
         tv_admin.setOnClickListener(this);
         tv_coadmin.setOnClickListener(this);
+       makeSliderRequest();
         boolean sdfff=common.isConnected();
         if(sdfff==true)
         {
@@ -190,7 +207,7 @@ public class HomeActivity extends MyBaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-       navigationView.setItemIconTintList(HomeActivity.this.getResources().getColorStateList(R.color.colorPrimaryDark));
+       navigationView.setItemIconTintList(HomeActivity.this.getResources().getColorStateList(R.color.colorAccent));
        txtUserName=(TextView)navigationView.getHeaderView(0).findViewById(R.id.profile_user_name);
        if(Prevalent.currentOnlineuser.getName().isEmpty() || Prevalent.currentOnlineuser.getName().equals(""))
        {
@@ -314,8 +331,8 @@ public class HomeActivity extends MyBaseActivity
             startActivity(intent);
         }
  else if (id == R.id.nav_mpin) {
-            Intent intent=new Intent(HomeActivity.this, DrawerGenMpinActivity.class);
-            startActivity(intent);
+//            Intent intent=new Intent(HomeActivity.this, DrawerGenMpinActivity.class);
+//            startActivity(intent);
 
         } else if (id == R.id.nav_how_toPlay) {
 
@@ -442,6 +459,63 @@ public class HomeActivity extends MyBaseActivity
            whatsapp(common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
        }
    }
+    }
+
+    private void makeSliderRequest() {
+        HashMap<String,String> params = new HashMap<>();
+        CustomJsonRequest req = new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_SLIDERS,params,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("slider", response.toString());
+                        try {
+                            String status = response.getString("status");
+                            if (status.equals("success"))
+                            {
+                                JSONArray jsonArray =response.getJSONArray("data");
+                                JSONObject object = jsonArray.getJSONObject(0);
+                                ArrayList<HashMap<String, String>> listarray = new ArrayList<>();
+
+                                HashMap<String, String> url_maps = new HashMap<String, String>();
+                                url_maps.put("id", object.getString("id"));
+                                url_maps.put("title", object.getString("title"));
+                                url_maps.put("image", BaseUrl.IMG_SLIDER_URL + object.getString("image"));
+                                url_maps.put("description",object.getString("description"));
+                                //   Toast.makeText(context,""+modelList.get(position).getProduct_image(),Toast.LENGTH_LONG).show();
+
+                                listarray.add(url_maps);
+
+                                for (final HashMap<String, String> name : listarray) {
+                                    CustomSlider textSliderView = new CustomSlider(HomeActivity.this);
+                                    textSliderView.description(name.get("")).image(name.get("image")).setScaleType( BaseSliderView.ScaleType.Fit);
+                                    textSliderView.bundle(new Bundle());
+                                    textSliderView.getBundle().putString("extra", name.get("title"));
+                                    textSliderView.getBundle().putString("extra", name.get("sub_cat"));
+                                    home_slider.addSlider(textSliderView);
+
+
+
+                                }
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(HomeActivity.this,
+                                    "Error: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("error",error.toString());
+                Toast.makeText(HomeActivity.this,""+error.getMessage(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+        AppController.getInstance().addToRequestQueue(req);
+
     }
 }
 

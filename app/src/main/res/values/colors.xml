@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#010101</color>
     <color name="colorAccent">#F3A003</color>
     <color name="textColor">#F3A003</color>
-    <color name="btnColor">#C58384</color>
+    <color name="btnColor">#F2490F</color>
 <!--    <color name="iconColor">#000000</color>-->
     <color name="white">#F3A003</color>
     <color name="lowColor">#d82e43</color>
@@ -20,12 +20,15 @@
    <color name="startColor">#F3A003</color>
     <color name="centerColor">#FEB207</color>
     <color name="endColor">#FFDE0A</color>
-    <color name="play2">#00BFA5</color>
-    <color name="play3">#AEEA00</color>
+    <color name="play2">#8ADCD1</color>
+    <color name="play3">#00ACC1</color>
     <color name="play4">#FF6D00</color>
     <color name="play1">#C51162</color>
     <color name="blue">#040342</color>
     <color name="green">#053004</color>
+    <color name="red">#911714</color>
+    <color name="running">#053004</color>
+    <color name="closed">#040342</color>
 <!--    <color name="background">#f6e1c4</color>-->
     <color name="rates_color">#AE0324</color>
 </resources>

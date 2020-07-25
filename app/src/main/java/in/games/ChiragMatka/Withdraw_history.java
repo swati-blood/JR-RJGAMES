@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.games.ChiragMatka.Adapter.Withdraw_request_Adapter;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.Withdraw_requwset_obect;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
@@ -78,7 +79,7 @@ public class Withdraw_history extends MyBaseActivity {
         progressDialog.show();
 
         list.clear();
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_req_history, new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, BaseUrl.Url_req_history, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("points_histry",response.toString());

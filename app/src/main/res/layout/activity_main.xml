@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bakcground"
+
     android:id="@+id/main_layout"
 
     tools:context=".MainActivity">
@@ -33,61 +33,42 @@
 
         />
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-30dp"
+        android:padding="@dimen/_10sdp"
         android:layout_below="@id/appLogo"
 
 
       >
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
 
 
-            android:padding="0dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-
-
-            >
-            <ImageView
-                android:id="@+id/imageViewUserIcon"
-                android:layout_width="40dp"
-
-                android:layout_height="40dp"
-                android:src="@drawable/ic_assignment_ind_black_24dp"
-                android:visibility="gone"
-                android:padding="5dp"
-                android:tint="@android:color/white"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_old"
+                android:id="@+id/lay_user_name"
                 android:layout_width="match_parent"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
-                app:hintAnimationEnabled="false"
-                app:hintEnabled="false"
-                app:passwordToggleEnabled="true">
+                android:hint="Enter Mobile Number"
+                style="@style/textstyle"
 
-                <EditText
 
-                    android:id="@+id/et_old_password"
-                    android:hint="Enter Old Password"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUser"
+
                     android:drawablePadding="10dp"
-                    android:paddingLeft="20dp"
-                    android:paddingStart="20dp"
-                    android:paddingRight="10dp"
-                    android:paddingEnd="10dp"
-                    android:background="@drawable/gradient_button"
-                    android:backgroundTint="@android:color/white"
+                    android:drawableLeft="@drawable/ic_phone_android_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:inputType="textPassword"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:maxLines="1"
                     />
 
@@ -98,11 +79,11 @@
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/imageViewUserIcon"
+
                 android:padding="10dp"
                 android:layout_marginTop="0dp"
 
-                android:layout_toRightOf="@id/imageViewUserIcon"
+
                 android:background="@drawable/gradient_button"
                 android:backgroundTint="@android:color/white"
                 android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
@@ -114,34 +95,44 @@
                 android:maxLength="10"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"/>
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
 
-            android:padding="0dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_below="@id/relativeLayout2"
 
-            >
-            <ImageView
-                android:id="@+id/imageViewUserIcon2"
-                android:layout_width="40dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lay_pass"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:hint="Enter Password"
+                style="@style/textstyle"
+                app:boxStrokeColor="@color/white"
+                app:errorTextAppearance="@color/play1"
+                app:hintTextAppearance="@color/colorPrimaryDark"
 
-                android:layout_height="40dp"
-                android:src="@drawable/ic_lock_black_24dp"
-                android:visibility="gone"
-                android:padding="5dp"
-                android:tint="@android:color/white"/>
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPass"
+
+
+                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <EditText
                 android:layout_width="match_parent"
-               android:id="@+id/etPass"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/imageViewUserIcon2"
+
                 android:padding="10dp"
 
                 android:background="@drawable/gradient_button"
@@ -154,7 +145,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="textPassword"/>
-        </RelativeLayout>
+
 
 
 
@@ -167,8 +158,7 @@
             android:textAllCaps="false"
 
             android:background="@drawable/gradient_button"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+
             android:textColor="@color/colorPrimaryDark"
             android:layout_marginTop="10dp"
             android:textSize="20dp"
@@ -188,35 +178,24 @@
             android:layout_marginTop="5dp"
             android:layout_below="@id/login_login_btn"/>
 
-        <Button
-            android:id="@+id/login_register_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register Now"
 
-            android:background="@drawable/gradient_button"
-            android:textAllCaps="false"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/login_mpilogin_btn"/>
 
 
         <RelativeLayout
-            android:layout_below="@id/login_register_btn"
+            android:layout_below="@id/login_mpilogin_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp">
+           >
             <Button
                 android:id="@+id/btnForgetPass"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_alignParentLeft="true"
-                android:text="Forget Password?"
+                android:text="Forget Password ?"
                 android:background="@android:color/transparent"
                 android:textSize="12dp"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/colorAccent"
                 android:paddingLeft="5dp"
                 android:paddingRight="3dp"/>
@@ -235,9 +214,22 @@
                 android:paddingRight="3dp"
 
                 />
+            <Button
+                android:id="@+id/login_register_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="New User ?"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+
+                android:layout_marginRight="30dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="3dp"/>
 
         </RelativeLayout>
-    </RelativeLayout>
+    </LinearLayout>
 
         </RelativeLayout>
     </ScrollView>

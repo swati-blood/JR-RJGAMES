@@ -86,7 +86,7 @@ public class PGAdapter extends BaseAdapter {
             txtId.setText("Bet Is Running ");
             txtNumber.setText("***-**");
 
-            txtId.setTextColor(Color.parseColor("#053004"));
+            txtId.setTextColor(context.getResources().getColor(R.color.btnColor));
             //txtStatus.setText("o");
 
         }
@@ -94,7 +94,7 @@ public class PGAdapter extends BaseAdapter {
         {
             txtId.setText("Bet is Closed ");
 
-            txtId.setTextColor(Color.parseColor("#b31109"));
+            txtId.setTextColor(Color.parseColor("#fcfcfc"));
             txtNumber.setText(""+postion.getS_game_number());
             img.setVisibility(View.INVISIBLE);
             //txtStatus.setText("c");

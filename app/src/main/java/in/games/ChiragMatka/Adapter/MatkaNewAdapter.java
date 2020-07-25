@@ -193,27 +193,27 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
                     flag = 2;
                     if(day_flag==1 || day_flag == 3)
                     {
-                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.txtStatus.setTextColor(Color.WHITE );
                         holder.txtStatus.setText( "BID IS CLOSED" );
 
                     }
                     else
                     {
-                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.txtStatus.setTextColor( context.getResources().getColor(R.color.btnColor)  );
                         holder.txtStatus.setText( "BID IS RUNNING" );
 
                     }
 
                 } else if (c > 0) {
                     flag = 3;
-                    holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                    holder.txtStatus.setTextColor( Color.WHITE );
                     holder.txtStatus.setText( "BID IS CLOSED" );
 
                 } else {
                     flag = 1;
                     if(day_flag==1 || day_flag == 3)
                     {
-                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.txtStatus.setTextColor( Color.WHITE  );
                         holder.txtStatus.setText( "BID IS CLOSED" );
                     }
                     else
@@ -226,7 +226,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
             else
             {
                 holder.txtStatus.setText( "BID IS CLOSED" );
-                holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                holder.txtStatus.setTextColor( Color.WHITE  );
 
             }
 

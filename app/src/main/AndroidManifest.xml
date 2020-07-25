@@ -30,10 +30,8 @@
         <activity android:name="in.games.ChiragMatka.Withdraw_history" />
         <activity android:name="in.games.ChiragMatka.MainActivity" />
         <activity android:name="in.games.ChiragMatka.Starline_Activity" />
-        <activity android:name="in.games.ChiragMatka.TransactionHistory" />
         <activity android:name="in.games.ChiragMatka.Fund_RequestActivity" />
         <activity android:name="in.games.ChiragMatka.FundsActivity" />
-        <activity android:name="in.games.ChiragMatka.HistoryActivity" />
         <activity android:name="in.games.ChiragMatka.BidActivity" />
         <activity android:name="in.games.ChiragMatka.WithdrawalActivity" />
         <activity android:name="in.games.ChiragMatka.RequestActivity" />
@@ -81,11 +79,9 @@
         <activity
             android:name="in.games.ChiragMatka.SingleDigitActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity android:name="in.games.ChiragMatka.LoginWithMpinActivity" />
         <activity android:name="in.games.ChiragMatka.DrawerNoticeBoardActivity" />
         <activity android:name="in.games.ChiragMatka.DrawerGameRates" />
         <activity android:name="in.games.ChiragMatka.DrawerHowToPlayActivity" />
-        <activity android:name="in.games.ChiragMatka.DrawerGenMpinActivity" />
         <activity android:name="in.games.ChiragMatka.DrawerProfileActivity" />
         <activity android:name="in.games.ChiragMatka.NotificationActivity" />
         <activity android:name="in.games.ChiragMatka.DoubleDigitActivity" />

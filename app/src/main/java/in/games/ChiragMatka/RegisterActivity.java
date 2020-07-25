@@ -21,6 +21,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONObject;
 
@@ -28,7 +30,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
+import in.games.ChiragMatka.utils.Module;
 
 public class RegisterActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
@@ -36,7 +40,9 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnRegister;
     TextView txt_back ;
     Common common;
-    private EditText txtName,txtMobile,txtPass,txtConPass,txtUserName;
+    Module module;
+    private TextInputEditText txtName,txtMobile,txtPass,txtConPass,txtUserName;
+    private TextInputLayout l_name,l_mobile,l_pass,l_c_pass,l_user_name;
     ProgressBar pb;
     Activity ctx=RegisterActivity.this;
     @Override
@@ -45,12 +51,18 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         txt_back = findViewById(R.id.txt_back);
         common=new Common(ctx);
-        txtName=(EditText)findViewById(R.id.etName);
+        module = new Module();
+        txtName=findViewById(R.id.etName);
 //        txtEmail=(EditText)findViewById(R.id.etEmail);
-        txtMobile=(EditText)findViewById(R.id.etMobile);
-        txtPass=(EditText)findViewById(R.id.etPass);
-        txtConPass=(EditText)findViewById(R.id.etConPass);
-        txtUserName=(EditText)findViewById(R.id.etUserName);
+        txtMobile=findViewById(R.id.etMobile);
+        txtPass=findViewById(R.id.etPass);
+        txtConPass=findViewById(R.id.etConPass);
+        txtUserName=findViewById(R.id.etUserName);
+        l_name=findViewById(R.id.lay_name);
+        l_user_name=findViewById(R.id.lay_user_name);
+        l_mobile=findViewById(R.id.lay_mob);
+        l_pass=findViewById(R.id.lay_pass);
+       l_c_pass=findViewById(R.id.lay_c_pass);
         btnRegister=(Button)findViewById(R.id.btnRegister);
         progressDialog=new ProgressDialog(RegisterActivity.this);
         progressDialog.setMessage("Loading...");
@@ -74,34 +86,47 @@ public class RegisterActivity extends AppCompatActivity {
           @Override
           public void onClick(View v) {
               otp=common.getRandomKey(6);
-              if(TextUtils.isEmpty(txtUserName.getText().toString()))
-              {
-                  txtUserName.setError("Please Enter User name");
-                  txtUserName.requestFocus();
+//              if(TextUtils.isEmpty(txtUserName.getText().toString()))
+//              {
+//                  txtUserName.setError("Please Enter User name");
+//                  txtUserName.requestFocus();
+//                  return;
+//              }
+//              else if(TextUtils.isEmpty(txtName.getText().toString()))
+//              {
+//                  txtName.setError("Please Enter name");
+//                  txtName.requestFocus();
+//                  return;
+//              }
+//              else  if(TextUtils.isEmpty(txtMobile.getText().toString()))
+//              {
+//                  txtMobile.setError("Please enter mobile number");
+//                  txtMobile.requestFocus();
+//                  return;
+//              }else  if(TextUtils.isEmpty(txtPass.getText().toString()))
+//              {
+//                  txtPass.setError("Please enter password");
+//                  txtPass.requestFocus();
+//                  return;
+//              }else  if(TextUtils.isEmpty(txtConPass.getText().toString()))
+//              {
+//                  txtConPass.setError("Please re-enter password");
+//                  txtConPass.requestFocus();
+//                  return;
+//              }
+              if(!module.validateEditText(txtName,l_name))
                   return;
-              }
-              else if(TextUtils.isEmpty(txtName.getText().toString()))
-              {
-                  txtName.setError("Please Enter name");
-                  txtName.requestFocus();
+              if(!module.validateEditText(txtUserName,l_user_name))
                   return;
-              }
-              else  if(TextUtils.isEmpty(txtMobile.getText().toString()))
-              {
-                  txtMobile.setError("Please enter mobile number");
-                  txtMobile.requestFocus();
+
+              if(!module.validateEditText(txtPass,l_pass))
                   return;
-              }else  if(TextUtils.isEmpty(txtPass.getText().toString()))
-              {
-                  txtPass.setError("Please enter password");
-                  txtPass.requestFocus();
+              if(!module.validateEditText(txtConPass,l_c_pass))
                   return;
-              }else  if(TextUtils.isEmpty(txtConPass.getText().toString()))
-              {
-                  txtConPass.setError("Please re-enter password");
-                  txtConPass.requestFocus();
+              if(!module.validateEditText(txtMobile,l_mobile))
                   return;
-              }
+
+
 
               else
               {
@@ -125,7 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
                           String mobile=txtMobile.getText().toString();
                           String user_name=txtUserName.getText().toString();
                           String name=txtName.getText().toString();
-                          sendOtpforPass(URLs.URL_VERIFICATION,user_name,name,mobile,otp,pass);
+                          sendOtpforPass(BaseUrl.URL_VERIFICATION,user_name,name,mobile,otp,pass);
                       }
                       else
                       {

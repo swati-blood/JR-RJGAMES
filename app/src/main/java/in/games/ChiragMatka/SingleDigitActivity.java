@@ -316,13 +316,20 @@ public class SingleDigitActivity extends MyBaseActivity {
         if(m> Prevalent.Matka_count)
         {
             //Toast.makeText(SingleDigitActivity.this,"starline game-  "+Prevalent.Matka_count+"\n m- "+m,Toast.LENGTH_SHORT).show();
-//            Date date=new Date();
-//            SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
-//            String ctt=dateFormat.format(date);
-//            btnGameType.setText(""+ctt);
+            Date date=new Date();
+             SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
+            String ctt=dateFormat.format(date);
+                if (common.getTimeDifference(start_time)>0)
+            {
+                btnGameType.setText(ctt+" "+"Bet Open");
+            }
+            else
+            {
+                btnGameType.setText(ctt+" "+"Bet Close");
+            }
             tv_timer.setVisibility(View.GONE);
             txt_timer.setVisibility(View.GONE);
-            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
+//            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
             btnGameType.setClickable(false);
             stat=1;
             btnType.setClickable(false);

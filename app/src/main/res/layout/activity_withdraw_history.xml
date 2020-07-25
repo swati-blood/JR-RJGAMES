@@ -71,7 +71,9 @@
                 android:orientation="horizontal"
                 android:scrollbars="horizontal"
                 android:weightSum="10"
-                android:background="@color/homebg"
+
+               android:background="@drawable/shape2"
+                android:backgroundTint="@color/white"
 
 
                 >
@@ -86,7 +88,7 @@
                     android:textSize="15dp"
 
                     android:textStyle="bold"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/fund_id"
@@ -119,7 +121,7 @@
                     android:textSize="15dp"
                     android:textStyle="bold"
 
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/black"/>
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
@@ -140,7 +142,7 @@
                     android:textSize="15dp"
 
 
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/black"/>
 
 
 

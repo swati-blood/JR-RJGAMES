@@ -15,12 +15,15 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
+import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 
 public class splash_activity extends AppCompatActivity {
 
@@ -50,42 +53,44 @@ public class splash_activity extends AppCompatActivity {
 
         String json_tag="json_splash_request";
         HashMap<String,String> params=new HashMap<String, String>();
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.GET, URLs.URL_INDEX, params, new Response.Listener<JSONObject>() {
+        CustomVolleyJsonArrayRequest customJsonRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, BaseUrl.URL_INDEX, params, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(final JSONObject response) {
+            public void onResponse(final JSONArray response) {
                 Log.e("asdasd",""+response.toString());
                 try
                 {
-                    boolean resp=response.getBoolean("responce");
+//                    boolean resp=response.getBoolean("responce");
                     float ver_code=0;
                     String msg="";
-                    if(resp)
-                    {
-                        JSONObject dataObj=response.getJSONObject("data");
-                        tagline = dataObj.getString("tag_line");
-                        message = dataObj.getString("message");
-                        withdrw_text = dataObj.getString("withdraw_text").toLowerCase();
-                        withdrw_no = dataObj.getString("withdraw_no");
-                        home_text = dataObj.getString("home_text").toString();
-                        min_add_amount = dataObj.getString("min_amount");
-                        msg_status = dataObj.getString("msg_status");
-                        app_link = dataObj.getString("app_link");
-                        share_link = dataObj.getString("share_link");
+//                    if(resp)
+//                    {
+//                        JSONObject dataObj=response.getJSONObject("data");
+                    JSONObject dataObj=response.getJSONObject(0);
+
+                    tagline = dataObj.getString("tag_line");
+                    message = dataObj.getString("message");
+                    withdrw_text = dataObj.getString("withdraw_text").toLowerCase();
+                    withdrw_no = dataObj.getString("withdraw_no");
+                    home_text = dataObj.getString("home_text").toString();
+                    min_add_amount = dataObj.getString("min_amount");
+                    msg_status = dataObj.getString("msg_status");
+                    app_link = dataObj.getString("app_link");
+                    share_link = dataObj.getString("share_link");
 //                        update_msg = dataObj.getString("update_msg");
-                        ver_code=Float.parseFloat(dataObj.getString("version"));
-                        msg=dataObj.getString("message");
-                        common.getNumbers(home_text.toString());
-                    }
-                    else
-                    {
-                        common.showToast(response.getString("message"));
-                    }
+                    ver_code=Float.parseFloat(dataObj.getString("version"));
+                    msg=dataObj.getString("message");
+                    common.getNumbers(home_text.toString());
+//                    }
+//                    else
+//                    {
+//                        common.showToast(response.getString("message"));
+//                    }
 
                     if(version_code==ver_code)
                     {
-                            Intent intent = new Intent(splash_activity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                        Intent intent = new Intent(splash_activity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
 
                     }
                     else
@@ -94,7 +99,7 @@ public class splash_activity extends AppCompatActivity {
                         builder.setTitle("Version Information");
                         builder.setMessage(update_msg);
                         builder.setCancelable(false);
-                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 

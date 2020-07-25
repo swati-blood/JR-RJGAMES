@@ -30,6 +30,7 @@ import java.util.Map;
 
 import in.games.ChiragMatka.Adapter.TableAdaper;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Intefaces.VolleyCallBack;
 import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
@@ -322,11 +323,18 @@ private EditText etDigits;
         {
             tv_timer.setVisibility(View.GONE);
             txt_timer.setVisibility(View.GONE);
-//            Date date=new Date();
-//            SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
-//            String ctt=dateFormat.format(date);
-//            btnGameType.setText(""+ctt);
-            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
+            Date date=new Date();
+             SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
+            String ctt=dateFormat.format(date);
+                if (common.getTimeDifference(start_time)>0)
+            {
+                btnGameType.setText(ctt+" "+"Bet Open");
+            }
+            else
+            {
+                btnGameType.setText(ctt+" "+"Bet Close");
+            }
+//            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
             // btnType.setText("5:00");
             btnGameType.setClickable(false);
             stat=1;
@@ -393,7 +401,7 @@ private EditText etDigits;
         String json_tag="json_sp_motor";
         Map<String, String> params = new HashMap<>();
         params.put("arr", inputData);
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_SpMotor, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_SpMotor, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {

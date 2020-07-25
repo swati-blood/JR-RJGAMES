@@ -65,6 +65,25 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
          common.setNormalTint(close_triple);
          common.setNormalTint(close_cylce);
        }
+        if (Integer.parseInt(m_id)>15)
+        {
+//           Toast.makeText(this,"starlne",Toast.LENGTH_LONG).show();
+            common.setBackTint(open_single);
+            common.setBackTint(jodi);
+            common.setBackTint(fullsngm);
+            common.setBackTint(close_single_p);
+            common.setBackTint(close_single);
+            common.setBackTint(close_double);
+            common.setBackTint(close_triple);
+            common.setBackTint(close_cylce);
+            common.setNormalTint(open_single);
+            common.setNormalTint(open_single_p);
+            common.setNormalTint(open_double);
+            common.setNormalTint(open_triple);
+            common.setNormalTint(open_cylce);
+            common.setNormalTint(halfsngm);
+//
+        }
         bt_back.setOnClickListener(this);
         open_double.setOnClickListener(this);
         open_cylce.setOnClickListener(this);

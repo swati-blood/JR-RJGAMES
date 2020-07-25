@@ -32,6 +32,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,18 +43,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.UsersObjects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
+import in.games.ChiragMatka.utils.Module;
 import maes.tech.intentanim.CustomIntent;
 
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = MainActivity.class.getSimpleName();
     boolean doubleBackToExitPressedOnce=false;
-   EditText etName,etPassword;
+  TextInputEditText etName,etPassword;
+  TextInputLayout lay_u_name ,lay_pass;
    Common common;
+   Module module ;
     Button btn_login,btn_loginWithMPin;
     ProgressDialog progressDialog;
     private Dialog dialog;
@@ -66,10 +72,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etName=(EditText)findViewById(R.id.etUser);
-        etPassword=(EditText)findViewById(R.id.etPass);
+        etName=findViewById(R.id.etUser);
+        etPassword=findViewById(R.id.etPass);
+        lay_pass=findViewById(R.id.lay_pass);
+       lay_u_name=findViewById(R.id.lay_user_name);
         common=new Common(MainActivity.this);
-
+        module = new Module();
         btnRegister=(Button)findViewById(R.id.login_register_btn);
         btnForPassword=(Button)findViewById(R.id.btnForgetPass);
         btnForUserID=(Button)findViewById(R.id.btnForgetUserId);
@@ -131,15 +139,15 @@ public class MainActivity extends AppCompatActivity {
         btn_login=(Button) findViewById(R.id.login_login_btn);
         btn_loginWithMPin=(Button)findViewById(R.id.login_mpilogin_btn);
 
-        btn_loginWithMPin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-           Intent intent=new Intent(MainActivity.this,LoginWithMpinActivity.class);
-                startActivity(intent);
-
-
-            }
-        });
+//        btn_loginWithMPin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//           Intent intent=new Intent(MainActivity.this,LoginWithMpinActivity.class);
+//                startActivity(intent);
+//
+//
+//            }
+//        });
 
         btnForPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,8 +218,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            String mail=edtEmailId.getText().toString().trim();
-                            getUserId(mail);
+//                            String mail=edtEmailId.getText().toString().trim();
+//                            getUserId(mail);
                         }
 
                     }
@@ -232,19 +240,13 @@ public class MainActivity extends AppCompatActivity {
 //
 //                    String mPass="Anas@123";
 
-                    if(TextUtils.isEmpty(mName))
-                    {
-                        etName.setError("Enter Mobile No");
-                        etName.requestFocus();
-                    }
-                    else if(TextUtils.isEmpty(mPass))
-                    {
+//
+                if(!module.validateEditText(etName,lay_u_name))
+                    return;
+                if(!module.validateEditText(etPassword,lay_pass))
+                    return;
 
-                        etPassword.setError("Enter password");
-                        etPassword.requestFocus();
-
-                    }
-                    else
+                else
                     {
                         mainName=mName;
 //                        Login(mName,mPass);
@@ -282,64 +284,60 @@ public class MainActivity extends AppCompatActivity {
         params.put("mobileno",mName);
         params.put("password",mPass);
 
-        final CustomJsonRequest loginRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_USER_LOGIN, params, new Response.Listener<JSONObject>() {
+//        final CustomJsonRequest loginRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_USER_LOGIN, params, new Response.Listener<JSONObject>() {
+        final CustomJsonRequest loginRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_LOGIN, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 progressDialog.dismiss();
                 Log.e("login",response.toString());
 
-                if (response.equals(null)) {
-                    Toast.makeText(MainActivity.this, "User does not exist ", Toast.LENGTH_LONG).show();
-                } else {
-                    try {
-                        JSONObject object = response;
-                        String status = object.getString("status");
-                        if (status.equals("success")) {
-                            JSONObject jsonObject = object.getJSONObject("data");
-                            UsersObjects users = new UsersObjects();
-                            users.setId(jsonObject.getString("id"));
-                            users.setName(jsonObject.getString("name"));
-                            users.setUsername(jsonObject.getString("username"));
-                            users.setMobileno(jsonObject.getString("mobileno"));
-                            users.setAddress(jsonObject.getString("address"));
-                            users.setCity(jsonObject.getString("city"));
-                            users.setPincode(jsonObject.getString("pincode"));
-                            users.setPassword(jsonObject.getString("password"));
-                            users.setAccountno(jsonObject.getString("accountno"));
-                            users.setBank_name(jsonObject.getString("bank_name"));
-                            users.setIfsc_code(jsonObject.getString("ifsc_code"));
-                            users.setAccount_holder_name(jsonObject.getString("account_holder_name"));
-                            users.setPaytm_no(jsonObject.getString("paytm_no"));
-                            users.setTez_no(jsonObject.getString("tez_no"));
-                            users.setPhonepay_no(jsonObject.getString("phonepay_no"));
-                            Prevalent.currentOnlineuser = users;
-                            String p = jsonObject.getString("password");
-                            if (mPass.equals(p)) {
-                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                                intent.putExtra("username", jsonObject.getString("username").toString());
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                                CustomIntent.customType(MainActivity.this, "up-to-bottom");
-                                progressDialog.dismiss();
-                                finish();
-                            } else {
-                                progressDialog.dismiss();
-                                Toast.makeText(MainActivity.this, "Password is not correct ", Toast.LENGTH_LONG).show();
-                            }
-                        } else if (status.equals("failed")) {
+                try {
+                    JSONObject object = response;
+                    boolean status = object.getBoolean("responce");
+                    if (status) {
+                        JSONObject jsonObject = object.getJSONObject("data");
+                        UsersObjects users = new UsersObjects();
+                        users.setId(jsonObject.getString("id"));
+                        users.setName(jsonObject.getString("name"));
+                        users.setUsername(jsonObject.getString("username"));
+                        users.setMobileno(jsonObject.getString("mobileno"));
+                        users.setAddress(jsonObject.getString("address"));
+                        users.setCity(jsonObject.getString("city"));
+                        users.setPincode(jsonObject.getString("pincode"));
+                        users.setPassword(jsonObject.getString("password"));
+                        users.setAccountno(jsonObject.getString("accountno"));
+                        users.setBank_name(jsonObject.getString("bank_name"));
+                        users.setIfsc_code(jsonObject.getString("ifsc_code"));
+                        users.setAccount_holder_name(jsonObject.getString("account_holder_name"));
+                        users.setPaytm_no(jsonObject.getString("paytm_no"));
+                        users.setTez_no(jsonObject.getString("tez_no"));
+                        users.setPhonepay_no(jsonObject.getString("phonepay_no"));
+                        Prevalent.currentOnlineuser = users;
+                        String p = jsonObject.getString("password");
+                        if (mPass.equals(p)) {
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            intent.putExtra("username", jsonObject.getString("username").toString());
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            CustomIntent.customType(MainActivity.this, "up-to-bottom");
                             progressDialog.dismiss();
-                            String message = object.getString("data");
-                            Toast.makeText(MainActivity.this, "" + message, Toast.LENGTH_LONG).show();
+                            finish();
                         } else {
-                            Toast.makeText(MainActivity.this, "Something Went wrong", Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
+                            Toast.makeText(MainActivity.this, "Password is not correct ", Toast.LENGTH_LONG).show();
                         }
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, ""+response.getString("error"), Toast.LENGTH_SHORT).show();
+                    }
 
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                        progressDialog.dismiss();
-                      }
-
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    progressDialog.dismiss();
                 }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -349,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
                 if(!msg.isEmpty())
                 {
                     common.showToast(""+msg);
+                    Log.e("error",error.getMessage());
                 }
 
             }
@@ -358,329 +357,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void getUserId(final String mail) {
 
-        progressDialog.show();
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.URL_Forgot_UserId,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try
-                        {
-                            JSONObject jsonObject=new JSONObject(response);
-                            String success=jsonObject.getString("status");
-                            if(success.equals("success"))
-                            {
-                                progressDialog.dismiss();
-                                Toast.makeText(MainActivity.this, "Mail sent to your !!!", Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                            }
-                            else if(success.equals("unsuccessful"))
-                            {
-                                progressDialog.dismiss();
-                                String msg=jsonObject.getString("message");
-                                Toast.makeText(MainActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                                return;
-                            }
-
-
-
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                            progressDialog.dismiss();
-                            Toast.makeText(MainActivity.this, "Updation failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                            //  btnReg.setVisibility(View.VISIBLE);
-
-
-                        }
-
-                    }
-                },
-
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        progressDialog.dismiss();
-                        Toast.makeText(MainActivity.this, "Updation failed"+error.getMessage(), Toast.LENGTH_SHORT).show();
-                        //  pb.setVisibility(View.GONE);
-
-                    }
-                }
-        )
-        {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<>();
-
-                params.put("email",mail);
-                // params.put("phonepay",phonepaynumber);
-
-
-                return params;
-            }
-
-        };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-
-
-    }
-
-
-
-    private void getStarlineDataCustom()
-    {
-
-        String tag_json_obj = "json_starkine_req";
-        Map<String, String> params = new HashMap<String, String>();
-
-
-        CustomVolleyJsonArrayRequest jsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, URLs.URL_CHECK2, params, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                try
-                {
-                    Toast.makeText(MainActivity.this,""+response,Toast.LENGTH_LONG).show();
-                }catch (Exception ex)
-                {
-                    Toast.makeText(MainActivity.this,""+ex.getMessage(),Toast.LENGTH_LONG).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this,""+error.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-
-        AppController.getInstance().addToRequestQueue(jsonArrayRequest,tag_json_obj);
-    }
-
-
-    private void getMatkaDataCustom()
-    {
-
-        String tag_json_obj = "json_matka_req";
-        Map<String, String> params = new HashMap<String, String>();
-
-
-        CustomVolleyJsonArrayRequest jsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, URLs.URL_CHECK1, params, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                try
-                {
-                    Toast.makeText(MainActivity.this,""+response,Toast.LENGTH_LONG).show();
-                }catch (Exception ex)
-                {
-                    Toast.makeText(MainActivity.this,""+ex.getMessage(),Toast.LENGTH_LONG).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this,""+error.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-
-        AppController.getInstance().addToRequestQueue(jsonArrayRequest,tag_json_obj);
-    }
-    private void getPassword(final String mail) {
-
-        progressDialog.show();
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.URL_Forgot_Password,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        try
-                        {
-                            JSONObject jsonObject=new JSONObject(response);
-                            String success=jsonObject.getString("status");
-                            if(success.equals("success"))
-                            {
-                                progressDialog.dismiss();
-                                Toast.makeText(MainActivity.this, "Mail sent to your !!!", Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                            }
-                            else if(success.equals("unsuccessful"))
-                            {
-                                progressDialog.dismiss();
-                                String msg=jsonObject.getString("message");
-                                Toast.makeText(MainActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                                return;
-                            }
-
-
-
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                            progressDialog.dismiss();
-                            Toast.makeText(MainActivity.this, "Updation failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                            //  btnReg.setVisibility(View.VISIBLE);
-
-
-                        }
-
-                    }
-                },
-
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        progressDialog.dismiss();
-                        Toast.makeText(MainActivity.this, "Updation failed"+error.getMessage(), Toast.LENGTH_SHORT).show();
-                        //  pb.setVisibility(View.GONE);
-
-                    }
-                }
-        )
-        {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<>();
-
-                params.put("email",mail);
-               // params.put("phonepay",phonepaynumber);
-
-
-                return params;
-            }
-
-        };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-
-
-    }
-
-    //Login with Custom volley Request
-
-
-
-    //Login Json Requrst
-    private void Login( final String name,final String pass) {
-
-        progressDialog.show();
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.URL_Login,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-      if(response.equals(null))
-      {
-          Toast.makeText(MainActivity.this,"User not exist ",Toast.LENGTH_LONG).show();
-      }
-      else {
-          try {
-
-
-           JSONObject object = new JSONObject(response);
-           String status=object.getString("status");
-              if(status.equals("success"))
-              {
-                  JSONObject jsonObject=object.getJSONObject("data");
-                  UsersObjects users = new UsersObjects();
-                  users.setId(jsonObject.getString("id"));
-                  users.setName(jsonObject.getString("name"));
-                  users.setUsername(jsonObject.getString("username"));
-                  users.setMobileno(jsonObject.getString("mobileno"));
-                  users.setEmail(jsonObject.getString("email"));
-                  users.setAddress(jsonObject.getString("address"));
-                  users.setCity(jsonObject.getString("city"));
-                  users.setPincode(jsonObject.getString("pincode"));
-                  users.setPassword(jsonObject.getString("password"));
-                  users.setAccountno(jsonObject.getString("accountno"));
-                  users.setBank_name(jsonObject.getString("bank_name"));
-                  users.setIfsc_code(jsonObject.getString("ifsc_code"));
-                  users.setAccount_holder_name(jsonObject.getString("account_holder_name"));
-                  users.setPaytm_no(jsonObject.getString("paytm_no"));
-                  users.setTez_no(jsonObject.getString("tez_no"));
-                  users.setPhonepay_no(jsonObject.getString("phonepay_no"));
-                  Prevalent.currentOnlineuser=users;
-//                            0String success=jsonObject.getString("success");
-//                            JSONArray jsonArray=jsonObject.getJSONArray("login");
-//                            if(success.equals("1"))
-//                            {
-                  String p = jsonObject.getString("password");
-                  if (pass.equals(p)) {
-                      Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                      intent.putExtra("username", jsonObject.getString("username").toString());
-                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                      startActivity(intent);
-                      CustomIntent.customType(MainActivity.this, "up-to-bottom");
-                      progressDialog.dismiss();
-                      finish();
-                  } else {
-                      progressDialog.dismiss();
-                      Toast.makeText(MainActivity.this, "Password is not correct ", Toast.LENGTH_LONG).show();
-                  }
-
-              }
-              else if(status.equals("unsuccessfull"))
-              {
-                  progressDialog.dismiss();
-                  String message=object.getString("data");
-                  Toast.makeText(MainActivity.this,""+message,Toast.LENGTH_LONG).show();
-              }
-              else
-              {
-                  progressDialog.dismiss();
-                  Toast.makeText(MainActivity.this,"Something Went wrong",Toast.LENGTH_LONG).show();
-              }
-
-          } catch (JSONException ex) {
-              ex.printStackTrace();
-              progressDialog.dismiss();
-              Toast.makeText(MainActivity.this, "Error :--" + ex.getMessage(), Toast.LENGTH_LONG).show();
-          }
-      }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progressDialog.dismiss();
-                        String msg=common.VolleyErrorMessage(error);
-                        if(!msg.isEmpty())
-                        {
-                            common.showToast(""+msg);
-                        }
-                    }
-                })
-        {
-            protected Map<String,String> getParams() throws AuthFailureError{
-
-                Map<String,String> params=new HashMap<>();
-                params.put("email",name);
-              params.put("password",pass);
-                return params;
-            }
-        };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
+    
     public boolean isConnected(Context context)
     {
         ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);

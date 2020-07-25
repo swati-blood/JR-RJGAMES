@@ -244,13 +244,20 @@ public class NewSingleDigit extends AppCompatActivity implements View.OnClickLis
         super.onStart();
         int m = Integer.parseInt(m_id.toString());
         if (m > Prevalent.Matka_count) {
-//            Date date = new Date();
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//            String ctt = dateFormat.format(date);
-//            btnGameType.setText("" + ctt);
+            Date date = new Date();
+            SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
+            String ctt=dateFormat.format(date);
+                if (common.getTimeDifference(start_time)>0)
+            {
+                btnGameType.setText(ctt+" "+"Bet Open");
+            }
+            else
+            {
+                btnGameType.setText(ctt+" "+"Bet Close");
+            }
             txt_timer.setVisibility(View.GONE);
             tv_timer.setVisibility(View.GONE);
-           common.getStarlineGameData(String.valueOf(m), btnGameType, progressDialog);
+//           common.getStarlineGameData(String.valueOf(m), btnGameType, progressDialog);
             // btnType.setText("5:00");
             btnGameType.setClickable(false);
             stat = 1;

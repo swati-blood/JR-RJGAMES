@@ -93,6 +93,7 @@
             android:orientation="vertical">
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -200,6 +201,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView1"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -233,10 +235,15 @@
             </androidx.cardview.widget.CardView>
 
 
+            <com.daimajia.slider.library.SliderLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/homebg"
+                android:id="@+id/home_slider"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView3"
-                android:visibility="gone"
+
                 android:layout_below="@id/cardView4"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
@@ -308,9 +315,9 @@
         android:layout_marginRight="@dimen/_50sdp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/black"
+        android:textColor="@android:color/white"
         android:text="Add Points"
-        android:backgroundTint="@color/play2"
+        android:backgroundTint="@color/play3"
         android:background="@drawable/shape2"
     />
 

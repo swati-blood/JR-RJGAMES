@@ -28,6 +28,7 @@ import java.util.Map;
 
 import in.games.ChiragMatka.Adapter.StarlinehistoryAdapter;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.Starline_History_Objects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
@@ -79,7 +80,7 @@ public class Starline_Activity extends MyBaseActivity {
 
         // getMatkaData();
 
-        String url=Starline_Histry_Url+user_id;
+        String url=BaseUrl.Starline_Histry_Url+user_id;
         Log.e("asdasd",""+url);
         browser.loadUrl(url);
         browser.getSettings().setLoadsImagesAutomatically(true);
@@ -94,184 +95,9 @@ public class Starline_Activity extends MyBaseActivity {
         super.onStart();
         //setSessionTimeOut(Starline_Activity.this);
     }
-    private void getStarlineBidData(final String user_id, final String matka_id) {
-
-        final String json_request_tag="json_starline_history_tag";
-        HashMap<String,String> params=new HashMap<String, String>();
-        params.put("us_id",user_id);
-        params.put("matka_id",matka_id);
-
-        progressDialog.show();
-
-        list.clear();
-
-        CustomVolleyJsonArrayRequest customVolleyJsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.POST, URLs.URL_BID_HISTORY, params, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                try
-                {
-                    JSONArray jsonArray=response;
-                   // Log.d("star_his",response.toString());
-                  //  Toast.makeText(Starline_Activity.this,""+response,Toast.LENGTH_LONG).show();
-                    String h=jsonArray.getString(0);
-                    if(h.equals("null") || h.equals(null))
-                    {
-                        progressDialog.dismiss();
-                        common.errorMessageDialog("No history");
-                    }
-                    else
-                    {
-
-                        for(int i=0; i<=jsonArray.length()-1;i++) {
-
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            Starline_History_Objects matkasObjects = new Starline_History_Objects();
-                            matkasObjects.setId(jsonObject.getString("id"));
-                            matkasObjects.setUser_id(jsonObject.getString("user_id"));
-                            matkasObjects.setMatka_id(jsonObject.getString("matka_id"));
-                            matkasObjects.setBet_type(jsonObject.getString("bet_type"));
-                            matkasObjects.setPoints(jsonObject.getString("points"));
-                            matkasObjects.setDigits(jsonObject.getString("digits"));
-                            matkasObjects.setDate(jsonObject.getString("date"));
-                            matkasObjects.setTime(jsonObject.getString("time"));
-                           // matkasObjects.setName(jsonObject.getString("name"));
-                            matkasObjects.setS_game_time(jsonObject.getString("s_game_time"));
-                            matkasObjects.setGame_id(jsonObject.getString("game_id"));
-                            matkasObjects.setStatus(jsonObject.getString("status"));
-                            matkasObjects.setPlay_for(jsonObject.getString("play_for"));
-                            matkasObjects.setPlay_on(jsonObject.getString("play_on"));
-                            matkasObjects.setDay(jsonObject.getString("day"));
-                            list.add(matkasObjects);
-
-
-                        }
-                        bidHistoryAdapter.notifyDataSetChanged();
-                        progressDialog.dismiss();
-
-
-                    }
-                    //progressDialog.dismiss();
-
-                }
-                catch (Exception ex)
-                {
-                    ex.printStackTrace();
-                    progressDialog.dismiss();
-                    Toast.makeText(Starline_Activity.this,"Something went wrong",Toast.LENGTH_LONG).show();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                common.errorMessageDialog("Something Went Wrong");
-
-                //  Toast.makeText(BidActivity.this,"Error"+error.toString(),Toast.LENGTH_LONG).show();
-                        Log.e("Volley",error.toString());
-                progressDialog.dismiss();
-            }
-        });
-
-        AppController.getInstance().addToRequestQueue(customVolleyJsonArrayRequest,json_request_tag);
 
 
 
-
-    }
-
-    private void getBidData(final String user_id, final String matka_id) {
-
-        progressDialog.show();
-
-        list.clear();
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_bid_history, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                if(response.equals("empty"))
-                {
-                    progressDialog.dismiss();
-                    Toast.makeText(Starline_Activity.this,"empty",Toast.LENGTH_LONG).show();
-//                        Log.e("Volley",error.toString());
-
-                }
-                else
-                {
-                    try
-                    {
-                        Log.d("Starline History: ",response.toString());
-                        JSONArray jsonArray=new JSONArray(response);
-                        //progressDialog.dismiss();
-                        for(int i=0; i<=jsonArray.length()-1;i++) {
-
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                            Starline_History_Objects matkasObjects = new Starline_History_Objects();
-                            matkasObjects.setId(jsonObject.getString("id"));
-                            matkasObjects.setUser_id(jsonObject.getString("user_id"));
-                            matkasObjects.setMatka_id(jsonObject.getString("matka_id"));
-                            matkasObjects.setBet_type(jsonObject.getString("bet_type"));
-                            matkasObjects.setPoints(jsonObject.getString("points"));
-                            matkasObjects.setDigits(jsonObject.getString("digits"));
-                            matkasObjects.setDate(jsonObject.getString("date"));
-                            matkasObjects.setTime(jsonObject.getString("time"));
-                            //matkasObjects.setName(jsonObject.getString("name"));
-                            matkasObjects.setGame_id(jsonObject.getString("game_id"));
-                            matkasObjects.setStatus(jsonObject.getString("status"));
-                            matkasObjects.setS_game_time(jsonObject.getString("s_game_time"));
-                            matkasObjects.setPlay_for(jsonObject.getString("play_for"));
-                            matkasObjects.setPlay_on(jsonObject.getString("play_on"));
-                            matkasObjects.setDay(jsonObject.getString("day"));
-
-                            list.add(matkasObjects);
-
-
-                        }
-                        bidHistoryAdapter.notifyDataSetChanged();
-                        progressDialog.dismiss();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Toast.makeText(Starline_Activity.this,"There is no history for this game",Toast.LENGTH_LONG).show();
-//                        Log.e("Volley",error.toString());
-                        progressDialog.dismiss();
-                    }
-                }
-
-
-                //  Toast.makeText(BidActivity.this,response,Toast.LENGTH_LONG).show();
-            }
-        },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Toast.makeText(Starline_Activity.this,"Error"+error.toString(),Toast.LENGTH_LONG).show();
-//                        Log.e("Volley",error.toString());
-                        progressDialog.dismiss();
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<String,String>();
-
-                params.put("us_id",user_id);
-                params.put("matka_id",matka_id);
-
-
-                // params.put("phonepay",phonepaynumber);
-
-
-                return params;
-            }
-        };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
 
     private class myWebViewClient extends WebViewClient {
 

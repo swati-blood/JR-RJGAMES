@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
@@ -124,7 +125,7 @@ public class RequestActivity extends MyBaseActivity {
 
        progressDialog.show();
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_data_insert_req, new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, BaseUrl.URL_REQUEST, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

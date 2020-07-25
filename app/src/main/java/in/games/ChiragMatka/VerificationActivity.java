@@ -31,6 +31,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import maes.tech.intentanim.CustomIntent;
 
@@ -143,11 +144,11 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
            {
                if(type.equalsIgnoreCase("f"))
                {
-                   sendOtpforPass(mobile,otp,URLs.URL_GENERATE_OTP);
+                   sendOtpforPass(mobile,otp, BaseUrl.URL_GENERATE_OTP);
                }
                else
                {
-                   sendOtpforPass(mobile,otp,URLs.URL_VERIFICATION);
+                   sendOtpforPass(mobile,otp,BaseUrl.URL_VERIFICATION);
                }
            }
         }

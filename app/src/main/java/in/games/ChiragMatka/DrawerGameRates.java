@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.games.ChiragMatka.Adapter.GameRateAdapter;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.GameRateModel;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
@@ -91,7 +92,7 @@ RecyclerView.LayoutManager layoutManager,layoutManager1;
         String tag_json_obj = "json_notice_req";
         Map<String, String> params = new HashMap<String, String>();
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_NOTICE, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_NOTICE, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

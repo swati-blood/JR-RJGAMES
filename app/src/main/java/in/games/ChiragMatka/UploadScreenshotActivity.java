@@ -82,9 +82,9 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
 
     private static final int GALLERY_REQUEST_CODE = 1;
 
-    private IUpoladAPI getUPIUpload() {
-        return RetrofitClient.getClient(URLs.API_SERVER_URL).create(IUpoladAPI.class);
-    }
+//    private IUpoladAPI getUPIUpload() {
+//        return RetrofitClient.getClient(URLs.API_SERVER_URL).create(IUpoladAPI.class);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +96,8 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
                     Manifest.permission.READ_EXTERNAL_STORAGE
             }, REQUEST_PERMISSION);
         }
-        mService = getUPIUpload();
-        getScreenshot();
+//        mService = getUPIUpload();
+//        getScreenshot();
 
     }
 
@@ -178,7 +178,7 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
          else
          {
              trans_id=et_trans_id.getText().toString();
-        makeAddTrsansactionRequest();
+//        makeAddTrsansactionRequest();
          }
         }
 
@@ -308,54 +308,54 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
     }
 
 
-    private void getScreenshot() {
-    loadingBar.show();
-        HashMap<String,String> params=new HashMap<>();
-        CustomJsonRequest request=new CustomJsonRequest(Request.Method.POST, URLs.ADMIN_ACC_DETALS, params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-           try
-           {
-               Log.e("acc_details",response.toString());
-               loadingBar.dismiss();
-              String status = response.getString("status");
-               if(status.equals("success"))
-               {
-                   JSONObject object=response.getJSONObject("data");
-                   tv_acc_holder.setText("Account Holder Name : "+object.getString("name"));
-                   tv_acc_details.setText(Html.fromHtml(object.getString("account")));
-                   Glide.with(ctx)
-                           .load(URLs.ADMIN_SS_URL + object.getString("qr_code"))
-                           .centerCrop()
-                           .placeholder(R.drawable.logo)
-                           .crossFade()
-                           .diskCacheStrategy(DiskCacheStrategy.ALL)
-                           .dontAnimate()
-                           .into(img_qr);
-
-               }
-               else
-               {
-                   Toast.makeText(ctx, "Contact to Admin for further queries", Toast.LENGTH_LONG).show();
-               }
-
-           }
-           catch (Exception ex)
-           {
-               loadingBar.dismiss();
-               ex.printStackTrace();
-           }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                loadingBar.dismiss();
-                Toast.makeText(ctx, ""+error.getMessage(), Toast.LENGTH_LONG).show();
-
-            }
-        });
-        AppController.getInstance().addToRequestQueue(request);
-    }
+//    private void getScreenshot() {
+//    loadingBar.show();
+//        HashMap<String,String> params=new HashMap<>();
+//        CustomJsonRequest request=new CustomJsonRequest(Request.Method.POST, URLs.ADMIN_ACC_DETALS, params, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//           try
+//           {
+//               Log.e("acc_details",response.toString());
+//               loadingBar.dismiss();
+//              String status = response.getString("status");
+//               if(status.equals("success"))
+//               {
+//                   JSONObject object=response.getJSONObject("data");
+//                   tv_acc_holder.setText("Account Holder Name : "+object.getString("name"));
+//                   tv_acc_details.setText(Html.fromHtml(object.getString("account")));
+//                   Glide.with(ctx)
+//                           .load(URLs.ADMIN_SS_URL + object.getString("qr_code"))
+//                           .centerCrop()
+//                           .placeholder(R.drawable.logo)
+//                           .crossFade()
+//                           .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                           .dontAnimate()
+//                           .into(img_qr);
+//
+//               }
+//               else
+//               {
+//                   Toast.makeText(ctx, "Contact to Admin for further queries", Toast.LENGTH_LONG).show();
+//               }
+//
+//           }
+//           catch (Exception ex)
+//           {
+//               loadingBar.dismiss();
+//               ex.printStackTrace();
+//           }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                loadingBar.dismiss();
+//                Toast.makeText(ctx, ""+error.getMessage(), Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//        AppController.getInstance().addToRequestQueue(request);
+//    }
 
     private void addPaymentRequest() {
     }
@@ -446,59 +446,59 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
         }
     }
 
-    private void makeAddTrsansactionRequest() {
-
-        loadingBar.show();
-        String tag_json_obj = "json_add_order_req";
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("id",user_id);
-        params.put("trans_id",trans_id);
-        params.put("trans_name",trans_image_name);
-
-        CustomJsonRequest jsonObjReq = new CustomJsonRequest(Request.Method.POST,
-               URLs.URL_ADD_TRANSACTION, params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                Log.d(TAG, response.toString());
-
-                try {
-                    Boolean status = response.getBoolean("status");
-                    if (status) {
-
-                        Toast.makeText(UploadScreenshotActivity.this,""+response.getString("message"),Toast.LENGTH_LONG).show();
-                        loadingBar.dismiss();
-                        saveInfoIntoDatabase(user_id,getpoints,getstatus);
-                        Intent intent=new Intent(ctx,HomeActivity.class);
-
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
-
-                    }
-                    else
-                    {
-                        loadingBar.dismiss();
-                        Toast.makeText(ctx,"Something went wrong",Toast.LENGTH_LONG).show();
-                    }
-
-                } catch (JSONException e) {
-                    loadingBar.dismiss();
-                    Toast.makeText(ctx,""+e.getMessage() ,Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                loadingBar.dismiss();
-
-                    Toast.makeText(ctx,""+error.getMessage(),Toast.LENGTH_SHORT).show();
-
-            }
-        });
-        AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
-    }
+//    private void makeAddTrsansactionRequest() {
+//
+//        loadingBar.show();
+//        String tag_json_obj = "json_add_order_req";
+//        Map<String, String> params = new HashMap<String, String>();
+//        params.put("id",user_id);
+//        params.put("trans_id",trans_id);
+//        params.put("trans_name",trans_image_name);
+//
+//        CustomJsonRequest jsonObjReq = new CustomJsonRequest(Request.Method.POST,
+//               URLs.URL_ADD_TRANSACTION, params, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                Log.d(TAG, response.toString());
+//
+//                try {
+//                    Boolean status = response.getBoolean("status");
+//                    if (status) {
+//
+//                        Toast.makeText(UploadScreenshotActivity.this,""+response.getString("message"),Toast.LENGTH_LONG).show();
+//                        loadingBar.dismiss();
+//                        saveInfoIntoDatabase(user_id,getpoints,getstatus);
+//                        Intent intent=new Intent(ctx,HomeActivity.class);
+//
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        startActivity(intent);
+//                        finish();
+//
+//                    }
+//                    else
+//                    {
+//                        loadingBar.dismiss();
+//                        Toast.makeText(ctx,"Something went wrong",Toast.LENGTH_LONG).show();
+//                    }
+//
+//                } catch (JSONException e) {
+//                    loadingBar.dismiss();
+//                    Toast.makeText(ctx,""+e.getMessage() ,Toast.LENGTH_LONG).show();
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                loadingBar.dismiss();
+//
+//                    Toast.makeText(ctx,""+error.getMessage(),Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+//        AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
+//    }
 }

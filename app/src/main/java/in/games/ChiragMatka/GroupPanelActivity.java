@@ -427,7 +427,7 @@ public class GroupPanelActivity extends MyBaseActivity{
         {
             txt_timer.setVisibility(View.GONE);
             tv_timer.setVisibility(View.GONE);
-//            Date date=new Date();
+            Date date=new Date();
 //            SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
 //            String ctt=dateFormat.format(date);
 //            btnGameType.setText(""+ctt);

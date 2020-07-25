@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
@@ -72,7 +73,7 @@ public class DrawerHowToPlayActivity extends MyBaseActivity {
         String json_request_tag="json_how_request";
         HashMap<String,String> params=new HashMap<String,String>();
 
-        CustomVolleyJsonArrayRequest customVolleyJsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, URLs.URL_PLAY, params, new Response.Listener<JSONArray>() {
+        CustomVolleyJsonArrayRequest customVolleyJsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, BaseUrl.URL_PLAY, params, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 

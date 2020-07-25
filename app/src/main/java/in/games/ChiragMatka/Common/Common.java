@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
@@ -49,6 +51,7 @@ import java.util.regex.Pattern;
 import in.games.ChiragMatka.Adapter.ListItemAdapter;
 import in.games.ChiragMatka.Adapter.TableAdaper;
 import in.games.ChiragMatka.AppController;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.HomeActivity;
 import in.games.ChiragMatka.Intefaces.VolleyCallBack;
 import in.games.ChiragMatka.MainActivity;
@@ -59,8 +62,9 @@ import in.games.ChiragMatka.Model.WalletObjects;
 import in.games.ChiragMatka.NewGameActivity;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.R;
-import in.games.ChiragMatka.URLs;
+
 import in.games.ChiragMatka.utils.CustomJsonRequest;
+import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 import in.games.ChiragMatka.utils.Module;
 import maes.tech.intentanim.CustomIntent;
@@ -78,12 +82,15 @@ public class Common {
     public void showToast(String s)
     {
         Toast.makeText(context,""+s,Toast.LENGTH_SHORT).show();
+
     }
+
+
     public void setMobileNumber(final TextView txt)
     {
         String json_tag_request="json_mobile_request";
         HashMap<String,String> params=new HashMap<String, String>();
-        CustomJsonRequest customVolleyJsonArrayRequest=new CustomJsonRequest(Request.Method.GET, URLs.URL_MOBILE, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customVolleyJsonArrayRequest=new CustomJsonRequest(Request.Method.GET, BaseUrl.URL_MOBILE, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -172,52 +179,29 @@ public class Common {
         String json_tag_request = "json_wallet_tag";
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("user_id", mid);
-
-        CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.POST, URLs.URL_WALLET, params, new Response.Listener<JSONObject>() {
+        CustomVolleyJsonArrayRequest customJsonRequest = new CustomVolleyJsonArrayRequest(Request.Method.POST, BaseUrl.URL_GET_WALLET_AMOUNT, params, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
-                if (response.equals(null)) {
+            public void onResponse(JSONArray response) {
+                Log.e("wallet",response.toString());
+
+                JSONObject object = null;
+                try {
+                    object = response.getJSONObject(0);
+
+                    WalletObjects walletObjects = new WalletObjects();
+                    walletObjects.setUser_id(object.getString("user_id"));
+                    walletObjects.setWallet_points(object.getString("wallet_points"));
+                    walletObjects.setWallet_id(object.getString("wallet_id"));
                     progressDialog.dismiss();
-                    Toast.makeText(context, "You have no money in wallet", Toast.LENGTH_LONG).show();
-                    return;
-                } else {
-                    try {
+                    txt.setText(walletObjects.getWallet_points());
 
-                        JSONObject jsonObject = response;
-
-                        String status = jsonObject.getString("status");
-
-                        if (status.equals("success")) {
-                            JSONObject object = jsonObject.getJSONObject("message");
-                            WalletObjects walletObjects = new WalletObjects();
-                            walletObjects.setUser_id(object.getString("user_id"));
-                            walletObjects.setWallet_points(object.getString("wallet_points"));
-                            walletObjects.setWallet_id(object.getString("wallet_id"));
-                            progressDialog.dismiss();
-                            txt.setText(walletObjects.getWallet_points());
-                        } else if (status.equals("failed")) {
-                            progressDialog.dismiss();
-                            txt.setText("0");
-                            Toast.makeText(context, "You have no points", Toast.LENGTH_LONG).show();
-                            return;
-                        } else {
-                            progressDialog.dismiss();
-                            txt.setText("0");
-                            Toast.makeText(context, "Something went wrong", Toast.LENGTH_LONG).show();
-                            return;
-                        }
-
-
-                    } catch (Exception ex) {
-                        progressDialog.dismiss();
-                        Toast.makeText(context, "Error :" + ex.getMessage(), Toast.LENGTH_LONG).show();
-                        return;
-
-                    }
-
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
             }
+
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -319,7 +303,7 @@ public class Common {
         HashMap<String,String> params=new HashMap<String, String>();
         params.put("id",m_id);
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try
@@ -597,7 +581,7 @@ public class Common {
                 jsonObject.put("bettype", list_type);
                 jsonObject.put("user_id", id);
                 jsonObject.put("matka_id", matka_id);
-                jsonObject.put("date", c);
+                jsonObject.put("game_date", c);
                 jsonObject.put("game_id", game_id);
 
                 JSONArray jsonArray = new JSONArray();
@@ -697,7 +681,7 @@ public class Common {
         HashMap<String,String> params=new HashMap<String, String>();
         params.put("id",m_id);
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -993,7 +977,7 @@ public class Common {
         params.put("id",m_id);
         progressDialog.show();
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 progressDialog.dismiss();
@@ -1132,7 +1116,7 @@ public class Common {
         HashMap<String,String> params=new HashMap<>();
         params.put("id",m_id);
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_StarLine_id, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_StarLine_id, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 
@@ -1246,7 +1230,7 @@ public class Common {
         HashMap<String,String> params=new HashMap<>();
         params.put("id",m_id);
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.Url_matka_with_id, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -1357,7 +1341,7 @@ public class Common {
 //        HashMap<String,String> params=new HashMap<>();
 //        params.put("id",m_id);
 //
-//        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.Url_matka_with_id, params, new Response.Listener<JSONObject>() {
+//        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.Url_matka_with_id, params, new Response.Listener<JSONObject>() {
 //            @Override
 //            public void onResponse(JSONObject response) {
 //
@@ -1460,7 +1444,7 @@ public class Common {
         params.put("id",m_id);
         progressDialog.show();
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try
@@ -1610,7 +1594,7 @@ public class Common {
         progressDialog.show();
 
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_INSERT_DATA, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_INSERT_DATA, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

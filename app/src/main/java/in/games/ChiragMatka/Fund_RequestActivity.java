@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 import in.games.ChiragMatka.Adapter.Request_HistoryAdapter;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Objects.Fund_Request_HistoryObject;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
@@ -77,7 +78,7 @@ public class Fund_RequestActivity extends MyBaseActivity {
         params.put("user_id",user_id);
 
         list.clear();
-      CustomVolleyJsonArrayRequest customJsonRequest=new CustomVolleyJsonArrayRequest(Request.Method.POST, URLs.Url_req_history, params, new Response.Listener<JSONArray>() {
+      CustomVolleyJsonArrayRequest customJsonRequest=new CustomVolleyJsonArrayRequest(Request.Method.POST, BaseUrl.URL_REQUEST, params, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 Log.e("asdasd",""+response.toString());

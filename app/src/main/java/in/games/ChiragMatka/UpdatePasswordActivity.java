@@ -22,7 +22,7 @@ import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import maes.tech.intentanim.CustomIntent;
 
-import static in.games.ChiragMatka.URLs.URL_UPDATE_PASS;
+import static in.games.ChiragMatka.Config.BaseUrl.URL_UPDATE_PASS;
 
 
 public class UpdatePasswordActivity extends AppCompatActivity implements View.OnClickListener {

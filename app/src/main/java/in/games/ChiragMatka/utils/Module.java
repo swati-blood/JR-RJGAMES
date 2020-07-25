@@ -2,7 +2,12 @@ package in.games.ChiragMatka.utils;
 
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -96,7 +101,22 @@ public class Module {
     }
 
 
+    public boolean validateEditText(TextInputEditText et, TextInputLayout tv_layout) {
+        if (et.getText().toString().trim().isEmpty()) {
 
+            tv_layout.setError("Required!!!");
+            requestFocus(et);
+            return false;
+        } else {
+            tv_layout.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+    private void requestFocus(EditText et) {
+
+        et.requestFocus();
+    }
 
 
 

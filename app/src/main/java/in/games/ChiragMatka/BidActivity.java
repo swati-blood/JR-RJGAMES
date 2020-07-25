@@ -29,12 +29,13 @@ import java.util.Map;
 
 import in.games.ChiragMatka.Adapter.BidHistoryListViewAdapter;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.BidHistoryObjects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-import static in.games.ChiragMatka.URLs.Bid_Histry_Url;
+import static in.games.ChiragMatka.Config.BaseUrl.Bid_Histry_Url;
 
 
 public class BidActivity extends MyBaseActivity {
@@ -107,7 +108,7 @@ public class BidActivity extends MyBaseActivity {
 
          list.clear();
 
-        CustomVolleyJsonArrayRequest customVolleyJsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.POST, URLs.URL_BID_HISTORY, params, new Response.Listener<JSONArray>() {
+        CustomVolleyJsonArrayRequest customVolleyJsonArrayRequest=new CustomVolleyJsonArrayRequest(Request.Method.POST, BaseUrl.URL_BID_HISTORY, params, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
@@ -179,82 +180,6 @@ public class BidActivity extends MyBaseActivity {
 
     }
 
-    public void getMatkaData()
-    {
-        progressDialog.show();
-
-        final JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URLs.Url_bid_history, new
-                Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-
-                        for(int i=0; i<response.length();i++)
-                        {
-                            try
-                            {
-                                JSONObject jsonObject=response.getJSONObject(i);
-
-                                BidHistoryObjects matkasObjects=new BidHistoryObjects();
-                                matkasObjects.setId(jsonObject.getString("id"));
-                                matkasObjects.setUser_id(jsonObject.getString("user_id"));
-                                matkasObjects.setMatka_id(jsonObject.getString("matka_id"));
-                                matkasObjects.setBet_type(jsonObject.getString("bet_type"));
-                                matkasObjects.setPoints(jsonObject.getString("points"));
-                                matkasObjects.setDigits(jsonObject.getString("digits"));
-                                matkasObjects.setDate(jsonObject.getString("date"));
-                                matkasObjects.setTime(jsonObject.getString("time"));
-                                matkasObjects.setName(jsonObject.getString("name"));
-                                matkasObjects.setGame_id(jsonObject.getString("game_id"));
-                                list.add(matkasObjects);
-                            }
-                            catch (Exception ex)
-                            {
-                                progressDialog.dismiss();
-                                Toast.makeText(BidActivity.this,"Error :"+ex.getMessage(),Toast.LENGTH_LONG).show();
-
-                                return;
-                            }
-                        }
-                        bidHistoryAdapter.notifyDataSetChanged();
-                        progressDialog.dismiss();
-
-
-                    }
-
-                },
-
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        Toast.makeText(BidActivity.this,"Error"+error.toString(),Toast.LENGTH_LONG).show();
-//                        Log.e("Volley",error.toString());
-                        progressDialog.dismiss();
-
-
-
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<String,String>();
-
-                params.put("us_id","2");
-
-
-                // params.put("phonepay",phonepaynumber);
-
-
-                return params;
-            }
-        };
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(jsonArrayRequest);
-
-
-
-    }
 
     private class myWebViewClient extends WebViewClient {
 
