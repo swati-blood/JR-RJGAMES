@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.TypedValue;
@@ -28,7 +29,7 @@ import in.games.ChiragMatka.Model.GameRateModel;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class DrawerGameRates extends MyBaseActivity {
+public class DrawerGameRates extends AppCompatActivity {
 TextView bt_back;
 LoadingBar progressDialog;
 TextView game_Name ,game_Rate ,game_range ,txt_timer;

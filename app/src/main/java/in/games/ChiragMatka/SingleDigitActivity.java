@@ -12,6 +12,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
 
-public class SingleDigitActivity extends MyBaseActivity {
+public class SingleDigitActivity extends AppCompatActivity {
     Common common;
     private Button btnAdd,btnSave,btnType,btnGameType;
     TextView btnDelete,txtdgt;

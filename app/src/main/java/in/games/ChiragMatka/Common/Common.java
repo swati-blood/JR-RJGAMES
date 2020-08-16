@@ -296,6 +296,14 @@ public class Common {
         });
     }
 
+    public void showVolleyError(VolleyError error)
+    {
+        String msg=VolleyErrorMessage(error);
+        if(!msg.isEmpty())
+        {
+            showToast(""+msg);
+        }
+    }
     private void setDataTo(final TextView txtOpen, final TextView txtClose, final String m_id, final LoadingBar progressDialog, final String date_cuurent) {
         progressDialog.show();
 

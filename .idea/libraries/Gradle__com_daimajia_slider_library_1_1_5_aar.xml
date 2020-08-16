@@ -1,8 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.daimajia.slider:library:1.1.5@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e480dd4e8b6c43e5f052c1cbd748c45c/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e480dd4e8b6c43e5f052c1cbd748c45c/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1d37589c2490199621b65e5b39ed4543/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1d37589c2490199621b65e5b39ed4543/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1d37589c2490199621b65e5b39ed4543/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daimajia.slider/library/1.1.5/80f7ad12f4db46326912a82285f58ebe4681740f/library-1.1.5-javadoc.jar!/" />

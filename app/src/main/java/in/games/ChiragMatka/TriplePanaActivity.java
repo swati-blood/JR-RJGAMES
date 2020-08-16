@@ -14,6 +14,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
 
-public class TriplePanaActivity extends MyBaseActivity  {
+public class TriplePanaActivity extends AppCompatActivity {
 
     Common common;
     private final String[] triplePanna={"000","777","444","111","888","555","222","999","666","333"};

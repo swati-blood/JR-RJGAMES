@@ -1,6 +1,8 @@
 package in.games.ChiragMatka;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
@@ -29,7 +31,7 @@ import in.games.ChiragMatka.Model.Withdraw_requwset_obect;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class Withdraw_history extends MyBaseActivity {
+public class Withdraw_history extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     ArrayList<Withdraw_requwset_obect> list;
@@ -52,9 +54,6 @@ public class Withdraw_history extends MyBaseActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         txtBack=(TextView)findViewById(R.id.txtBack);
-        request_historyAdapter=new Withdraw_request_Adapter(this,list);
-        //matakListViewAdapter=new MatakListViewAdapter(this,matkaList);
-        recyclerView.setAdapter(request_historyAdapter);
 
         String User_id= Prevalent.currentOnlineuser.getId();
         getRequestData(User_id);
@@ -82,7 +81,7 @@ public class Withdraw_history extends MyBaseActivity {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, BaseUrl.Url_req_history, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("points_histry",response.toString());
+                Log.e("points_histry",response.toString());
 
                 if(response.equals("empty"))
                 {
@@ -96,12 +95,11 @@ public class Withdraw_history extends MyBaseActivity {
                 {
                     try
                     {
-                        JSONArray jsonArray=new JSONArray(response);
+                        JSONObject obj=new JSONObject(response);
+                        JSONArray jsonArray=obj.getJSONArray("data");
                         //progressDialog.dismiss();
-                        for(int i=0; i<=jsonArray.length()-1;i++) {
-
+                        for(int i=0; i<jsonArray.length();i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                             Withdraw_requwset_obect matkasObjects = new Withdraw_requwset_obect();
                             matkasObjects.setId(jsonObject.getString("request_id"));
                             matkasObjects.setWithdraw_points(jsonObject.getString("request_points"));
@@ -109,18 +107,19 @@ public class Withdraw_history extends MyBaseActivity {
                             matkasObjects.setWithdraw_status(jsonObject.getString("request_status"));
                             matkasObjects.setUser_id(jsonObject.getString("user_id"));
                             matkasObjects.setType(jsonObject.getString("type"));
-
-
                             list.add(matkasObjects);
-
-
                         }
+                        request_historyAdapter=new Withdraw_request_Adapter(Withdraw_history.this,list);
+                        //matakListViewAdapter=new MatakListViewAdapter(this,matkaList);
+                        recyclerView.setAdapter(request_historyAdapter);
+
                         request_historyAdapter.notifyDataSetChanged();
                         progressDialog.dismiss();
 
                     }
                     catch (Exception ex)
                     {
+                        ex.printStackTrace();
                         Toast.makeText(Withdraw_history.this,"There is no history",Toast.LENGTH_LONG).show();
 //                        Log.e("Volley",error.toString());
                         progressDialog.dismiss();

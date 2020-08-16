@@ -2,6 +2,8 @@ package in.games.ChiragMatka;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
@@ -32,7 +34,7 @@ import in.games.ChiragMatka.Model.NotificationObjects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class NotificationActivity extends MyBaseActivity {
+public class NotificationActivity extends AppCompatActivity {
 
     Common common;
     Switch aSwitch;

@@ -16,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.rey.material.widget.CheckBox;
 
 import java.text.ParseException;
@@ -35,7 +37,7 @@ import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class RedBracketsActivity extends MyBaseActivity {
+public class RedBracketsActivity extends AppCompatActivity {
     RadioButton rd_open,rd_close;
     RadioGroup rd_group;
     Common common;

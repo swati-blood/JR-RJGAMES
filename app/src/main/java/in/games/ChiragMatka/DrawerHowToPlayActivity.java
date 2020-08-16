@@ -8,6 +8,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,7 +23,7 @@ import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class DrawerHowToPlayActivity extends MyBaseActivity {
+public class DrawerHowToPlayActivity extends AppCompatActivity {
 
     TextView bt_back,txtData,txtLink;
     RelativeLayout rel_click;

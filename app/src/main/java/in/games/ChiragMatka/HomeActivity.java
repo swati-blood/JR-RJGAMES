@@ -21,6 +21,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.cardview.widget.CardView;
 
@@ -61,7 +62,7 @@ import maes.tech.intentanim.CustomIntent;
 import static in.games.ChiragMatka.splash_activity.home_text;
 import static in.games.ChiragMatka.splash_activity.message;
 
-public class HomeActivity extends MyBaseActivity
+public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
     FrameLayout frame_home;
     private TextView txtWallet,txtNotification ,txt_tagline;

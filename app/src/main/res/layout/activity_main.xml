@@ -26,7 +26,7 @@
         android:layout_width="350dp"
         android:layout_height="300dp"
         android:src="@drawable/logo"
-        android:tint="@color/colorAccent"
+
         android:padding="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -54,18 +54,17 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Mobile Number"
-                style="@style/textstyle"
+                app:hintTextAppearance="@dimen/_18sdp"
+                app:helperTextTextAppearance="@dimen/_18sdp"
 
-
-                >
+                style="@style/textstyle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUser"
-
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_phone_android_black_24dp"
                     android:drawableTint="@color/colorAccent"
-
+                    android:textSize="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -104,23 +103,16 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
-                style="@style/textstyle"
-                app:boxStrokeColor="@color/white"
-                app:errorTextAppearance="@color/play1"
-                app:hintTextAppearance="@color/colorPrimaryDark"
-
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                >
+                style="@style/textstyle"         >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPass"
-
-
+                    android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
                     android:drawableTint="@color/colorAccent"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     />

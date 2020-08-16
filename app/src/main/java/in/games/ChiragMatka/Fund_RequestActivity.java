@@ -1,6 +1,8 @@
 package in.games.ChiragMatka;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
@@ -26,7 +28,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class Fund_RequestActivity extends MyBaseActivity {
+public class Fund_RequestActivity extends AppCompatActivity {
 
     Common common;
     private RecyclerView recyclerView;

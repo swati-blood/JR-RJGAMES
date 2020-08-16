@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +39,7 @@ import in.games.ChiragMatka.utils.LoadingBar;
 import static in.games.ChiragMatka.URLs.Starline_Histry_Url;
 
 
-public class Starline_Activity extends MyBaseActivity {
+public class Starline_Activity extends AppCompatActivity {
   Common common;
     private ListView recyclerView;
     ArrayList<Starline_History_Objects> list;

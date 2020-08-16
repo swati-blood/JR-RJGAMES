@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -26,7 +27,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-import static in.games.ChiragMatka.URLs.URL_REGIST;
+import static in.games.ChiragMatka.Config.BaseUrl.URL_REGISTER;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etPAddress,etPCity,etPPinCode,etAccNo,etBankName,etIfscCode,etAccHolderName,etPaytm,etTez,etPhonePay ,et_dob ,et_email,et_mobile;
@@ -114,29 +115,30 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         progressDialog.show();
         Map<String,String> params=new HashMap<>();
         params.put("key","3");
-        params.put("mobile",mailid);
+        params.put("user_id",mailid);
         params.put("accountno",accno);
         params.put("bankname",bankname);
         params.put("ifsc",ifsc);
         params.put("accountholder",hod_name);
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGIST, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGISTER, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try
                 {
-                    String success=response.getString("status");
-                    if(success.equals("success"))
+                    boolean success=response.getBoolean("responce");
+                    if(success)
                     {
                         progressDialog.dismiss();
                         Prevalent.currentOnlineuser.setAccountno(accno);
                         Prevalent.currentOnlineuser.setBank_name(bankname);
                         Prevalent.currentOnlineuser.setIfsc_code(ifsc);
                         Prevalent.currentOnlineuser.setAccount_holder_name(hod_name);
-                        Toast.makeText(ProfileActivity.this, "Bank Details Updated!!!", Toast.LENGTH_SHORT).show();
+                        String msg=response.getString("message");
+                        Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
                     }
-                    else if(success.equals("unsuccessful"))
+                    else
                     {
                         progressDialog.dismiss();
                         String msg=response.getString("message");
@@ -169,7 +171,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void storeAddressData(final String a,final String c,final String p,final String mob) {
+    private void storeAddressData(final String a,final String c,final String p,final String user_id) {
 
         progressDialog.show();
         String json_tag="add_address";
@@ -178,24 +180,25 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         params.put("address",a);
         params.put("city",c);
         params.put("pin",p);
-        params.put("mobile",mob);
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGIST, params, new Response.Listener<JSONObject>() {
+        params.put("user_id",user_id);
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGISTER, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 progressDialog.dismiss();
                 try
                 {
-                    String success=response.getString("status");
-                    if(success.equals("success"))
+                    boolean success=response.getBoolean("responce");
+                    if(success)
                     {
                         progressDialog.dismiss();
                         Prevalent.currentOnlineuser.setAddress(a);
                         Prevalent.currentOnlineuser.setCity(c);
                         Prevalent.currentOnlineuser.setPincode(p);
-                        Toast.makeText(ProfileActivity.this, "Address Updated!!!", Toast.LENGTH_SHORT).show();
+                        String msg=response.getString("message");
+                        Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
                     }
-                    else if(success.equals("unsuccessful"))
+                    else
                     {
                         progressDialog.dismiss();
                         String msg=response.getString("message");
@@ -227,7 +230,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
     private void selectDate() {
-
         final Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
         month = c.get(Calendar.MONTH);
@@ -292,7 +294,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     }
                     else
                     {
-                        String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                        String mailid= Prevalent.currentOnlineuser.getId().toString();
                         //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                         storeBankDetails(accno,bankname,ifsc,hod_name,mailid);
                     }
@@ -328,9 +330,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
             else
             {
-                String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                String user_id= Prevalent.currentOnlineuser.getId().toString();
                 //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
-                storeAddressData(a,c,p,mailid);
+                storeAddressData(a,c,p,user_id);
             }
 
 
@@ -360,9 +362,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
             else
             {
-                String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                String user_id= Prevalent.currentOnlineuser.getId().toString();
                 //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
-                storeAccDetails(teznumber,paytmNumber,phonepaynumber,mailid);
+                storeAccDetails(teznumber,paytmNumber,phonepaynumber,user_id);
             }
         }
         else if (id == R.id.et_dob)
@@ -401,9 +403,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
             else
             {
-                String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                String user_id= Prevalent.currentOnlineuser.getId().toString();
                 //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
-                storeProfileData(dob ,mobile,email);
+                storeProfileData(dob ,user_id,email);
             }
         }
 
@@ -428,26 +430,27 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         progressDialog.show();
         Map<String,String> params=new HashMap<>();
         params.put("key","4");
-        params.put("mobile",mailid);
+        params.put("user_id",mailid);
         params.put("tez",teznumber);
         params.put("paytm",paytmno);
         params.put("phonepay",phonepay);
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGIST, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGISTER, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    String success=response.getString("status");
-                    if(success.equals("success"))
+                    boolean success=response.getBoolean("responce");
+                    if(success)
                     {
                         progressDialog.dismiss();
                         Prevalent.currentOnlineuser.setTez_no(teznumber);
                         Prevalent.currentOnlineuser.setPaytm_no(paytmno);
                         Prevalent.currentOnlineuser.setPhonepay_no(phonepay);
-                        Toast.makeText(ProfileActivity.this, "Mobile Numbers Updated!!!", Toast.LENGTH_SHORT).show();
+                        String msg=response.getString("message");
+                        Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
                     }
-                    else if(success.equals("unsuccessful"))
+                    else
                     {
                         progressDialog.dismiss();
                         String msg=response.getString("message");
@@ -479,30 +482,33 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void storeProfileData(final String dob , String mobile , final String email)
+    private void storeProfileData(final String dob , String user_id , final String email)
     {   progressDialog.show();
         Map<String,String> params=new HashMap<>();
         params.put("key","5");
-        params.put("mobile",mobile);
         params.put("email",email);
         params.put("dob",dob);
+        params.put("user_id",user_id);
 
+   Log.e("asdasdasdadasd",""+params.toString());
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGIST, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_REGISTER, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    String success=response.getString("status");
-                    if(success.equals("success"))
+                    Log.e("asdasd",""+response.toString());
+                    boolean success=response.getBoolean("responce");
+                    if(success)
                     {
                         progressDialog.dismiss();
                         Prevalent.currentOnlineuser.setEmail(email);
                         Prevalent.currentOnlineuser.setDob(dob);
+                        String msg=response.getString("message");
 
-                        Toast.makeText(ProfileActivity.this, "Profile Updated!!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
                     }
-                    else if(success.equals("unsuccessful"))
+                    else
                     {
                         progressDialog.dismiss();
                         String msg=response.getString("message");

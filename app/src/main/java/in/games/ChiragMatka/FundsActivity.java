@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class FundsActivity extends MyBaseActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class FundsActivity extends AppCompatActivity {
 
     RelativeLayout cvAdd_Funds,cvWithDraw_Funds,cvFundReq_history;
     TextView bt_back ,tv_title;

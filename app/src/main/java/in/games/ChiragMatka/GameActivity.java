@@ -2,13 +2,15 @@ package in.games.ChiragMatka;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class GameActivity extends MyBaseActivity {
+public class GameActivity extends AppCompatActivity {
 
     TextView txtPostion,txtMatkaName;
 

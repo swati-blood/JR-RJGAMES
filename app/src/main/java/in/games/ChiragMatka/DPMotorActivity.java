@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -40,7 +42,7 @@ import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
 
-public class DPMotorActivity extends MyBaseActivity  {
+public class DPMotorActivity extends AppCompatActivity {
     Common common;
     private int stat=0;
     private Button btnAdd,btnSave,btnType,btnGameType;

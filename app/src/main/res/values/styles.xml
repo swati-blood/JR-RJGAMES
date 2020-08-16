@@ -14,7 +14,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="textstyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:textSize" >@dimen/_14sdp</item>
+        <item name="android:textSize" >14sp</item>
         <item name="errorTextAppearance">@color/play1</item>
         <item name="hintTextAppearance">@color/colorAccent</item>
         <item name="boxStrokeColor">@color/colorAccent </item>

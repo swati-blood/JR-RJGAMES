@@ -86,7 +86,7 @@
                                     android:paddingLeft="2dp"
                                     android:text="12:28 am"
                                     android:textColor="@color/colorAccent"
-                                    android:textSize="14dp" />
+                                    android:textSize="10dp" />
                                 <TextView
                                     android:id="@+id/matkaName"
                                     android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                                     android:text="MORNING KUBER"
                                     android:layout_toRightOf="@+id/matka_open_bid_Time"
                                     android:textColor="@android:color/white"
-                                    android:textSize="18dp"
+                                    android:textSize="14dp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -117,7 +117,7 @@
                                     android:paddingLeft="2dp"
                                     android:text="12:28 am"
                                     android:textColor="@color/colorAccent"
-                                    android:textSize="14dp" />
+                                    android:textSize="10dp" />
                             </RelativeLayout>
 
 

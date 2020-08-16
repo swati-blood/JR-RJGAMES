@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.rey.material.widget.CheckBox;
 
 import java.text.ParseException;
@@ -30,7 +32,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
 
-public class OddEvenActivity extends MyBaseActivity {
+public class OddEvenActivity extends AppCompatActivity {
 
     Common common;
     ListView listView;

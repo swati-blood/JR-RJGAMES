@@ -1,6 +1,8 @@
 package in.games.ChiragMatka;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
@@ -25,7 +27,7 @@ import in.games.ChiragMatka.utils.LoadingBar;
 import in.games.ChiragMatka.utils.Module;
 
 
-public class DoubleDigitActivity extends MyBaseActivity {
+public class DoubleDigitActivity extends AppCompatActivity {
     Common common;
     TextView bt_back;
     private RecyclerView recyclerView;

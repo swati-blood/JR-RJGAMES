@@ -15,6 +15,8 @@ import in.games.ChiragMatka.utils.LoadingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,10 +32,10 @@ import java.util.Map;
 
 import static in.games.ChiragMatka.splash_activity.min_add_amount;
 
-public class RequestActivity extends MyBaseActivity {
-  Common common;
+public class RequestActivity extends AppCompatActivity {
+    Common common;
     EditText etPoints;
- LoadingBar progressDialog;
+    LoadingBar progressDialog;
     private TextView bt_back,txtMatka;
     Button btnRequest;
     private TextView txtWallet_amount;
@@ -50,8 +52,8 @@ public class RequestActivity extends MyBaseActivity {
 
         bt_back=(TextView)findViewById(R.id.txtBack);
         txtWallet_amount=(TextView)findViewById(R.id.wallet_amount);
-   common=new Common(RequestActivity.this);
-   min_amount = Integer.parseInt(min_add_amount);
+        common=new Common(RequestActivity.this);
+        min_amount = Integer.parseInt(min_add_amount);
 
         txtMatka.setText("FUNDS");
 
@@ -90,7 +92,7 @@ public class RequestActivity extends MyBaseActivity {
                         String user_id= Prevalent.currentOnlineuser.getId();
                         String p=String.valueOf(points);
                         String st="pending";
-                       saveInfoIntoDatabase(user_id,p,st);
+                        saveInfoIntoDatabase(user_id,p,st);
                     }
                 }
 
@@ -118,14 +120,14 @@ public class RequestActivity extends MyBaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       // setSessionTimeOut(RequestActivity.this);
+        // setSessionTimeOut(RequestActivity.this);
         common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
     }
     private void saveInfoIntoDatabase(final String user_id, final String points, final String st) {
 
-       progressDialog.show();
+        progressDialog.show();
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, BaseUrl.URL_REQUEST, new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_data_insert_req, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -134,7 +136,7 @@ public class RequestActivity extends MyBaseActivity {
                     String status=jsonObject.getString("status");
                     if(status.equals("success"))
                     {
-                      progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(RequestActivity.this,"successfull",Toast.LENGTH_LONG).show();
                         Intent intent=new Intent(RequestActivity.this,HomeActivity.class);
                         startActivity(intent);
@@ -154,7 +156,7 @@ public class RequestActivity extends MyBaseActivity {
                 }
                 catch (Exception ex)
                 {
-                   progressDialog.dismiss();
+                    progressDialog.dismiss();
 
                     Toast.makeText(RequestActivity.this,"Error :"+ex.getMessage(),Toast.LENGTH_LONG).show();
                     return;
@@ -166,7 +168,7 @@ public class RequestActivity extends MyBaseActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                      progressDialog.dismiss();
+                        progressDialog.dismiss();
 
                         Toast.makeText(RequestActivity.this,"Error :"+error.getMessage(),Toast.LENGTH_LONG).show();
                         return;

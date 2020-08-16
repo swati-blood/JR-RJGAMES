@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -29,7 +31,7 @@ import in.games.ChiragMatka.utils.LoadingBar;
 
 import static in.games.ChiragMatka.URLs.URL_REGIST;
 
-public class DrawerProfileActivity extends MyBaseActivity {
+public class DrawerProfileActivity extends AppCompatActivity {
     private EditText etPAddress,etPCity,etPPinCode,etAccNo,etBankName,etIfscCode,etAccHolderName,etPaytm,etTez,etPhonePay;
     private Dialog dialog;
     Common common;

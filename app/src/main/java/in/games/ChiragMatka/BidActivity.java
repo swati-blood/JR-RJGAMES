@@ -12,6 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,7 +40,7 @@ import in.games.ChiragMatka.utils.LoadingBar;
 import static in.games.ChiragMatka.Config.BaseUrl.Bid_Histry_Url;
 
 
-public class BidActivity extends MyBaseActivity {
+public class BidActivity extends AppCompatActivity {
     Common common;
     private ListView recyclerView;
     ArrayList<BidHistoryObjects> list;

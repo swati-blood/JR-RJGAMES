@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,87 +19,84 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Model.TimeSlots;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
+import static in.games.ChiragMatka.URLs.URL_TIME_SLOTS;
 import static in.games.ChiragMatka.splash_activity.withdrw_no;
 import static in.games.ChiragMatka.splash_activity.withdrw_text;
 
- public class WithdrawalActivity extends MyBaseActivity {
-    Common common;
-    private TextView txtback,txtWalletAmount,txtMobile ,txt_withdrw_instrctions,tv_number;
-    private LoadingBar progressDialog;
-    private EditText etPoint;
-    private Button btnSave;
+ public class WithdrawalActivity extends AppCompatActivity {
+     Common common;
+     private TextView txtback,txtWalletAmount,txtMobile ,txt_withdrw_instrctions,tv_number;
+     private LoadingBar progressDialog;
+     private EditText etPoint;
+     private Button btnSave;
+     ArrayList<TimeSlots> timeList;
+     int amount_limt=0;
+     int req_limit=1;
+     String text="",no="";
+     int wSaturday=0,wSunday=0;
 
 
-    String saveCurrentDate,saveCurrentTime;
-    int day,hours;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_withdrawal);
-        common=new Common(WithdrawalActivity.this);
-        txtback=(TextView)findViewById(R.id.txtBack);
-        tv_number=(TextView)findViewById(R.id.tv_number);
-        txtWalletAmount=(TextView)findViewById(R.id.wallet_amount);
-        etPoint=(EditText)findViewById(R.id.etRequstPoints);
-        btnSave=(Button)findViewById(R.id.add_Request);
-        txtMobile=(TextView)findViewById(R.id.textview5);
-        txt_withdrw_instrctions = findViewById(R.id.withdrw_msg);
-       // details.setMobileNumber(WithdrawalActivity.this,txtMobile);
-        progressDialog=new LoadingBar(WithdrawalActivity.this);
-        txt_withdrw_instrctions.setText(withdrw_text.toUpperCase());
-        tv_number.setText(withdrw_no.toUpperCase());
-        txtback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+     String saveCurrentDate,saveCurrentTime;
+     int day,hours;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_withdrawal);
+         common=new Common(WithdrawalActivity.this);
+         txtback=(TextView)findViewById(R.id.txtBack);
+         tv_number=(TextView)findViewById(R.id.tv_number);
+         txtWalletAmount=(TextView)findViewById(R.id.wallet_amount);
+         etPoint=(EditText)findViewById(R.id.etRequstPoints);
+         btnSave=(Button)findViewById(R.id.add_Request);
+         txtMobile=(TextView)findViewById(R.id.textview5);
+         txt_withdrw_instrctions = findViewById(R.id.withdrw_msg);
+         // details.setMobileNumber(WithdrawalActivity.this,txtMobile);
+         progressDialog=new LoadingBar(WithdrawalActivity.this);
+         txt_withdrw_instrctions.setText(withdrw_text.toUpperCase());
+         tv_number.setText(withdrw_no.toUpperCase());
+         timeList=new ArrayList<>();
+         getWithdrawDetails();
+         txtback.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
 
-                finish();
-            }
-        });
+                 finish();
+             }
+         });
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+         btnSave.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
 
-                String points=etPoint.getText().toString().trim();
+                 String points=etPoint.getText().toString().trim();
 
-                if(TextUtils.isEmpty(points))
-                {
-                    etPoint.setError("Enter Some points");
-                    return;
-                }
-                else
-                {
-
-                    Calendar calendar=Calendar.getInstance();
-
-                    SimpleDateFormat currentDate=new SimpleDateFormat("MMM dd, yyyy");
-                    saveCurrentDate=currentDate.format(calendar.getTime());
-
-                    SimpleDateFormat currentTime=new SimpleDateFormat("HH:mm:ss");
-                    saveCurrentTime=currentTime.format(calendar.getTime());
-
-                    day=calendar.get(Calendar.DAY_OF_WEEK);
-
-
-                   String a[]=saveCurrentTime.split(":");
-                   hours=Integer.parseInt(a[0]);
-                  //  Toast.makeText(WithdrawalActivity.this, ""+day +hours, Toast.LENGTH_SHORT).show();
-                 if((hours>=10&&hours<17)&&(day>1 && day<7)) {
-
+                 if(TextUtils.isEmpty(points))
+                 {
+                     etPoint.setError("Enter Some points");
+                     return;
+                 }
+                 else
+                 {
 
                      String user_id = Prevalent.currentOnlineuser.getId();
                      String pnts = String.valueOf(points);
@@ -106,9 +105,9 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
                      int t_amt = Integer.parseInt(pnts);
                      if (w_amt > 0) {
 
-                         if(t_amt<1000)
+                         if(t_amt<amount_limt)
                          {
-                             common.errorMessageDialog("Minimum Withdraw amount 1000.");
+                             common.errorMessageDialog("Minimum Withdraw amount "+amount_limt+".");
                          }
                          else
                          {
@@ -116,8 +115,46 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
                                  common.errorMessageDialog("Your requested amount exceeded");
                                  return;
                              } else {
-                                // saveInfoIntoDatabase(user_id, String.valueOf(t_amt), st);
-                                 saveInfoWithDate(user_id,String.valueOf(t_amt),st);
+                                 int flg=0;
+                                 if(getCurrentDay().equalsIgnoreCase("Sunday"))
+                                 {
+                                     if(wSunday==1){
+                                         flg=1;
+                                     }
+                                     else{
+                                         flg=2;
+                                     }
+                                 }
+                                 else if(getCurrentDay().equalsIgnoreCase("Saturday"))
+                                 {
+                                     if(wSaturday==1){
+                                         flg=3;
+                                     }
+                                     else{
+                                         flg=4;
+                                     }
+                                 }
+                                 else
+                                 {
+                                     flg=5;
+                                 }
+                                 if(flg==1 || flg==3 || flg==5){
+                                     if(getTimeOutStatus(timeList))
+                                     {
+                                         saveInfoWithDate(user_id,String.valueOf(t_amt),st);
+                                     }
+                                     else
+                                     {
+                                         common.showToast("Timeout");
+                                     }
+
+                                 }
+                                 else if(flg==2 || flg==4)
+                                 {
+                                     common.showToast("Withdraw Request is not allowed on "+getCurrentDay());
+                                 }
+                                 // saveInfoIntoDatabase(user_id, String.valueOf(t_amt), st);
+
                              }
 //
                          }
@@ -127,88 +164,91 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
                      }
 
                  }
-                    else{
-                     common.errorMessageDialog("Time Out ");
-                        return;
 
-                    }
 
 //                        saveInfoIntoDatabase(user_id,pnts,st);
-                    }
-                }
+             }
 
 
 
-        });
 
-    }
+         });
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //setSessionTimeOut(WithdrawalActivity.this);
+     }
+
+     @Override
+     protected void onStart() {
+         super.onStart();
+         //setSessionTimeOut(WithdrawalActivity.this);
 //        details.setWallet_Amount(txtWalletAmount,progressDialog,Prevalent.currentOnlineuser.getId(),WithdrawalActivity.this);
-        common.setWallet_Amount(txtWalletAmount,progressDialog, Prevalent.currentOnlineuser.getId());
-    }
+         common.setWallet_Amount(txtWalletAmount,progressDialog, Prevalent.currentOnlineuser.getId());
+     }
 
 
 
-    private void saveInfoWithDate(final String user_id, final String points, final String st)
-    {
-        progressDialog.show();
-        Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy");
-        String dt=dateFormat.format(date);
+     private void saveInfoWithDate(final String user_id, final String points, final String st)
+     {
+         progressDialog.show();
+         Date date=new Date();
+         SimpleDateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy");
+         String dt=dateFormat.format(date);
 
-                 String json_request_tag="json_withdraw_request";
-                 HashMap<String,String> params=new HashMap<String, String>();
-                params.put("user_id",user_id);
-                params.put("points",points);
-                 params.put("request_status",st);
-                 params.put("date",dt);
+         String json_request_tag="json_withdraw_request";
+         HashMap<String,String> params=new HashMap<String, String>();
+         params.put("user_id",user_id);
+         params.put("points",points);
+         params.put("request_status",st);
+         params.put("date",dt);
+         params.put("req_limit",String.valueOf(req_limit));
+         Log.e("asdasd",""+params.toString());
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_WITHDRAW_REQUEST, params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
+         CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_WITHDRAW_REQUEST, params, new Response.Listener<JSONObject>() {
+             @Override
+             public void onResponse(JSONObject response) {
 
-                Log.d("withdrw_req",response.toString());
-                try
-                {
-                       JSONObject jsonObject=response;
-                       String status=jsonObject.getString("status");
-                    if(status.equals("success"))
-                    {
+                 Log.d("withdrw_req",response.toString());
+                 try
+                 {
+                     JSONObject jsonObject=response;
+                     String status=jsonObject.getString("status");
+                     if(status.equals("success"))
+                     {
 
-                        String msg=jsonObject.getString("message");
-                        progressDialog.dismiss();
-                        common.errorMessageDialog(msg);
-                        //Toast.makeText(WithdrawalActivity.this,msg,Toast.LENGTH_LONG).show();
+                         String msg=jsonObject.getString("message");
+                         progressDialog.dismiss();
+                         Intent intent=new Intent(WithdrawalActivity.this,HomeActivity.class);
+                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                         startActivity(intent);
+                         finish();
+                         common.errorMessageDialog(msg);
+                         //Toast.makeText(WithdrawalActivity.this,msg,Toast.LENGTH_LONG).show();
 
-                    }
-                else
-                    {
-                        progressDialog.dismiss();
-                        common.errorMessageDialog(""+jsonObject.getString("message").toString());
-                        //Toast.makeText(WithdrawalActivity.this,""+,Toast.LENGTH_LONG).show();
-                    }
-                }
-                catch(Exception ex)
-                {
-                    progressDialog.dismiss();
-                    Toast.makeText(WithdrawalActivity.this,""+ex.getMessage(),Toast.LENGTH_LONG).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
+                     }
+                     else
+                     {
+                         progressDialog.dismiss();
+                         common.errorMessageDialog(""+jsonObject.getString("message").toString());
+                         //Toast.makeText(WithdrawalActivity.this,""+,Toast.LENGTH_LONG).show();
+                     }
+                 }
+                 catch(Exception ex)
+                 {
+                     progressDialog.dismiss();
+                     Toast.makeText(WithdrawalActivity.this,""+ex.getMessage(),Toast.LENGTH_LONG).show();
+                 }
+             }
+         }, new Response.ErrorListener() {
+             @Override
+             public void onErrorResponse(VolleyError error) {
+                 progressDialog.dismiss();
 
-                common.errorMessageDialog(""+error.getMessage());
+                 common.errorMessageDialog(""+error.getMessage());
 
-            }
-        });
-        AppController.getInstance().addToRequestQueue(customJsonRequest,json_request_tag);
-    }
+             }
+         });
+         AppController.getInstance().addToRequestQueue(customJsonRequest,json_request_tag);
+     }
+
 
 
 
@@ -288,4 +328,108 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
          RequestQueue requestQueue= Volley.newRequestQueue(WithdrawalActivity.this);
          requestQueue.add(stringRequest);
      }
-}
+
+     public void  getWithdrawDetails(){
+         progressDialog.show();
+
+         HashMap<String,String> params=new HashMap<>();
+         timeList.clear();
+         CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URL_TIME_SLOTS, params, new Response.Listener<JSONObject>() {
+             @Override
+             public void onResponse(JSONObject response) {
+                 progressDialog.dismiss();
+                 try
+                 {
+                     Log.e("timerere",""+response.toString());
+                     timeList.clear();
+                     boolean resp=response.getBoolean("responce");
+                     if(resp){
+                         Gson gson=new Gson();
+                         Type listType=new TypeToken<List<TimeSlots>>(){}.getType();
+                         timeList=gson.fromJson(response.getString("data").toString(),listType);
+                         amount_limt=Integer.parseInt(response.getString("min_amount"));
+                         req_limit=Integer.parseInt(response.getString("withdraw_limit"));
+                         wSaturday=Integer.parseInt(response.getString("w_saturday"));
+                         wSunday=Integer.parseInt(response.getString("w_sunday"));
+
+                     }
+                     else{
+                         common.showToast(""+response.getString("message"));
+                     }
+                 }
+                 catch (Exception ex)
+                 {
+                     ex.printStackTrace();
+                 }
+
+             }
+         }, new Response.ErrorListener() {
+             @Override
+             public void onErrorResponse(VolleyError error) {
+                 progressDialog.dismiss();
+                 common.showVolleyError(error);
+             }
+         });
+         AppController.getInstance().addToRequestQueue(customJsonRequest);
+     }
+
+     public boolean getTimeOutStatus(ArrayList<TimeSlots> list)
+     {
+         int n=0;
+         boolean flag=false;
+         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH");
+         SimpleDateFormat spdfMin=new SimpleDateFormat("mm");
+         Date c_date=new Date();
+         int chours=Integer.parseInt(simpleDateFormat.format(c_date));
+         int cMins=Integer.parseInt(spdfMin.format(c_date));
+         for(int i=0; i<list.size();i++) {
+             int shours = Integer.parseInt(list.get(i).getStart_time().split(":")[0].toString());
+             int ehours = Integer.parseInt(list.get(i).getEnd_time().split(":")[0].toString());
+             int sMins = Integer.parseInt(list.get(i).getStart_time().split(":")[1].toString());
+             int eMins = Integer.parseInt(list.get(i).getEnd_time().split(":")[1].toString());
+             if (chours > shours && chours < ehours) {
+                 flag = true;
+                 n = 1;
+                 break;
+             } else {
+                 if (chours == shours) {
+                     if (cMins <= sMins) {
+                         flag = true;
+                         n = 2;
+                         break;
+                     } else {
+                         flag = false;
+                         n = 3;
+                         break;
+                     }
+                 } else if (chours == ehours) {
+                     if (cMins <= eMins) {
+                         n = 4;
+                         flag = true;
+                         break;
+                     } else {
+                         n = 5;
+                         flag = false;
+                         break;
+                     }
+                 } else {
+                     n = 6;
+                 }
+                 Log.e("hours", "" + chours + " - " + shours + " - " + ehours);
+                 Log.e("minutes", "" + cMins + " - " + sMins + " - " + eMins);
+             }
+         }
+
+         Log.e("sdas"," - "+n);
+         return flag;
+     }
+
+     public String getCurrentDay()
+     {
+         Date date=new Date();
+         SimpleDateFormat smdf=new SimpleDateFormat("EEEE");
+         String day=smdf.format(date);
+         return day;
+     }
+
+ }

@@ -81,6 +81,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/jannat_recycler"
             android:layout_below="@id/line1"
+            android:background="@color/txt_color"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             />

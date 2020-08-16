@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -32,7 +34,7 @@ import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
 
-public class HalfSangamActivity extends MyBaseActivity {
+public class HalfSangamActivity extends AppCompatActivity {
     Common common;
     private TextView txtDigit,txtPoint,txtType,btnDelete;
     private TextView txtCurrentDate,txtNextDate,txtAfterNextDate,txtDate_id,tv_timer;

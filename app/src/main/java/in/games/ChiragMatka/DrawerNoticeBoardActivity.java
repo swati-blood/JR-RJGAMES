@@ -1,6 +1,8 @@
 package in.games.ChiragMatka;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
@@ -25,7 +27,7 @@ import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
 
-public class DrawerNoticeBoardActivity extends MyBaseActivity {
+public class DrawerNoticeBoardActivity extends AppCompatActivity {
 TextView bt_back;
 LoadingBar progressDialog;
 RecyclerView rv_rates ;

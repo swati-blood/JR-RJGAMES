@@ -48,7 +48,8 @@
                         android:padding="5dp"
                         android:layout_centerVertical="true"
                        android:drawableTint="@color/white"
-                        android:drawableLeft="@drawable/icons8_rupee_24px"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
                         />
                     <TextView
                         android:id="@+id/txtNotification"
