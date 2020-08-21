@@ -46,11 +46,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar">
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/rv_games"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:visibility="gone"
                 android:paddingTop="5dp"
                 android:orientation="vertical"
               >
@@ -330,6 +338,7 @@ android:layout_margin="5dp"
 
 
             </LinearLayout>
+</RelativeLayout>
         </ScrollView>
     </RelativeLayout>
 </RelativeLayout>

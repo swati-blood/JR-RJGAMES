@@ -27,13 +27,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import in.games.ChiragMatka.Adapter.MatakListViewAdapter;
 import in.games.ChiragMatka.Adapter.PGAdapter;
 import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Model.GameRateModel;
 import in.games.ChiragMatka.Model.Starline_Objects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
-import in.games.ChiragMatka.R;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 
@@ -49,7 +47,7 @@ public class PlayGameActivity extends MyBaseActivity {
     ArrayList<GameRateModel> slist;
     ArrayList<Starline_Objects> arrayList;
     PGAdapter pgAdapter;
-    MatakListViewAdapter matakListViewAdapter;
+
     private TextView btn_back;
     LoadingBar progressDialog;
     TextView bt_back;
@@ -140,6 +138,9 @@ public class PlayGameActivity extends MyBaseActivity {
                     intent.putExtra("m_id",s_id);
                     intent.putExtra("end_time",e_t);
                     intent.putExtra("start_time",s_t);
+                    intent.putExtra("start_num",starline_objects.getS_game_number());
+                            intent.putExtra("num","");
+                            intent.putExtra("end_num","");
                     startActivity(intent);
                     //Toast.makeText(PlayGameActivity.this,""+s_id,Toast.LENGTH_LONG).show();
                 }

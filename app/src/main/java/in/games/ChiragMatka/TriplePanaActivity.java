@@ -299,7 +299,7 @@ tv_timer = findViewById(R.id.tv_timer);
                         String g = btnGameType.getText().toString();
 
 
-                        common.addData(d,p,th,list,tableAdaper,list_table,btnSave);
+                        common.addData(d,p,bet_type,list,tableAdaper,list_table,btnSave);
 
                         editText.setText("");
                         etPoints.setText("");
@@ -411,7 +411,7 @@ tv_timer = findViewById(R.id.tv_timer);
                     Date c_dat=new Date();
                     SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
                     String s_dt=dateFormat.format(c_dat);
-                    btnGameType.setText(s_dt+" Bet" +bet_type.toUpperCase());
+                    btnGameType.setText(s_dt+" Bet " +bet_type.toUpperCase());
 //                    if(e_diff>0)
 //                    {
 //

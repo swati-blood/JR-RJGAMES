@@ -4,21 +4,29 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import in.games.ChiragMatka.Adapter.SelectGameAdapter;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Model.GameModel;
 
 public class NewGameActivity extends AppCompatActivity implements View.OnClickListener {
     TextView open_single_p , close_single_p , open_double,close_double ,open_triple , close_triple,open_cylce,close_cylce,halfsngm,fullsngm,jodi ,open_single,close_single;
     TextView bt_back ,txtMatkaName;
     private String dashName;
-
+    RecyclerView rv_games;
     Common common;
     private Toolbar toolbar;
+    SelectGameAdapter selectGameAdapter ;
 
-    private String m_id ,start_time ,end_time;
+    ArrayList<GameModel> game_list;
+    private String m_id ,start_time ,end_time ,start_num , mid_num , end_num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +35,13 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         dashName=getIntent().getStringExtra("matkaName");
         end_time = getIntent().getStringExtra("end_time");
         start_time= getIntent().getStringExtra("start_time");
+        start_num= getIntent().getStringExtra("start_num");
+        mid_num= getIntent().getStringExtra("num");
+        end_num= getIntent().getStringExtra("end_num");
         common=new Common(NewGameActivity.this);
+        game_list = new ArrayList<>();
         bt_back=(TextView)findViewById(R.id.txtBack);
+        rv_games = findViewById(R.id.rv_games);
         open_cylce = findViewById(R.id.opencyclepatti);
         open_double = findViewById(R.id.opendoublepatti);
         open_single_p= findViewById(R.id.opensinglepatti);
@@ -48,8 +61,12 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         txtMatkaName.setSelected(true);
 
        long t= common.getTimeDifference(start_time);
+
+
+
+
        if(t<=0)
-       {
+       {game_list.clear();
          common.setBackTint(open_single);
          common.setBackTint(jodi);
          common.setBackTint(open_single_p);
@@ -64,9 +81,37 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
          common.setNormalTint(close_double);
          common.setNormalTint(close_triple);
          common.setNormalTint(close_cylce);
+           game_list.add(new GameModel("2", "Close Single ", R.drawable.logo, "Close"));
+//           game_list.add(new GameModel("5", "Close Group Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("7", "Close Single Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("8", "Close Double Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("9", "Close Triple Patti ", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("14", "Close Cycle \n Patti ", R.drawable.logo, "Close"));
+
+
+
+       }
+       else
+       {game_list.clear();
+           game_list.add(new GameModel("2", "Open Single ", R.drawable.logo, "Open"));
+           game_list.add(new GameModel("2", "Close Single ", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("3", "Jodi", R.drawable.logo, "Close"));
+//           game_list.add(new GameModel("5", "Open Group Patti", R.drawable.logo, "Open"));
+//           game_list.add(new GameModel("5", "Close Group Patti", R.drawable.logo, "Close"));
+//           game_list.add(new GameModel("6", "Group Jodi", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("7", "Open Single Patti", R.drawable.logo, "Open"));
+           game_list.add(new GameModel("7", "Close Single Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("8", "Open Double Patti", R.drawable.logo, "Open"));
+           game_list.add(new GameModel("8", "Close Double Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("9", "Open Triple Patti", R.drawable.logo, "Open"));
+           game_list.add(new GameModel("9", "Close Triple Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("12", "Half Sangam", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("13", "Full Sangam", R.drawable.logo, "Open"));
+           game_list.add(new GameModel("14", "Open Cycle \n Patti ", R.drawable.logo, "Open"));
+           game_list.add(new GameModel("14", "Close Cycle \n Patti ", R.drawable.logo, "Close"));
        }
         if (Integer.parseInt(m_id)>15)
-        {
+        {game_list.clear();
 //           Toast.makeText(this,"starlne",Toast.LENGTH_LONG).show();
             common.setBackTint(open_single);
             common.setBackTint(jodi);
@@ -82,6 +127,14 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
             common.setNormalTint(open_triple);
             common.setNormalTint(open_cylce);
             common.setNormalTint(halfsngm);
+            game_list.add(new GameModel("2", "Open Single ", R.drawable.logo, "Open"));
+            game_list.add(new GameModel("7", "Open Single Patti", R.drawable.logo, "Open"));
+            game_list.add(new GameModel("8", "Open Double Patti", R.drawable.logo, "Open"));
+            game_list.add(new GameModel("9", "Open Triple Patti", R.drawable.logo, "Open"));
+            game_list.add(new GameModel("12", "Half Sangam", R.drawable.logo, "Close"));
+            game_list.add(new GameModel("14", "Open Cycle \n Patti  ", R.drawable.logo, "Open"));
+
+
 //
         }
         bt_back.setOnClickListener(this);
@@ -98,8 +151,14 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         halfsngm.setOnClickListener(this);
         fullsngm.setOnClickListener(this);
         jodi.setOnClickListener(this);
-
-
+        rv_games.setLayoutManager(new GridLayoutManager(NewGameActivity.this,3));
+        selectGameAdapter = new SelectGameAdapter(NewGameActivity.this,game_list,
+                m_id,
+              dashName,
+                start_time,
+              end_time,
+                start_num,mid_num,end_num);
+        rv_games.setAdapter(selectGameAdapter);
     }
 
     @Override

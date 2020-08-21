@@ -27,6 +27,6 @@ public class BaseUrl {
     public static final String Url_req_history=BASE_URL+"request_history";
     public static final String Url_wthdraw_req_history=BASE_URL+"withdraw_history";
     public static final String Url_transaction_history=BASE_URL+"transaction";
-    public static final String Bid_Histry_Url="https://www.smartmatka.com/admin/app_bid_history?user_id=";
-    public static final String Starline_Histry_Url="https://smartmatka.com/admin/app_startline_bid_history?user_id=";
+    public static final String Bid_Histry_Url="https://chiragmatka.com/admin/app_bid_history?user_id=";
+    public static final String Starline_Histry_Url="https://chiragmatka.com/app_startline_bid_history?user_id=";
 }

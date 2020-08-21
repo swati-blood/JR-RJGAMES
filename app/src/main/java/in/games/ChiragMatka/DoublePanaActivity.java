@@ -306,7 +306,7 @@ public class DoublePanaActivity extends AppCompatActivity {
                         String d = editText.getText().toString();
                         final String p = etPoints.getText().toString();
                         String g = btnGameType.getText().toString();
-                        common.addData(d,p,th,list,tableAdaper,list_table,btnSave);
+                        common.addData(d,p,bet_type,list,tableAdaper,list_table,btnSave);
 
                         editText.setText("");
                         etPoints.setText("");

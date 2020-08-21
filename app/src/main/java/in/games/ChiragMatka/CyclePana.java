@@ -352,24 +352,24 @@ public class CyclePana extends AppCompatActivity {
 
 //
 //                    arrayList.clear();
-                        String th = null;
-                        if(stat==1)
-                        {
-                            th="open";
-                            txt_timer.setVisibility(View.VISIBLE);
-                        }
-                        else if(stat==2)
-                        {
-                            if(bet.equals("open"))
-                            {
-                                th="open";
-                            }
-                            else  if(bet.equals("close"))
-                            {
-                                th="close";
-                            }
-
-                        }
+                        String th = bet_type;
+//                        if(stat==1)
+//                        {
+//                            th="open";
+//                            txt_timer.setVisibility(View.VISIBLE);
+//                        }
+//                        else if(stat==2)
+//                        {
+//                            if(bet.equals("open"))
+//                            {
+//                                th="open";
+//                            }
+//                            else  if(bet.equals("close"))
+//                            {
+//                                th="close";
+//                            }
+//
+//                        }
 
 
 

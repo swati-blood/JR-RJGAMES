@@ -363,11 +363,11 @@ private final String[] singlePaana=
                         }
                         else if(stat==2)
                         {
-                            if(bet.equals("open"))
+                            if(bet.equalsIgnoreCase("open"))
                             {
                                 th="open";
                             }
-                            else  if(bet.equals("close"))
+                            else  if(bet.equalsIgnoreCase("close"))
                             {
                                 th="close";
                             }
@@ -379,7 +379,8 @@ private final String[] singlePaana=
                         final String p = etPoints.getText().toString();
                         String g = btnGameType.getText().toString();
 
-                        common.addData(d,p,th,list,tableAdaper,list_table,btnSave);
+//                        common.addData(d,p,th,list,tableAdaper,list_table,btnSave);
+                        common.addData(d,p,bet_type,list,tableAdaper,list_table,btnSave);
 
                         editText.setText("");
                         etPoints.setText("");

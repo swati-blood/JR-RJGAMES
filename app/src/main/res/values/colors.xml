@@ -27,8 +27,8 @@
     <color name="blue">#040342</color>
     <color name="green">#053004</color>
     <color name="red">#911714</color>
-    <color name="running">#053004</color>
-    <color name="closed">#040342</color>
+    <color name="running">#00B050</color>
+    <color name="closed">#FF0000</color>
     <color name="txt_color">#FFFFFF</color>
     <color name="rates_color">#AE0324</color>
 

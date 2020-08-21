@@ -11,6 +11,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,6 +37,8 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
     private String m_id;
     public static int flag=0;
     Common common;
+    Animation animation;
+
 
     public MatkaNewAdapter(Context context, ArrayList<MatkasObjects> list) {
         this.context = context;
@@ -193,27 +197,27 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
                     flag = 2;
                     if(day_flag==1 || day_flag == 3)
                     {
-                        holder.txtStatus.setTextColor(Color.WHITE );
+                        holder.txtStatus.setTextColor(context.getResources().getColor(R.color.closed)  );
                         holder.txtStatus.setText( "BID IS CLOSED" );
 
                     }
                     else
                     {
-                        holder.txtStatus.setTextColor( context.getResources().getColor(R.color.btnColor)  );
+                        holder.txtStatus.setTextColor( context.getResources().getColor(R.color.running)  );
                         holder.txtStatus.setText( "BID IS RUNNING" );
 
                     }
 
                 } else if (c > 0) {
                     flag = 3;
-                    holder.txtStatus.setTextColor( Color.WHITE );
+                    holder.txtStatus.setTextColor(context.getResources().getColor(R.color.closed)  );
                     holder.txtStatus.setText( "BID IS CLOSED" );
 
                 } else {
                     flag = 1;
                     if(day_flag==1 || day_flag == 3)
                     {
-                        holder.txtStatus.setTextColor( Color.WHITE  );
+                        holder.txtStatus.setTextColor(context.getResources().getColor(R.color.closed)  );
                         holder.txtStatus.setText( "BID IS CLOSED" );
                     }
                     else
@@ -226,7 +230,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
             else
             {
                 holder.txtStatus.setText( "BID IS CLOSED" );
-                holder.txtStatus.setTextColor( Color.WHITE  );
+                holder.txtStatus.setTextColor(context.getResources().getColor(R.color.closed)  );
 
             }
 
@@ -343,6 +347,9 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
                         }
                         //  intent.putExtra("bet","cb");
+                        intent.putExtra("start_num",objects.getStarting_num());
+                        intent.putExtra("num",objects.getNumber());
+                        intent.putExtra("end_num",objects.getEnd_num());
                         context.startActivity(intent);
                         CustomIntent.customType(context, "up-to-bottom");
                     }
@@ -364,7 +371,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtDess2,txtmatkaBid_openTime,txtmatkaBid_closeTime,txtMatkaName,txtMatka_startingNo,
                 txtMatka_resNo,txtMatka_endNo,txtStatus,txtMatka_id,txt_play;
-        RelativeLayout rl,rel_matka;
+        RelativeLayout rl,rel_matka ,rel_number;
         ImageView imageGame;
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -375,13 +382,18 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
               txtMatka_startingNo=(TextView)view.findViewById(R.id.matka_starting_Number);
              txtMatka_resNo=(TextView)view.findViewById(R.id.matka_res_Number);
              txtMatka_endNo=(TextView)view.findViewById(R.id.matka_end_Number);
-             rl=(RelativeLayout) view.findViewById(R.id.rlchange);
+//             rl=(RelativeLayout) view.findViewById(R.id.rlchange);
              txtStatus=(TextView)view.findViewById(R.id.matkaBettingStatus);
              imageGame=(ImageView)view.findViewById(R.id.matka_image);
              txtMatka_id=(TextView) view.findViewById(R.id.matka_id);
              rel_matka = view.findViewById(R.id.rlchange);
+             rel_number = view.findViewById(R.id.rLayoutNumbers);
             txt_play = view.findViewById(R.id.txt_play);
           common=new Common(context);
+            animation = AnimationUtils.loadAnimation(context,
+                    R.anim.bounce);
+            rel_number.setAnimation(animation);
+//            txtMatka_startingNo.setAnimation(animation);
         }
     }
 }

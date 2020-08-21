@@ -71,7 +71,9 @@ public class NewSingleDigit extends AppCompatActivity implements View.OnClickLis
        txtMatka = findViewById(R.id.matkaname);
        txtboard=(TextView)findViewById(R.id.board);
        txtMatka.setText(dashName);
-        txtMatka.setText(dashName.toString()+"- Single Digit Board");
+//        txtMatka.setText(dashName.toString()+"- Single Digit Board");
+        txtboard.setText(dashName.toString()+"- Single Digit Board");
+        txtboard.setSelected(true);
        et_0 = findViewById(R.id.et_0);
        et_1 = findViewById(R.id.et_1);
        et_2 = findViewById(R.id.et_2);

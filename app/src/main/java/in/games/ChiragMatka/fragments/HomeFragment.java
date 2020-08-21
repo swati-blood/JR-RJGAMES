@@ -26,7 +26,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import in.games.ChiragMatka.Adapter.MatakListViewAdapter;
 import in.games.ChiragMatka.Adapter.MatkaNewAdapter;
 import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Model.MatkasObjects;
@@ -46,7 +45,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     ImageView refresh;
     ArrayList<MatkasObjects> matkaList;
     MatkaNewAdapter newAdapter;
-    private MatakListViewAdapter matakListViewAdapter;
+
     LoadingBar progressDialog;
 
     public HomeFragment() {
@@ -54,6 +53,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
