@@ -12,10 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Model.Starline_Objects;
 import in.games.ChiragMatka.R;
 
@@ -55,6 +59,7 @@ public class PGAdapter extends BaseAdapter {
         TextView  txtTime=(TextView)view.findViewById(R.id.pg_Time);
         TextView  txtId=(TextView)view.findViewById(R.id.pg_title);
         ImageView img=(ImageView)view.findViewById(R.id.pg_image);
+        RelativeLayout rl_amin=(RelativeLayout)view.findViewById(R.id.rl_amin);
         RelativeLayout rl_change=(RelativeLayout)view.findViewById(R.id.rlchange);
         Starline_Objects postion=list.get(position);
 
@@ -75,7 +80,7 @@ public class PGAdapter extends BaseAdapter {
        txtTime.setText(postion.getS_game_time());
        //txtTime.setText(postion.getS_game_end_time().toString()+" -- "+dr);
        // Toast.makeText(context,"db_time:-  "++"\n curr_time:-  "+dr,Toast.LENGTH_LONG).show();
-
+        Common common=new Common(context);
       String tm=getCloseStatus(postion.getS_game_end_time().toString(),dr);
        String[] end_time=tm.split(":");
        int h= Integer.parseInt(end_time[0].toString());
@@ -86,15 +91,21 @@ public class PGAdapter extends BaseAdapter {
             txtId.setText("Bet Is Running ");
             txtNumber.setText("***-**");
 
-            txtId.setTextColor(context.getResources().getColor(R.color.btnColor));
+            txtId.setTextColor(context.getResources().getColor(R.color.running));
             //txtStatus.setText("o");
 
         }
         else
         {
             txtId.setText("Bet is Closed ");
+            if(!postion.getS_game_number().equalsIgnoreCase("***")){
+                YoYo.with(Techniques.Swing)
+                        .duration(1200)
+                        .repeat(Integer.MAX_VALUE)
+                        .playOn(rl_amin);
 
-            txtId.setTextColor(Color.parseColor("#fcfcfc"));
+            }
+            txtId.setTextColor(context.getResources().getColor(R.color.closed));
             txtNumber.setText(""+postion.getS_game_number());
             img.setVisibility(View.INVISIBLE);
             //txtStatus.setText("c");

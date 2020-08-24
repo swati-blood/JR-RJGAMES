@@ -64,7 +64,7 @@ public class PlayGameActivity extends MyBaseActivity {
 
         common=new Common(PlayGameActivity.this);
         txtMatka=(TextView)findViewById(R.id.board);
-        txtMatka.setText("Jannat Online Games Starline Dashboard");
+        txtMatka.setText("Starline Dashboard");
         txtMatka.setSelected(true);
         swipe=findViewById(R.id.swipe_layout);
 

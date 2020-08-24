@@ -13,9 +13,12 @@ import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -1798,6 +1801,11 @@ public class Common {
         SpannableString content = new SpannableString(mystring);
         content.setSpan(new UnderlineSpan(), 0, mystring.length(), 0);
         return content;
+    }
+    public void shakeAnimations(RelativeLayout rl){
+        Animation shake= AnimationUtils.loadAnimation(context,R.anim.shake);
+        rl.startAnimation(shake);
+
     }
 }
 

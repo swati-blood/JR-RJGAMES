@@ -17,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,7 +61,11 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
         MatkasObjects postion=list.get(position);
 
         String dt=new SimpleDateFormat("EEEE").format(new Date());
-
+//        common.shakeAnimations(holder.rl_anim);
+        YoYo.with(Techniques.Swing)
+                .duration(1200)
+                .repeat(Integer.MAX_VALUE)
+                .playOn(holder.rl_anim);
         holder.txtMatkaName.setText(" - "+postion.getName()+" - ");
         String s_time=null;
         String e_time=null;
@@ -371,7 +378,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtDess2,txtmatkaBid_openTime,txtmatkaBid_closeTime,txtMatkaName,txtMatka_startingNo,
                 txtMatka_resNo,txtMatka_endNo,txtStatus,txtMatka_id,txt_play;
-        RelativeLayout rl,rel_matka ,rel_number;
+        RelativeLayout rl,rel_matka ,rel_number,rl_anim;
         ImageView imageGame;
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -382,7 +389,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
               txtMatka_startingNo=(TextView)view.findViewById(R.id.matka_starting_Number);
              txtMatka_resNo=(TextView)view.findViewById(R.id.matka_res_Number);
              txtMatka_endNo=(TextView)view.findViewById(R.id.matka_end_Number);
-//             rl=(RelativeLayout) view.findViewById(R.id.rlchange);
+            rl_anim=(RelativeLayout) view.findViewById(R.id.rl_anim);
              txtStatus=(TextView)view.findViewById(R.id.matkaBettingStatus);
              imageGame=(ImageView)view.findViewById(R.id.matka_image);
              txtMatka_id=(TextView) view.findViewById(R.id.matka_id);

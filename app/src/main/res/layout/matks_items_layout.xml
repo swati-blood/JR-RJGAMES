@@ -125,11 +125,19 @@
                             <RelativeLayout
                                 android:id="@+id/rLayoutNumbers"
                                 android:layout_width="match_parent"
-                                android:paddingLeft="@dimen/_50sdp"
-                                android:layout_height="wrap_content"
+
+                                android:layout_height="40dp"
                                 android:layout_below="@id/rLayoutBidsTime"
                                 android:layout_centerHorizontal="true">
 
+                                <RelativeLayout
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/rl_anim"
+                                    android:paddingLeft="@dimen/_5sdp"
+                                    android:paddingRight="@dimen/_5sdp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
                                 <TextView
                                     android:id="@+id/matka_starting_Number"
                                     android:layout_width="wrap_content"
@@ -201,7 +209,7 @@
                                     android:visibility="invisible" />
 
                             </RelativeLayout>
-
+                            </RelativeLayout>
 
                             <TextView
                                 android:id="@+id/matkaBettingStatus"
@@ -244,6 +252,7 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:layout_gravity="center_vertical"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     android:layout_weight="1"

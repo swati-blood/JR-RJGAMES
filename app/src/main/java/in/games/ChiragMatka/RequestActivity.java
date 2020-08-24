@@ -3,6 +3,7 @@ package in.games.ChiragMatka;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import org.json.JSONObject;
 
@@ -40,6 +43,7 @@ public class RequestActivity extends AppCompatActivity {
     Button btnRequest;
     private TextView txtWallet_amount;
     int min_amount ;
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,30 @@ public class RequestActivity extends AppCompatActivity {
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Techniques  techniques=null;
+//                i++;
+//                switch (i){
+//                    case 0:
+//                        techniques=Techniques.Tada;break;
+//                        case 1:
+//                        techniques=Techniques.Flash;break;
+//                    case 2:techniques=Techniques.Pulse;break;
+//                    case 3:techniques=Techniques.RubberBand;break;
+//                    case 4:techniques=Techniques.Shake;break;
+//                    case 5:techniques=Techniques.Swing;break;
+//                    case 6:techniques=Techniques.Bounce;break;
+//                    case 7:techniques=Techniques.StandUp;break;
+//                    case 8:techniques=Techniques.Wave;break;
+//
+//                }
+//                Log.e("asdasdas",""+i);
+//                YoYo.with(techniques)
+//                        .duration(700)
+//                        .delay(1000)
+//                        .repeat(Integer.MAX_VALUE)
+//                        .playOn(btnRequest);
+
 
                 finish();
             }

@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 //                   etName.setText("8081031624");
-//                   etPassword.setText("123456");
+//                   etPassword.setText("111111");
                     String mName=etName.getText().toString().trim();
                     String mPass=etPassword.getText().toString().trim();
 //                    String mName="anasmansoori734@gmail.com";
