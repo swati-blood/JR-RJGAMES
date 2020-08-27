@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import in.games.ChiragMatka.Adapter.NewPointsAdapter;
 import in.games.ChiragMatka.Adapter.PointsAdapter;
 import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Intefaces.VolleyCallBack;
@@ -38,7 +39,7 @@ public class NewJodi extends AppCompatActivity implements View.OnClickListener {
     List<TableModel> list;
 List<String> digit_list ;
     private int val_p=0;
-    private Button btnSubmit,btnReset,btnGameType;
+    public static Button btnSubmit,btnReset,btnGameType;
     TextView bt_back;
     TextView txtMatka ,txtboard;
     private EditText etDgt,etPnt;
@@ -52,10 +53,10 @@ List<String> digit_list ;
     int stat = 0 ;
     private TextView txtOpen,txtClose ,txt_timer,tv_timer;
     RecyclerView rv_digits ;
-    PointsAdapter pointsAdapter ;
+    NewPointsAdapter pointsAdapter ;
    String dashName;
 
-
+    public static ArrayList<TableModel> bet_list,tempList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,8 @@ List<String> digit_list ;
         txtMatka=(TextView)findViewById(R.id.matkaname);
         txtboard=(TextView)findViewById(R.id.board);
         txtMatka.setText(dashName);
+        bet_list=new ArrayList<>();
+        tempList=new ArrayList<>();
 //        txtMatka.setText(dashName.toString()+"- Single Digit Board");
         txtboard.setText(dashName.toString()+"- Single Digit Board");
         progressDialog=new LoadingBar(NewJodi.this);
@@ -89,7 +92,7 @@ List<String> digit_list ;
         btnSubmit.setOnClickListener(this);
         btnReset.setOnClickListener(this);
        digit_list =  Arrays.asList(group_jodi_digits);
-        pointsAdapter = new PointsAdapter(digit_list,NewJodi.this);
+        pointsAdapter = new NewPointsAdapter(digit_list,NewJodi.this);
         rv_digits.setNestedScrollingEnabled(false);
         rv_digits.setLayoutManager(new GridLayoutManager(this,2));
         rv_digits.setAdapter(pointsAdapter);
@@ -221,7 +224,22 @@ List<String> digit_list ;
             finish();
         }
         else if (id == R.id.btn_sbmit) {
-            if (is_empty) {
+            tempList.clear();
+            for(int k=0; k<bet_list.size();k++)
+            {
+                if(bet_list.get(k).getPoints().toString().equals("0") || bet_list.get(k).getPoints().toString().equals(""))
+                { }
+                else
+                {
+
+                    tempList.add(bet_list.get(k));
+
+                }
+            }
+            for(TableModel model:tempList){
+                Log.e("temp_data",""+model.getDigits()+" - "+model.getPoints());
+            }
+            if (tempList.size()<=0) {
                 Toast.makeText(NewJodi.this, "Please enter some points", Toast.LENGTH_LONG).show();
             } else {
                 if (is_error) {
@@ -269,7 +287,7 @@ List<String> digit_list ;
                     long bidTime=common.getTimeDifference(start_time);
 if(bidTime>0)
 {
-    common.setBidsDialog(Integer.parseInt(w), jodi_list, m_id, c, game_id, w, dashName, progressDialog, btnSubmit, start_time, end_time);
+    common.setBidsDialog(Integer.parseInt(w), tempList, m_id, c, game_id, w, dashName, progressDialog, btnSubmit, start_time, end_time);
 
 }
 else

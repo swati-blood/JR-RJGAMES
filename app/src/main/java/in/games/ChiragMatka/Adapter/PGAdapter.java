@@ -54,10 +54,11 @@ public class PGAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final View view= LayoutInflater.from(context).inflate(R.layout.play_games_items_layout,null);
+        final View view= LayoutInflater.from(context).inflate(R.layout.row_new_starline,null);
         TextView txtNumber=(TextView)view.findViewById(R.id.pg_Number);
         TextView  txtTime=(TextView)view.findViewById(R.id.pg_Time);
         TextView  txtId=(TextView)view.findViewById(R.id.pg_title);
+        TextView  tv_time=(TextView)view.findViewById(R.id.tv_time);
         ImageView img=(ImageView)view.findViewById(R.id.pg_image);
         RelativeLayout rl_amin=(RelativeLayout)view.findViewById(R.id.rl_amin);
         RelativeLayout rl_change=(RelativeLayout)view.findViewById(R.id.rlchange);
@@ -78,6 +79,7 @@ public class PGAdapter extends BaseAdapter {
         int c_tm=Integer.parseInt(ddt);
        // txtTime.setText(postion.getS_game_time()+" - "+getCloseStatus(postion.getS_game_end_time().toString(),dr));
        txtTime.setText(postion.getS_game_time());
+        tv_time.setText(postion.getS_game_time());
        //txtTime.setText(postion.getS_game_end_time().toString()+" -- "+dr);
        // Toast.makeText(context,"db_time:-  "++"\n curr_time:-  "+dr,Toast.LENGTH_LONG).show();
         Common common=new Common(context);
@@ -99,10 +101,7 @@ public class PGAdapter extends BaseAdapter {
         {
             txtId.setText("Bet is Closed ");
             if(!postion.getS_game_number().equalsIgnoreCase("***")){
-                YoYo.with(Techniques.Swing)
-                        .duration(1200)
-                        .repeat(Integer.MAX_VALUE)
-                        .playOn(rl_amin);
+                common.shakeAnimations(rl_amin);
 
             }
             txtId.setTextColor(context.getResources().getColor(R.color.closed));

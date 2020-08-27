@@ -51,7 +51,8 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view= LayoutInflater.from(context).inflate(R.layout.matks_items_layout,null);
+//        View view= LayoutInflater.from(context).inflate(R.layout.matks_items_layout,null);
+        View view= LayoutInflater.from(context).inflate(R.layout.row_new_matka,null);
         return new ViewHolder(view);
     }
 
@@ -61,12 +62,18 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
         MatkasObjects postion=list.get(position);
 
         String dt=new SimpleDateFormat("EEEE").format(new Date());
-//        common.shakeAnimations(holder.rl_anim);
-        YoYo.with(Techniques.Swing)
-                .duration(1200)
-                .repeat(Integer.MAX_VALUE)
-                .playOn(holder.rl_anim);
-        holder.txtMatkaName.setText(" - "+postion.getName()+" - ");
+        common.shakeAnimations(holder.rl_anim);
+        try{
+
+//            YoYo.with(Techniques.Swing)
+//                    .duration(1200)
+//                    .repeat(Integer.MAX_VALUE)
+//                    .playOn(holder.rl_anim);
+
+        }catch (Exception ex){
+   ex.printStackTrace();
+        }
+        holder.txtMatkaName.setText(postion.getName());
         String s_time=null;
         String e_time=null;
         String s=null;
@@ -127,8 +134,8 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
 
 
-            holder.txtmatkaBid_openTime.setText(String.valueOf(s_time));
-            holder.txtmatkaBid_closeTime.setText(String.valueOf(e_time));
+            holder.txtmatkaBid_openTime.setText("OPEN-BIDS-"+String.valueOf(s_time));
+            holder.txtmatkaBid_closeTime.setText("CLOSE-BIDS-"+String.valueOf(e_time));
 
             holder.txtMatka_resNo.setText(postion.getNumber());
             String end_number=postion.getEnd_num().toString();
@@ -245,29 +252,29 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
 
 
-        int cl=position%4;
-        switch (cl)
-        {
-            case 0:
-                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play1));
-                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play1));
-                break;
-
-            case 1:
-                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play2));
-                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play2));
-                break;
-
-            case 2:
-                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play3));
-                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play3));
-                break;
-
-            case 3:
-                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play4));
-                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play4));
-                break;
-        }
+//        int cl=position%4;
+//        switch (cl)
+//        {
+//            case 0:
+//                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play1));
+//                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play1));
+//                break;
+//
+//            case 1:
+//                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play2));
+//                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play2));
+//                break;
+//
+//            case 2:
+//                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play3));
+//                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play3));
+//                break;
+//
+//            case 3:
+//                holder.imageGame.setImageTintList(context.getColorStateList(R.color.play4));
+//                holder.txt_play.setTextColor(context.getResources().getColor(R.color.play4));
+//                break;
+//        }
 
         holder.rel_matka.setOnClickListener(new View.OnClickListener() {
             @Override

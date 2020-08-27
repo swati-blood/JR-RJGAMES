@@ -91,6 +91,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
             pass=getIntent().getStringExtra("pass");
             strOtp=getIntent().getStringExtra("otp");
             setCounterTimer(120000,tv_timer);
+            otp=strOtp;
             if(msg_status.equalsIgnoreCase("0"))
             {
 

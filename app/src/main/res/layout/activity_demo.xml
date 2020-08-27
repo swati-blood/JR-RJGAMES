@@ -133,7 +133,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center_horizontal"
                 android:text="Verifying your number!"
-                android:textColor="@color/black"
+                android:textColor="@color/txt_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"/>
@@ -142,7 +142,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center_horizontal"
                 android:text=""
-                android:textColor="@color/black"
+                android:textColor="@color/txt_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"/>

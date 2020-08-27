@@ -236,35 +236,14 @@ public class MainActivity extends AppCompatActivity {
 //                   etPassword.setText("111111");
                     String mName=etName.getText().toString().trim();
                     String mPass=etPassword.getText().toString().trim();
-//                    String mName="anasmansoori734@gmail.com";
-//
-//                    String mPass="Anas@123";
-
-//
                 if(!module.validateEditText(etName,lay_u_name))
                     return;
                 if(!module.validateEditText(etPassword,lay_pass))
                     return;
-
-                else
-                    {
+                else{
                         mainName=mName;
-//                        Login(mName,mPass);
                         getUserLoginRequest(mName,mPass);
                     }
-
-//                    if(!mName.isEmpty()||!mPass.isEmpty())
-//                    {
-//
-//                        mainName=mName;
-//                        Login(mName,mPass);
-//                    }
-//                    else
-//                    {
-//                        etName.setError("Please enter user name/email");
-//                        etPassword.setError("Please enter Password");
-//                        return;
-//                    }
                 }
 
 

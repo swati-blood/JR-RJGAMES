@@ -1803,9 +1803,16 @@ public class Common {
         return content;
     }
     public void shakeAnimations(RelativeLayout rl){
-        Animation shake= AnimationUtils.loadAnimation(context,R.anim.shake);
+        Animation shake= AnimationUtils.loadAnimation(context,R.anim.swinging);
         rl.startAnimation(shake);
 
+    }
+
+    public void updatePoints(ArrayList<TableModel> list,int pos,String points,String betType)
+    {
+        TableModel tableModel=list.get(pos);
+        tableModel.setPoints(points);
+        tableModel.setType(betType);
     }
 }
 

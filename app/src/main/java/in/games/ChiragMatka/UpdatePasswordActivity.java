@@ -93,7 +93,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements View.On
                 }
                 else
                 {
-                    common.showToast("Password must br matched");
+                    common.showToast("Password must be matched");
                 }
             }
         }

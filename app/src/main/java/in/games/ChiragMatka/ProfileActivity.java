@@ -249,6 +249,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             }
         },year,month,day);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 568025136000L);
         datePickerDialog.show();
 
     }

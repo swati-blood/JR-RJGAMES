@@ -139,7 +139,7 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
                                      flg=5;
                                  }
                                  if(flg==1 || flg==3 || flg==5){
-                                     if(getTimeOutStatus(timeList))
+                                     if(getStartTimeOutStatus(timeList) || getEndTimOutStatus(timeList))
                                      {
                                          saveInfoWithDate(user_id,String.valueOf(t_amt),st);
                                      }
@@ -372,7 +372,78 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
          });
          AppController.getInstance().addToRequestQueue(customJsonRequest);
      }
+     public boolean getStartTimeOutStatus(ArrayList<TimeSlots> list){
+         int j=0;
+         boolean flag=false;
+         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH");
+         SimpleDateFormat spdfMin=new SimpleDateFormat("mm");
+         Date c_date=new Date();
+         int chours=Integer.parseInt(simpleDateFormat.format(c_date));
+         int cMins=Integer.parseInt(spdfMin.format(c_date));
+         for(int i=0; i<list.size();i++){
+             int shours=Integer.parseInt(list.get(i).getStart_time().split(":")[0].toString());
+             int sMins=Integer.parseInt(list.get(i).getStart_time().split(":")[1].toString());
+             if(chours>shours)
+             {j=1;
+                 flag=true;
+                 break;
+             }
+             else if(chours == shours)
+             {
+                 if(cMins<=sMins)
+                 {
+                     j=2;
+                     flag=true;
+                     break;
+                 }
+                 else{
+                     j=3;
+                     flag=false;
+                     break;
+                 }
+             }
+         }
+//         common.showToast("start_timeout-  "+j);
 
+         return flag;
+
+     }
+     public boolean getEndTimOutStatus(ArrayList<TimeSlots> list){
+         int j=0;
+         boolean flag=false;
+         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH");
+         SimpleDateFormat spdfMin=new SimpleDateFormat("mm");
+         Date c_date=new Date();
+         int chours=Integer.parseInt(simpleDateFormat.format(c_date));
+         int cMins=Integer.parseInt(spdfMin.format(c_date));
+         for(int i=0; i<list.size();i++){
+             int ehours=Integer.parseInt(list.get(i).getEnd_time().split(":")[0].toString());
+             int eMins=Integer.parseInt(list.get(i).getEnd_time().split(":")[1].toString());
+             if(chours<ehours)
+             {j=1;
+                 flag=true;
+                 break;
+             }
+             else if(chours == ehours)
+             {
+                 if(cMins<=eMins)
+                 {
+                     j=4;
+                     flag=true;
+                     break;
+                 }
+                 else{
+                     j=5;
+                     flag=false;
+                     break;
+                 }
+             }
+         }
+//         common.showToast("end_timeout-  "+j);
+
+         return flag;
+
+     }
      public boolean getTimeOutStatus(ArrayList<TimeSlots> list)
      {
          int n=0;
