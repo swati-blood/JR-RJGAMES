@@ -1,12 +1,16 @@
  package in.games.ChiragMatka;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +29,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -45,7 +50,7 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
 
  public class WithdrawalActivity extends AppCompatActivity {
      Common common;
-     private TextView txtback,txtWalletAmount,txtMobile ,txt_withdrw_instrctions,tv_number;
+     private TextView txtback,txtWalletAmount,txtMobile,txt_withdrw_instrctions,tv_number;
      private LoadingBar progressDialog;
      private EditText etPoint;
      private Button btnSave;
@@ -54,10 +59,8 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
      int req_limit=1;
      String text="",no="";
      int wSaturday=0,wSunday=0;
+     RelativeLayout rl_whts;
 
-
-     String saveCurrentDate,saveCurrentTime;
-     int day,hours;
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -70,7 +73,7 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
          btnSave=(Button)findViewById(R.id.add_Request);
          txtMobile=(TextView)findViewById(R.id.textview5);
          txt_withdrw_instrctions = findViewById(R.id.withdrw_msg);
-         // details.setMobileNumber(WithdrawalActivity.this,txtMobile);
+         rl_whts = findViewById(R.id.rl_whts);
          progressDialog=new LoadingBar(WithdrawalActivity.this);
          txt_withdrw_instrctions.setText(withdrw_text.toUpperCase());
          tv_number.setText(withdrw_no.toUpperCase());
@@ -78,12 +81,16 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
          getWithdrawDetails();
          txtback.setOnClickListener(new View.OnClickListener() {
              @Override
-             public void onClick(View v) {
-
-                 finish();
-             }
+             public void onClick(View v) {  finish();  }
          });
 
+         rl_whts.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 whatsapp(withdrw_no.toString(),"Hello! Admin ");
+
+             }
+         });
          btnSave.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -502,5 +509,22 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
          String day=smdf.format(date);
          return day;
      }
+     @SuppressLint("NewApi")
+     public void whatsapp( String phone,String message) {
 
+
+         PackageManager packageManager = getPackageManager();
+         Intent i = new Intent(Intent.ACTION_VIEW);
+
+         try {
+             String url = "https://api.whatsapp.com/send?phone=+91"+ phone +"&text=" + URLEncoder.encode(message, "UTF-8");
+             i.setPackage("com.whatsapp");
+             i.setData(Uri.parse(url));
+             if (i.resolveActivity(packageManager) != null) {
+                 startActivity(i);
+             }
+         } catch (Exception e){
+             e.printStackTrace();
+         }
+     }
  }

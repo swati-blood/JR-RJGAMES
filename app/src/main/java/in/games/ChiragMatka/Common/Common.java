@@ -1773,16 +1773,16 @@ public class Common {
         return h;
     }
 
-    public String[] getNumbers(String str)
-    {
-        String[] numbers=new String[4];
-        String[] subStr=str.split("<br>");
-        numbers[0]=subStr[0].toString().substring(0,6).toString().trim();
-        numbers[1]=getNumberFromMessage(subStr[0].toString().trim());
-        numbers[2]=subStr[1].toString().substring(0,9).toString().trim();
-        numbers[3]=getNumberFromMessage(subStr[1].toString().trim());
-        return numbers;
-    }
+//    public String[] getNumbers(String str)
+//    {
+//        String[] numbers=new String[4];
+//        String[] subStr=str.split("<br>");
+//        numbers[0]=subStr[0].toString().substring(0,6).toString().trim();
+//        numbers[1]=getNumberFromMessage(subStr[0].toString().trim());
+//        numbers[2]=subStr[1].toString().substring(0,9).toString().trim();
+//        numbers[3]=getNumberFromMessage(subStr[1].toString().trim());
+//        return numbers;
+//    }
 
     public String getNumberFromMessage(String message) {
         // This will match any 6 digit number in the message

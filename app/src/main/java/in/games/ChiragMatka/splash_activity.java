@@ -79,7 +79,7 @@ public class splash_activity extends AppCompatActivity {
 //                        update_msg = dataObj.getString("update_msg");
                     ver_code=Float.parseFloat(dataObj.getString("version"));
                     msg=dataObj.getString("message");
-                    common.getNumbers(home_text.toString());
+//                    common.getNumbers(home_text.toString());
 //                    }
 //                    else
 //                    {

@@ -38,6 +38,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ import maes.tech.intentanim.CustomIntent;
 
 import static in.games.ChiragMatka.splash_activity.home_text;
 import static in.games.ChiragMatka.splash_activity.message;
+import static in.games.ChiragMatka.splash_activity.withdrw_no;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
@@ -68,7 +70,7 @@ public class HomeActivity extends AppCompatActivity
     private TextView txtWallet,txtNotification ,txt_tagline;
     ArrayList<MatkaObject> list;
     LinearLayout lin_container;
-    TextView user_profile_name,txt_admin,tv_admin,txt_coadmin,tv_coadmin;
+    TextView user_profile_name,txt_admin,tv_admin,txt_coadmin,tv_coadmin,tv_number;
     private Dialog dialog;
     private Button btn_dialog_ok ,btn_add;
     private CardView pgCard,callCard,cardReload;
@@ -77,6 +79,7 @@ public class HomeActivity extends AppCompatActivity
     private TextView txtUserName,txtNumber;
     LoadingBar progressDialog;
     Common common;
+    RelativeLayout rl_whatsapp;
     public static String mainName="";
     int flag =0 ;
     SliderLayout home_slider;
@@ -89,6 +92,7 @@ public class HomeActivity extends AppCompatActivity
         txtNotification=(TextView)findViewById(R.id.txtNotification);
         txtWallet=(TextView)findViewById(R.id.txtWallet);
         tv_coadmin = findViewById(R.id.tv_coadmin);
+        tv_number = findViewById(R.id.tv_number);
         txt_tagline = findViewById(R.id.tagline);
         btn_add = findViewById(R.id.add_points);
         lin_container = findViewById(R.id.lin_container);
@@ -96,6 +100,7 @@ public class HomeActivity extends AppCompatActivity
         txt_admin=findViewById(R.id.txt_admin);
         tv_admin=findViewById(R.id.tv_admin);
         txt_coadmin=findViewById(R.id.txt_coadmin);
+        rl_whatsapp=findViewById(R.id.rl_whatsapp);
         tv_coadmin=findViewById(R.id.tv_coadmin);
         home_slider=findViewById(R.id.home_slider);
        common=new Common(HomeActivity.this);
@@ -103,12 +108,13 @@ public class HomeActivity extends AppCompatActivity
 //        txt_game_name.setText(Html.fromHtml(home_text.toString()).toString().toUpperCase());
         tv_admin.setPaintFlags(tv_admin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tv_coadmin.setPaintFlags(tv_coadmin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        txt_admin.setText(common.getNumbers(home_text.toString())[0]);
-        tv_admin.setText(common.getNumbers(home_text.toString())[1]);
-        txt_coadmin.setText(common.getNumbers(home_text.toString())[2]);
-        tv_coadmin.setText(common.getNumbers(home_text.toString())[3]);
+//        txt_admin.setText(common.getNumbers(home_text.toString())[0]);
+//        tv_admin.setText(common.getNumbers(home_text.toString())[1]);
+//        txt_coadmin.setText(common.getNumbers(home_text.toString())[2]);
+//        tv_coadmin.setText(common.getNumbers(home_text.toString())[3]);
         tv_admin.setOnClickListener(this);
         tv_coadmin.setOnClickListener(this);
+        tv_number.setText(withdrw_no.toString());
        makeSliderRequest();
         boolean sdfff=common.isConnected();
         if(sdfff==true)
@@ -178,6 +184,12 @@ public class HomeActivity extends AppCompatActivity
                 }
             });
 
+            rl_whatsapp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    whatsapp(withdrw_no,"Hello! Admin ");
+                }
+            });
 
 
         callCard.setOnClickListener(new View.OnClickListener() {
@@ -412,21 +424,7 @@ public class HomeActivity extends AppCompatActivity
 
     @SuppressLint("NewApi")
     public void whatsapp( String phone,String message) {
-//        String formattedNumber = PhoneNumberUtils.formatNumber(phone);
-//        try{
-//            Log.e("fdsfsdfsd",""+formattedNumber+" - "+message);
-//            Intent sendIntent =new Intent(Intent.ACTION_SEND);
-//            sendIntent.putExtra("jid", formattedNumber +"@s.whatsapp.net");
-//            sendIntent.setPackage("com.whatsapp");
-//            sendIntent.setType("text/plain");
-//            sendIntent.putExtra(Intent.EXTRA_TEXT,message);
-////            startActivity(Intent.createChooser(sendIntent, "Share with"));
-//            startActivity(sendIntent);
-//        }
-//        catch(Exception e)
-//        {
-//            Toast.makeText(HomeActivity.this,"Error/n"+ e.toString(),Toast.LENGTH_SHORT).show();
-//        }
+
 
         PackageManager packageManager = getPackageManager();
         Intent i = new Intent(Intent.ACTION_VIEW);
@@ -447,18 +445,18 @@ public class HomeActivity extends AppCompatActivity
     public void onClick(View v) {
    if(v.getId()==R.id.tv_admin)
    {
-       if(!(common.getNumbers(home_text.toString())[1].toString().isEmpty()))
-       {
-           whatsapp(common.getNumbers(home_text.toString())[1].toString(),"Hello, Admin!");
-       }
+//       if(!(common.getNumbers(home_text.toString())[1].toString().isEmpty()))
+//       {
+//           whatsapp(common.getNumbers(home_text.toString())[1].toString(),"Hello, Admin!");
+//       }
 
    }
    else if(v.getId()==R.id.tv_coadmin)
    {
-       if(!(common.getNumbers(home_text.toString())[3].toString().isEmpty()))
-       {
-           whatsapp(common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
-       }
+//       if(!(common.getNumbers(home_text.toString())[3].toString().isEmpty()))
+//       {
+//           whatsapp(common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
+//       }
    }
     }
 

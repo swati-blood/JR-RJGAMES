@@ -93,13 +93,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
             android:visibility="gone"
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             app:cardCornerRadius="2dp"
             android:background="@color/homebg"
             android:elevation="16dp">
@@ -110,20 +108,7 @@
                 android:layout_margin="5dp"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
-                <TextView
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
-                   android:textAlignment="center"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="10dp"
-                    android:text="Welcome to : KING STARLINE"
-                    android:textAllCaps="true"
-                    android:textSize="18dp"
-
-                    android:textStyle="italic|bold"/>
                 <LinearLayout
                     android:weightSum="2"
                     android:orientation="horizontal"
@@ -202,12 +187,10 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView1"
-                android:visibility="gone"
+              android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 app:cardCornerRadius="2dp"
                 android:background="@color/homebg"
                 android:elevation="16dp">
@@ -258,8 +241,8 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/jnplay"
                     android:scaleType="center"
-
                     />
+
 
             </androidx.cardview.widget.CardView>
 
@@ -306,6 +289,39 @@
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:id="@+id/rl_whatsapp"
+                android:background="@drawable/doted_red"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <RelativeLayout
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iv_whts"
+                        android:src="@drawable/icons8_whatsapp_48px_1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/tv_number"
+                        android:layout_marginTop="2dp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:layout_toRightOf="@id/iv_whts"
+                        android:text=""
+                        android:textSize="18dp"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:textColor="@color/txt_color"
+                        android:layout_centerHorizontal="true"
+                        android:textAlignment="center"
+                        android:fontFamily="sans-serif-black"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
 
     <Button
         android:id="@+id/add_points"
