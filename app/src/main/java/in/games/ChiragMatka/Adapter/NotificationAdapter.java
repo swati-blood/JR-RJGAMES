@@ -3,6 +3,8 @@ package in.games.ChiragMatka.Adapter;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +41,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         String s_time="s";
         NotificationObjects postion=list.get(i);
         viewHolder.txtTime.setText(postion.getTime());
-        viewHolder.txtNotification.setText(postion.getNotification());
+        viewHolder.txtNotification.setText(Html.fromHtml(postion.getNotification()));
         viewHolder.txtNotificationId.setText(postion.getNotification_id());
 
     }

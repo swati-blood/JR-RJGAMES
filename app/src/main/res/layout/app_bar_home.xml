@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/txtWallet"
                         android:layout_marginLeft="10dp"
-                        android:visibility="gone"
+
                         android:layout_centerVertical="true"
                         android:backgroundTint="@color/white"
                         android:background="@drawable/ic_notifications_active_black_24dp"
@@ -291,7 +291,6 @@
             </androidx.cardview.widget.CardView>
             <RelativeLayout
                 android:id="@+id/rl_whatsapp"
-                android:background="@drawable/doted_red"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">

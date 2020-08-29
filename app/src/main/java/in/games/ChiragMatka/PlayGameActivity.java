@@ -29,6 +29,7 @@ import java.util.Map;
 
 import in.games.ChiragMatka.Adapter.PGAdapter;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.GameRateModel;
 import in.games.ChiragMatka.Model.Starline_Objects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
@@ -320,7 +321,7 @@ public class PlayGameActivity extends MyBaseActivity {
         String tag_json_obj = "json_notice_req";
         Map<String, String> params = new HashMap<String, String>();
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_NOTICE, params, new Response.Listener<JSONObject>() {
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_NOTICE, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

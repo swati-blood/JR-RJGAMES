@@ -25,8 +25,9 @@ public class BaseUrl {
     public static final String URL_DpMotor = BASE_URL+"get_dpmotor";
     public static final String URL_SpMotor = BASE_URL+"getSpMotor";
     public static final String Url_req_history=BASE_URL+"request_history";
-    public static final String Url_wthdraw_req_history=BASE_URL+"withdraw_history";
+    public static final String URL_INSERT_REQUEST=BASE_URL+"request_points";
     public static final String Url_transaction_history=BASE_URL+"transaction";
+    public static final String URL_NOTIFICAITONS=BASE_URL+"get_notifications";
     public static final String Bid_Histry_Url="https://chiragmatka.com/admin/app_bid_history?user_id=";
     public static final String Starline_Histry_Url="https://chiragmatka.com/app_startline_bid_history?user_id=";
 }

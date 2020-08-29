@@ -359,6 +359,7 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
                          wSaturday=Integer.parseInt(response.getString("w_saturday"));
                          wSunday=Integer.parseInt(response.getString("w_sunday"));
 
+
                      }
                      else{
                          common.showToast(""+response.getString("message"));

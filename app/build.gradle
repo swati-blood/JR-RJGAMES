@@ -70,4 +70,5 @@ dependencies {
     implementation ('com.onesignal:OneSignal:[3.9.2, 3.99.99]'){
         exclude group: 'com.google.android.gms'
     }
+    implementation 'com.shreyaspatil:EasyUpiPayment:2.2'
 }
