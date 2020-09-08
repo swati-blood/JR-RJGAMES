@@ -4,6 +4,7 @@ public class BaseUrl {
     public static final String BASE_URL="https://www.chiragmatka.com/api/";
     public static final String BASE_IMAGE_URL="http://www.chiragmatka.com/assets/images/";
     public static final String IMG_SLIDER_URL =BASE_IMAGE_URL+ "sliders/";
+    public static final String IMG_STARLINE_URL =BASE_IMAGE_URL+ "starline/";
     public static final String URL_INDEX=BASE_URL+"getIndex";
     public static final String URL_LOGIN=BASE_URL+"login";
     public static final String URL_REGISTER=BASE_URL+"sign_up";

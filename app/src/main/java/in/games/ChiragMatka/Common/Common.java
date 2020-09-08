@@ -1597,6 +1597,7 @@ public class Common {
         HashMap<String,String> params=new HashMap<String, String>();
         params.put("data",data);
 
+        Log.e("params_data",""+params.toString());
      //  Toast.makeText(context,""+data,Toast.LENGTH_LONG).show();
         if(progressDialog.isShowing())
         {
@@ -1675,6 +1676,7 @@ public class Common {
                 }
                 catch (Exception ex)
                 {
+                    ex.printStackTrace();
                     progressDialog.dismiss();
                     Toast.makeText(context,"Err"+ex.getMessage(),Toast.LENGTH_LONG).show();
                 }
@@ -1682,8 +1684,8 @@ public class Common {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
                 progressDialog.dismiss();
-
                 String msg=VolleyErrorMessage(error);
                 errorMessageDialog(msg);
 

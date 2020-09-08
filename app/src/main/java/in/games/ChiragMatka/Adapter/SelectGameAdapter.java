@@ -64,6 +64,9 @@ public class SelectGameAdapter extends RecyclerView.Adapter<SelectGameAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final GameModel model = game_list.get(position);
+        if(model.getId().equals("0")){
+            holder.itemView.setVisibility(View.INVISIBLE);
+        }
        holder.game_name.setText(model.getName());
        switch (position%5)
        {
@@ -87,52 +90,55 @@ public class SelectGameAdapter extends RecyclerView.Adapter<SelectGameAdapter.Vi
 holder.game_name.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent i = null;
-        switch (model.getName().trim())
-        {
-            case  "Half Sangam" :
-               i = new Intent(activity, HalfSangamActivity.class);
-                break;
-            case "Open Single":
-            case "Close Single":
-                i = new Intent(activity, NewSingleDigit.class);
-                break;
-            case "Jodi":
-                i = new Intent(activity, NewJodi.class);
-                break;
-                case  "Open Cycle \n Patti" :
-            case  "Close Cycle \n Patti" :
-                i = new Intent(activity, CyclePana.class);
-                break;
-            case  "Open Single Patti" :
-            case  "Close Single Patti" :
-                i = new Intent(activity, SinglePannaActivity.class);
-                break;
-            case  "Open Double Patti" :
-            case  "Close Double Patti" :
-                i = new Intent(activity, DoublePanaActivity.class);
-                break;
-            case  "Open Triple Patti" :
-            case  "Close Triple Patti" :
-                i = new Intent(activity, TriplePanaActivity.class);
-                break;
+        if (model.getId().equals("0")) {
 
-            case "Full Sangam" :
-                i = new Intent(activity, FullSangamActivity.class);
-                break;
+        } else {
+            Intent i = null;
+            switch (model.getName().trim()) {
+                case "Half Sangam":
+                    i = new Intent(activity, HalfSangamActivity.class);
+                    break;
+                case "Open Single":
+                case "Close Single":
+                    i = new Intent(activity, NewSingleDigit.class);
+                    break;
+                case "Jodi":
+                    i = new Intent(activity, NewJodi.class);
+                    break;
+                case "Open Cycle \n Patti":
+                case "Close Cycle \n Patti":
+                    i = new Intent(activity, CyclePana.class);
+                    break;
+                case "Open Single Patti":
+                case "Close Single Patti":
+                    i = new Intent(activity, SinglePannaActivity.class);
+                    break;
+                case "Open Double Patti":
+                case "Close Double Patti":
+                    i = new Intent(activity, DoublePanaActivity.class);
+                    break;
+                case "Open Triple Patti":
+                case "Close Triple Patti":
+                    i = new Intent(activity, TriplePanaActivity.class);
+                    break;
+
+                case "Full Sangam":
+                    i = new Intent(activity, FullSangamActivity.class);
+                    break;
 
 //
+            }
+            if (i != null) {
+                i.putExtra("game_name", model.getName());
+                i.putExtra("game_id", model.getId());
+                i.putExtra("matkaName", matka_name);
+                i.putExtra("m_id", matka_id);
+                i.putExtra("end_time", end_time);
+                i.putExtra("start_time", start_time);
+                i.putExtra("m_type", model.getType());
+                activity.startActivity(i);
+            }
         }
-if (i!=null) {
-    i.putExtra("game_name", model.getName());
-    i.putExtra("game_id", model.getId());
-    i.putExtra("matkaName", matka_name);
-    i.putExtra("m_id", matka_id);
-    i.putExtra("end_time", end_time);
-    i.putExtra("start_time", start_time);
-    i.putExtra("m_type", model.getType());
-    activity.startActivity(i);
-}
     }
 
 });

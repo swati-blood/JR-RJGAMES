@@ -29,7 +29,7 @@
                     android:text="@string/app_name"
                     android:textSize="18dp"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/txt_color"/>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -41,13 +41,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:textColor="@color/white"
+                        android:textColor="@color/txt_color"
                         android:textSize="16dp"
                         android:gravity="center"
 
                         android:padding="5dp"
                         android:layout_centerVertical="true"
-                       android:drawableTint="@color/white"
+                       android:drawableTint="@color/txt_color"
                         android:drawablePadding="@dimen/_5sdp"
                         android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
                         />
@@ -59,7 +59,7 @@
                         android:layout_marginLeft="10dp"
 
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/txt_color"
                         android:background="@drawable/ic_notifications_active_black_24dp"
                         />
 
@@ -234,13 +234,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/homebg"
+                app:cardBackgroundColor="@color/colorPrimary"
                 android:elevation="16dp">
                 <ImageView
+                    android:id="@+id/iv_starline"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/jnplay"
-                    android:scaleType="center"
+
+                    android:scaleType="fitXY"
                     />
 
 

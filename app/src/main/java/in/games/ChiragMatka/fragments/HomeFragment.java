@@ -34,6 +34,8 @@ import in.games.ChiragMatka.URLs;
 import in.games.ChiragMatka.WithdrawalActivity;
 import in.games.ChiragMatka.utils.LoadingBar;
 
+import static in.games.ChiragMatka.Config.BaseUrl.URL_Matka;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -107,7 +109,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     {
         progressDialog.show();
 
-        final JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URLs.URL_Matka, new
+        final JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL_Matka, new
                 Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

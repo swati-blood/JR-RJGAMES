@@ -38,7 +38,7 @@
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/shape2"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/txt_color"
             />
         </RelativeLayout>
 <!--    <android.support.v4.widget.SwipeRefreshLayout-->

@@ -11,6 +11,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -29,6 +30,8 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -37,6 +40,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -60,6 +64,7 @@ import in.games.ChiragMatka.utils.CustomSlider;
 import in.games.ChiragMatka.utils.LoadingBar;
 import maes.tech.intentanim.CustomIntent;
 
+import static in.games.ChiragMatka.Config.BaseUrl.IMG_STARLINE_URL;
 import static in.games.ChiragMatka.splash_activity.home_text;
 import static in.games.ChiragMatka.splash_activity.message;
 import static in.games.ChiragMatka.splash_activity.withdrw_no;
@@ -83,6 +88,7 @@ public class HomeActivity extends AppCompatActivity
     public static String mainName="";
     int flag =0 ;
     SliderLayout home_slider;
+    ImageView iv_starline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +104,7 @@ public class HomeActivity extends AppCompatActivity
         lin_container = findViewById(R.id.lin_container);
         frame_home = findViewById(R.id.frame_home);
         txt_admin=findViewById(R.id.txt_admin);
+        iv_starline=findViewById(R.id.iv_starline);
         tv_admin=findViewById(R.id.tv_admin);
         txt_coadmin=findViewById(R.id.txt_coadmin);
         rl_whatsapp=findViewById(R.id.rl_whatsapp);
@@ -115,6 +122,7 @@ public class HomeActivity extends AppCompatActivity
         tv_admin.setOnClickListener(this);
         tv_coadmin.setOnClickListener(this);
         tv_number.setText(withdrw_no.toString());
+        toolbar.setTitleTextColor(getResources().getColor(R.color.txt_color));
        makeSliderRequest();
         boolean sdfff=common.isConnected();
         if(sdfff==true)
@@ -220,7 +228,7 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-       navigationView.setItemIconTintList(HomeActivity.this.getResources().getColorStateList(R.color.colorAccent));
+       navigationView.setItemIconTintList(HomeActivity.this.getResources().getColorStateList(R.color.txt_color));
        txtUserName=(TextView)navigationView.getHeaderView(0).findViewById(R.id.profile_user_name);
        if(Prevalent.currentOnlineuser.getName().isEmpty() || Prevalent.currentOnlineuser.getName().equals(""))
        {
@@ -471,9 +479,15 @@ public class HomeActivity extends AppCompatActivity
                             String status = response.getString("status");
                             if (status.equals("success"))
                             {
-                                JSONArray jsonArray =response.getJSONArray("data");
-                                JSONObject object = jsonArray.getJSONObject(0);
                                 ArrayList<HashMap<String, String>> listarray = new ArrayList<>();
+                               JSONObject dataObj=response.getJSONObject("data");
+                                Picasso.with(HomeActivity.this).load(IMG_STARLINE_URL+dataObj.getString("starline_img").toString())
+                                        .fit().into(iv_starline);
+                                JSONArray jsonArray =dataObj.getJSONArray("sliders");
+                                for(int i=0;i<jsonArray.length();i++){
+
+
+                                JSONObject object = jsonArray.getJSONObject(i);
 
                                 HashMap<String, String> url_maps = new HashMap<String, String>();
                                 url_maps.put("id", object.getString("id"));
@@ -483,6 +497,7 @@ public class HomeActivity extends AppCompatActivity
                                 //   Toast.makeText(context,""+modelList.get(position).getProduct_image(),Toast.LENGTH_LONG).show();
 
                                 listarray.add(url_maps);
+                                }
 
                                 for (final HashMap<String, String> name : listarray) {
                                     CustomSlider textSliderView = new CustomSlider(HomeActivity.this);
