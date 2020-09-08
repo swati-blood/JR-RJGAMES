@@ -567,9 +567,9 @@ public class Common {
                     String asd2 = tableModel.getType().toString();
                     int b = 9;
 
-                    if (asd2.equals("close")) {
+                    if (asd2.equalsIgnoreCase("Close")) {
                         b = 1;
-                    } else if (asd2.equals("open")) {
+                    } else if (asd2.equalsIgnoreCase("Open")) {
                         b = 0;
                     }
 

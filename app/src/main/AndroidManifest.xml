@@ -40,16 +40,7 @@
         <activity android:name="in.games.ChiragMatka.VerificationActivity" />
         <activity android:name="in.games.ChiragMatka.UpdatePasswordActivity" />
         <activity
-            android:name="in.games.ChiragMatka.SpMotorActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
-            android:name="in.games.ChiragMatka.OddEvenActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
             android:name="in.games.ChiragMatka.GroupJodiActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
-            android:name="in.games.ChiragMatka.JodiDigitActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
             android:name="in.games.ChiragMatka.GroupPanelActivity"
@@ -67,18 +58,9 @@
             android:name="in.games.ChiragMatka.HalfSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.ChiragMatka.RedBracketsActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
-            android:name="in.games.ChiragMatka.DPMotorActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
             android:name="in.games.ChiragMatka.SinglePannaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity android:name="in.games.ChiragMatka.RegisterActivity" />
-        <activity
-            android:name="in.games.ChiragMatka.SingleDigitActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity android:name="in.games.ChiragMatka.DrawerNoticeBoardActivity" />
         <activity android:name="in.games.ChiragMatka.DrawerGameRates" />
         <activity android:name="in.games.ChiragMatka.DrawerHowToPlayActivity" />
@@ -90,7 +72,6 @@
             android:name="in.games.ChiragMatka.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="in.games.ChiragMatka.GameActivity" />
         <activity android:name="in.games.ChiragMatka.splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

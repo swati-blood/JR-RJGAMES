@@ -254,7 +254,7 @@ public class GroupJodiActivity extends AppCompatActivity {
                         if (pints < 10) {
                             //  Toast.makeText(OddEvenActivity.this,"",Toast.LENGTH_LONG).show();
 
-                            etPoints.setError("Minimum Biding amount is 1");
+                            etPoints.setError("Minimum Biding amount is 10");
                             etPoints.requestFocus();
                             return;
 

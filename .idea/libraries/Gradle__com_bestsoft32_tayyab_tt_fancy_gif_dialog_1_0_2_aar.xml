@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.bestsoft32.tayyab:tt-fancy-gif-dialog:1.0.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a56a758682894d898ce13da3f6187cf3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a56a758682894d898ce13da3f6187cf3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a56a758682894d898ce13da3f6187cf3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cf155af66ca3dfd8f6f08221d18a07dc/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cf155af66ca3dfd8f6f08221d18a07dc/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cf155af66ca3dfd8f6f08221d18a07dc/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bestsoft32.tayyab/tt-fancy-gif-dialog/1.0.2/6ef8f1f9f368774fca72864d844a85d4d78edc74/tt-fancy-gif-dialog-1.0.2-javadoc.jar!/" />

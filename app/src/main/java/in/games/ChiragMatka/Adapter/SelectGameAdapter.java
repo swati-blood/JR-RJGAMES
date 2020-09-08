@@ -9,13 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.LayoutAnimationController;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -24,7 +21,6 @@ import in.games.ChiragMatka.CyclePana;
 import in.games.ChiragMatka.DoublePanaActivity;
 import in.games.ChiragMatka.FullSangamActivity;
 import in.games.ChiragMatka.HalfSangamActivity;
-import in.games.ChiragMatka.JodiDigitActivity;
 import in.games.ChiragMatka.Model.GameModel;
 import in.games.ChiragMatka.NewJodi;
 import in.games.ChiragMatka.NewSingleDigit;
