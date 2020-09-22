@@ -107,20 +107,17 @@ public class PlayGameActivity extends MyBaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Starline_Objects starline_objects=arrayList.get(position);
-                //String stime=starline_objects.getS_game_time();
-
-                //boolean sTime=getTimeStatus(String.valueOf(starline_objects.getS_game_time()));
                 int sTime=getTimeFormatStatus(starline_objects.getS_game_time());
                 Date date=new Date();
                 SimpleDateFormat simpleDateFormat=new SimpleDateFormat("HH");
                 String ddt=simpleDateFormat.format(date);
                 int c_tm=Integer.parseInt(ddt);
-                //Toast.makeText(PlayGameActivity.this,"sTime "+sTime+"\n dt"+ddt,Toast.LENGTH_LONG).show();
-                if(sTime<=c_tm)
-                {
-                    common.errorMessageDialog("Betting is closed for today");
-                    return;
-
+                String st=get24Hours(starline_objects.getS_game_end_time().toString());
+                long tmLong=common.getTimeDifference(st);
+//                Toast.makeText(PlayGameActivity.this," dt:  "+tmLong,Toast.LENGTH_LONG).show();
+                if(tmLong<=0)
+                {common.errorMessageDialog("Betting is closed for today");
+                 return;
                 }
                 else
                 {

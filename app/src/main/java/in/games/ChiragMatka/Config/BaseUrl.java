@@ -30,5 +30,5 @@ public class BaseUrl {
     public static final String Url_transaction_history=BASE_URL+"transaction";
     public static final String URL_NOTIFICAITONS=BASE_URL+"get_notifications";
     public static final String Bid_Histry_Url="https://chiragmatka.com/admin/app_bid_history?user_id=";
-    public static final String Starline_Histry_Url="https://chiragmatka.com/app_startline_bid_history?user_id=";
+    public static final String Starline_Histry_Url="https://chiragmatka.com/admin/app_startline_bid_history?user_id=";
 }
