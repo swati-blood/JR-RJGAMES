@@ -60,7 +60,7 @@ public class TriplePanaActivity extends AppCompatActivity {
     private String m_id ,end_time,start_time,bet_type;
     private TextView txtWallet_amount;
     private Dialog dialog;
-    private TextView txtOpen,txtClose ,txt_timer,tv_timer;
+    private TextView txtOpen,txtClose ,txt_timer,tv_timer,tv_star_time;
 
 
     @Override
@@ -82,6 +82,7 @@ public class TriplePanaActivity extends AppCompatActivity {
         txtMatka.setSelected(true);
         txtWallet_amount=(TextView)findViewById(R.id.wallet_amount);
         txt_timer = findViewById(R.id.timer);
+        tv_star_time = findViewById(R.id.star_time);
         bt_back=(TextView)findViewById(R.id.txtBack);
         list=new ArrayList<>();
         list_table=findViewById(R.id.list_table);
@@ -380,17 +381,20 @@ tv_timer = findViewById(R.id.tv_timer);
         {
             tv_timer.setVisibility(View.GONE);
             txt_timer.setVisibility(View.GONE);
+//            tv_star_time.setVisibility(View.VISIBLE);
+//            tv_star_time.setText(common.changeTimeFormat(start_time));
+            btnGameType.setText(common.changeTimeFormat(start_time));
             Date date=new Date();
              SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
             String ctt=dateFormat.format(date);
-                if (common.getTimeDifference(start_time)>0)
-            {
-                btnGameType.setText(ctt+" "+"Bet Open");
-            }
-            else
-            {
-                btnGameType.setText(ctt+" "+"Bet Close");
-            }
+//                if (common.getTimeDifference(start_time)>0)
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Open");
+//            }
+//            else
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Close");
+//            }
 //            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
             // btnType.setText("5:00");
             btnGameType.setClickable(false);

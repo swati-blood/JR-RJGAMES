@@ -3,6 +3,7 @@ package in.games.ChiragMatka;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -50,11 +51,6 @@ public class DoublePanaActivity extends AppCompatActivity {
     int val_p=0;
     TextView  txtClose,txtOpen;
     private Button btnAdd,btnSave,btnType,btnGameType;
-    private TextView txtCurrentDate,txtNextDate,txtAfterNextDate,txtDate_id;
-
-    TextView btnDelete;
-    private TextView txtDigit,txtPoint,txtType;
-    //    private TableRow tr;
     TextView bt_back;
     TextView txtMatka;
     private EditText etDgt,etPnt;
@@ -63,7 +59,7 @@ public class DoublePanaActivity extends AppCompatActivity {
     LoadingBar progressDialog;
     private String game_id;
     private String m_id ,start_time,end_time,bet_type;
-    private TextView txtWallet_amount ,txt_timer,tv_timer;
+    private TextView txtWallet_amount ,txt_timer,tv_timer ,tv_star_time;
 
     private Dialog dialog;
 
@@ -84,6 +80,7 @@ public class DoublePanaActivity extends AppCompatActivity {
         txtMatka=(TextView)findViewById(R.id.board);
         txt_timer= findViewById(R.id.timer);
         tv_timer = findViewById(R.id.tv_timer);
+        tv_star_time = findViewById(R.id.star_time);
         progressDialog=new LoadingBar(DoublePanaActivity.this);
         txtWallet_amount=(TextView)findViewById(R.id.wallet_amount);
         list=new ArrayList<>();
@@ -95,7 +92,7 @@ public class DoublePanaActivity extends AppCompatActivity {
         txtMatka.setSelected(true);
 
         bt_back=(TextView)findViewById(R.id.txtBack);
-
+        Log.e("start_time",start_time + "---"+common.changeTimeFormat(start_time));
 
         final AutoCompleteTextView editText=findViewById(R.id.etSingleDigit);
         final ArrayAdapter<String> adapter=new ArrayAdapter<String>(DoublePanaActivity.this,android.R.layout.simple_list_item_1,doublePanna);
@@ -135,25 +132,7 @@ public class DoublePanaActivity extends AppCompatActivity {
             Date c_date = format.parse(cur_time);
             common.setCounterTimer( common.getTimeDifference(start_time),txt_timer);
             common.setEndCounterTimer( common.getTimeDifference(end_time),tv_timer);
-//
-//            if (c_date.before(s_date))
-//            {
-//
-//                tv_timer.setVisibility(View.GONE);
-//                txt_timer.setVisibility(View.VISIBLE);
-//
-//            }
-//            else if (c_date.before(e_date) && c_date.after(s_date))
-//            {
-//                tv_timer.setVisibility(View.VISIBLE);
-//                txt_timer.setVisibility(View.GONE);
-//
-//            }
-//            else if (c_date.after(e_date))
-//            {
-//                txt_timer.setText("Bid Closed");
-//            }
-//            Log.e("date",s_date +"\n"+e_date +"\n"+c_date);
+
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -389,17 +368,20 @@ public class DoublePanaActivity extends AppCompatActivity {
         {
             txt_timer.setVisibility(View.GONE);
             tv_timer.setVisibility(View.GONE);
+//            tv_star_time.setVisibility(View.VISIBLE);
+//            tv_star_time.setText(common.changeTimeFormat(start_time));
+            btnGameType.setText(common.changeTimeFormat(start_time));
             Date date=new Date();
           SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
             String ctt=dateFormat.format(date);
-                if (common.getTimeDifference(start_time)>0)
-            {
-                btnGameType.setText(ctt+" "+"Bet Open");
-            }
-            else
-            {
-                btnGameType.setText(ctt+" "+"Bet Close");
-            }
+//                if (common.getTimeDifference(start_time)>0)
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Open");
+//            }
+//            else
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Close");
+//            }
 //            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
             // btnType.setText("5:00");
             btnGameType.setClickable(false);

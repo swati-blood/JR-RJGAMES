@@ -43,7 +43,7 @@ public class NewSingleDigit extends AppCompatActivity implements View.OnClickLis
     LoadingBar progressDialog;
     private String game_id;
     private String m_id ,end_time,start_time ,bet_type,dashName;
-    private TextView txtWallet_amount,txt_timer,tv_timer,txtboard;
+    private TextView txtWallet_amount,txt_timer,tv_timer,txtboard,tv_star_time;
 
 
 
@@ -68,6 +68,7 @@ public class NewSingleDigit extends AppCompatActivity implements View.OnClickLis
         txtWallet_amount=(TextView)findViewById(R.id.wallet_amount);
         txt_timer = findViewById(R.id.timer);
         tv_timer= findViewById(R.id.tv_timer);
+        tv_star_time= findViewById(R.id.star_time);
        txtMatka = findViewById(R.id.matkaname);
        txtboard=(TextView)findViewById(R.id.board);
        txtMatka.setText(dashName);
@@ -249,16 +250,19 @@ public class NewSingleDigit extends AppCompatActivity implements View.OnClickLis
             Date date = new Date();
             SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
             String ctt=dateFormat.format(date);
-                if (common.getTimeDifference(start_time)>0)
-            {
-                btnGameType.setText(ctt+" "+"Bet Open");
-            }
-            else
-            {
-                btnGameType.setText(ctt+" "+"Bet Close");
-            }
+//                if (common.getTimeDifference(start_time)>0)
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Open");
+//            }
+//            else
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Close");
+//            }
             txt_timer.setVisibility(View.GONE);
             tv_timer.setVisibility(View.GONE);
+//            tv_star_time.setVisibility(View.VISIBLE);
+//            tv_star_time.setText(common.changeTimeFormat(start_time));
+            btnGameType.setText(common.changeTimeFormat(start_time));
 //           common.getStarlineGameData(String.valueOf(m), btnGameType, progressDialog);
             // btnType.setText("5:00");
             btnGameType.setClickable(false);

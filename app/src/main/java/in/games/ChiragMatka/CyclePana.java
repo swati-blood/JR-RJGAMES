@@ -43,7 +43,7 @@ public class CyclePana extends AppCompatActivity {
     private TextView txtDigit,txtPoint,txtType;
     TextView bt_back;
     TextView btnDelete;
-    private TextView txtCurrentDate,txtNextDate,txtAfterNextDate,txtDate_id ,txt_timer,tv_timer ;
+    private TextView txtCurrentDate,txtNextDate,txtAfterNextDate,txtDate_id ,txt_timer,tv_timer ,tv_star_time;
     private Dialog dialog;
     private TextView txtOpen,txtClose;
     private final String[] d10={"100","110","120","130","140","150","160","170","180","190"};
@@ -138,6 +138,7 @@ public class CyclePana extends AppCompatActivity {
         btnGameType=(Button)findViewById(R.id.btnBetStatus);
         txtMatka=(TextView)findViewById(R.id.board);
         txt_timer = findViewById(R.id.timer);
+        tv_star_time = findViewById(R.id.star_time);
         tv_timer = findViewById(R.id.tv_timer);
         rd_close=findViewById(R.id.rd_close);
         rd_open=findViewById(R.id.rd_open);
@@ -699,17 +700,23 @@ public class CyclePana extends AppCompatActivity {
         int m=Integer.parseInt(m_id.toString());
         if(m> Prevalent.Matka_count)
         {
+            txt_timer.setVisibility(View.GONE);
+            tv_timer.setVisibility(View.GONE);
+//            tv_star_time.setVisibility(View.VISIBLE);
+//            tv_star_time.setText(common.changeTimeFormat(start_time));
+            btnGameType.setText(common.changeTimeFormat(start_time));
             Date date=new Date();
             SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
             String ctt=dateFormat.format(date);
-            if (common.getTimeDifference(start_time)>0)
-            {
-                btnGameType.setText(ctt+" "+"Bet Open");
-            }
-            else
-            {
-                btnGameType.setText(ctt+" "+"Bet Close");
-            }
+//            if (common.getTimeDifference(start_time)>0)
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Open");
+//            }
+//            else
+//            {
+//                btnGameType.setText(ctt+" "+"Bet Close");
+//
+//            }
 
 //            common.getStarlineGameData(String.valueOf(m),btnType,progressDialog);
             // btnType.setText("5:00");

@@ -40,12 +40,6 @@
         <activity android:name="in.games.ChiragMatka.VerificationActivity" />
         <activity android:name="in.games.ChiragMatka.UpdatePasswordActivity" />
         <activity
-            android:name="in.games.ChiragMatka.GroupJodiActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
-            android:name="in.games.ChiragMatka.GroupPanelActivity"
-            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity
             android:name="in.games.ChiragMatka.TriplePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
@@ -66,7 +60,6 @@
         <activity android:name="in.games.ChiragMatka.DrawerHowToPlayActivity" />
         <activity android:name="in.games.ChiragMatka.DrawerProfileActivity" />
         <activity android:name="in.games.ChiragMatka.NotificationActivity" />
-        <activity android:name="in.games.ChiragMatka.DoubleDigitActivity" />
         <activity android:name="in.games.ChiragMatka.PlayGameActivity" />
         <activity
             android:name="in.games.ChiragMatka.HomeActivity"
