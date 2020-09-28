@@ -3,6 +3,7 @@ package in.games.ChiragMatka;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -246,6 +247,7 @@ public class NewSingleDigit extends AppCompatActivity implements View.OnClickLis
     protected void onStart() {
         super.onStart();
         int m = Integer.parseInt(m_id.toString());
+        Log.e("matka_Count", String.valueOf(Prevalent.Matka_count));
         if (m > Prevalent.Matka_count) {
             Date date = new Date();
             SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
