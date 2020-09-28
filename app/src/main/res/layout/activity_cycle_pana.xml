@@ -63,7 +63,7 @@
                 android:layout_marginEnd="10dp"
                 android:textColor="@color/white"
                 android:drawableTint="@color/white"
-                android:drawableLeft="@drawable/icons8_rupee_24px"
+                android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
                 android:drawablePadding="2dp"/>
         </RelativeLayout>
 

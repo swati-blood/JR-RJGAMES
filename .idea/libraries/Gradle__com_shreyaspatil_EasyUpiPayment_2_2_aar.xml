@@ -1,11 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.shreyaspatil:EasyUpiPayment:2.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a24a48e451aec8ac7fa0df3135f3ba7e/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a24a48e451aec8ac7fa0df3135f3ba7e/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a24a48e451aec8ac7fa0df3135f3ba7e/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28ef5a5fd7b4679c90c5da71e127b573/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28ef5a5fd7b4679c90c5da71e127b573/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28ef5a5fd7b4679c90c5da71e127b573/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.shreyaspatil/EasyUpiPayment/2.2/2703593012c4bf3edfbaec89244d1899b78cc4ff/EasyUpiPayment-2.2-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.shreyaspatil/EasyUpiPayment/2.2/419ccc088b667a321c42723ef70f50183be72f2e/EasyUpiPayment-2.2-sources.jar!/" />
     </SOURCES>

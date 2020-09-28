@@ -61,6 +61,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.fragments.HomeFragment;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.CustomSlider;
+import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 import maes.tech.intentanim.CustomIntent;
 
@@ -75,9 +76,10 @@ public class HomeActivity extends AppCompatActivity
     private TextView txtWallet,txtNotification ,txt_tagline;
     ArrayList<MatkaObject> list;
     LinearLayout lin_container;
+    String chart_url="",no_chart_msg="No Chart Available";
     TextView user_profile_name,txt_admin,tv_admin,txt_coadmin,tv_coadmin,tv_number;
     private Dialog dialog;
-    private Button btn_dialog_ok ,btn_add;
+    private Button btn_dialog_ok ,btn_add,btn_chart;
     private CardView pgCard,callCard,cardReload;
     private String name="";
     private TextView txtWallet_amount;
@@ -99,6 +101,7 @@ public class HomeActivity extends AppCompatActivity
         txtWallet=(TextView)findViewById(R.id.txtWallet);
         tv_coadmin = findViewById(R.id.tv_coadmin);
         tv_number = findViewById(R.id.tv_number);
+        btn_chart = findViewById(R.id.btn_chart);
         txt_tagline = findViewById(R.id.tagline);
         btn_add = findViewById(R.id.add_points);
         lin_container = findViewById(R.id.lin_container);
@@ -121,6 +124,7 @@ public class HomeActivity extends AppCompatActivity
 //        tv_coadmin.setText(common.getNumbers(home_text.toString())[3]);
         tv_admin.setOnClickListener(this);
         tv_coadmin.setOnClickListener(this);
+        btn_chart.setOnClickListener(this);
         tv_number.setText(withdrw_no.toString());
         toolbar.setTitleTextColor(getResources().getColor(R.color.txt_color));
        makeSliderRequest();
@@ -244,7 +248,7 @@ public class HomeActivity extends AppCompatActivity
                 .addToBackStack(null)
                 .commit();
 
-
+        getChartData();
 
     }
 
@@ -466,6 +470,13 @@ public class HomeActivity extends AppCompatActivity
 //           whatsapp(common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
 //       }
    }
+   else if(v.getId() == R.id.btn_chart){
+         if(chart_url==null || chart_url.isEmpty() || chart_url.equals("")){
+             common.showToast(no_chart_msg);
+         }else{
+           common.clickUrl(chart_url);
+         }
+   }
     }
 
     private void makeSliderRequest() {
@@ -529,6 +540,48 @@ public class HomeActivity extends AppCompatActivity
             }
         });
         AppController.getInstance().addToRequestQueue(req);
+
+    }
+
+    public void getChartData() {
+
+        String json_tag="json_splash_request";
+        HashMap<String,String> params=new HashMap<String, String>();
+        CustomVolleyJsonArrayRequest customJsonRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, BaseUrl.URL_INDEX, params, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(final JSONArray response) {
+                Log.e("asdasd",""+response.toString());
+                try
+                {
+                    JSONObject dataObj=response.getJSONObject(0);
+
+                    chart_url = dataObj.getString("chart_url");
+                    String msg = dataObj.getString("no_chart_msg");
+                    if(msg!=null || (!msg.isEmpty()) ||(!msg.equalsIgnoreCase("null"))){
+                        no_chart_msg=msg;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+//                    Toast.makeText(splash_activity.this,"Something went wrong",Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                error.printStackTrace();
+                String msg=common.VolleyErrorMessage(error);
+                if(!msg.isEmpty())
+                {
+                    common.showToast(""+msg);
+                }
+            }
+        });
+
+        AppController.getInstance().addToRequestQueue(customJsonRequest,json_tag);
+
 
     }
 }

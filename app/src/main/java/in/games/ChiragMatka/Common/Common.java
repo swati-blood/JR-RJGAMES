@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.SpannableString;
@@ -1815,6 +1816,12 @@ public class Common {
         TableModel tableModel=list.get(pos);
         tableModel.setPoints(points);
         tableModel.setType(betType);
+    }
+
+    public void clickUrl(String url){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        context.startActivity(intent);
     }
 }
 

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import in.games.ChiragMatka.Adapter.MatkaNewAdapter;
 import in.games.ChiragMatka.Common.Common;
+import in.games.ChiragMatka.HomeActivity;
 import in.games.ChiragMatka.Model.MatkasObjects;
 import in.games.ChiragMatka.R;
 import in.games.ChiragMatka.URLs;
@@ -44,7 +45,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     RecyclerView listView;
     Common common;
     Button btn_withdrw;
-    ImageView refresh;
+    Button btn_refresh;
     ArrayList<MatkasObjects> matkaList;
     MatkaNewAdapter newAdapter;
 
@@ -95,14 +96,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 //        swipe=v.findViewById(R.id.swipe_layout);
         listView=v.findViewById(R.id.listView);
         btn_withdrw = v.findViewById(R.id.withdrw_points);
-        refresh = v.findViewById(R.id.refresh);
+        btn_refresh = v.findViewById(R.id.btn_refresh);
 
         matkaList=new ArrayList<>();
         listView.setNestedScrollingEnabled(false);
         progressDialog=new LoadingBar(getActivity());
         common=new Common(getActivity());
      btn_withdrw.setOnClickListener(this);
-        refresh.setOnClickListener(this);
+        btn_refresh.setOnClickListener(this);
     }
 
     public void getMatkaData()
@@ -186,9 +187,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             startActivity(intent);
 
         }
-        else if(id == R.id.refresh)
+        else if(id == R.id.btn_refresh)
         {
             getMatkaData();
+            ((HomeActivity)getActivity()).getChartData();
         }
     }
 }

@@ -51,7 +51,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
     private TextView bt_back,txtMatka;
     Button btnRequest;
     private TextView txtWallet_amount;
-
+    String upi_status="";
     private EasyUpiPayment mEasyUpiPayment;
     int min_amount,amt_limit=0 ;
     boolean upi_flag=false;
@@ -112,9 +112,14 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
                         String description = upi_desc;
                         String amount = p.toString()+".00";
 //                        String user_id= common.getUserID();
-//                        addRequest(user_id,p,"approved",transactionId);
+                        if(upi_status.equals("0")){
+                            addRequest(user_id,p,"pending","");
 
-                        payViaUpi(transactionId,payeeVpa,payeeName,transactionRefId,description,amount);
+                        }else{
+                            payViaUpi(transactionId,payeeVpa,payeeName,transactionRefId,description,amount);
+
+                        }
+
                     }
                 }
 
@@ -236,6 +241,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
                         upi_name=dataObj.getString("upi_name");
                         upi_desc=dataObj.getString("upi_desc");
                         upi_type=dataObj.getString("upi_type");
+                        upi_status=dataObj.getString("upi_status");
                         amt_limit=Integer.parseInt(dataObj.getString("min_amount").toString());
 
 //                    }else{

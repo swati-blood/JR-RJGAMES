@@ -61,7 +61,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         MatkasObjects postion=list.get(position);
 
-        String dt=new SimpleDateFormat("EEEE").format(new Date());
+               String dt=new SimpleDateFormat("EEEE").format(new Date());
         common.shakeAnimations(holder.rl_anim);
         try{
 

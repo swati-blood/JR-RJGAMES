@@ -68,7 +68,7 @@
         android:checkableBehavior="single">
     <item
         android:id="@+id/nav_funds"
-        android:icon="@drawable/icons8_money_bag_rupee_240px"
+        android:icon="@drawable/ic_account_balance_wallet_black_24dp"
 
         android:title="Add Points" />
     </group>

@@ -108,7 +108,8 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
 
            game_list.add(new GameModel("9", "Open Triple Patti", R.drawable.logo, "Open"));
            game_list.add(new GameModel("9", "Close Triple Patti", R.drawable.logo, "Close"));
-//           game_list.add(new GameModel("0", "Close Triple Patti", R.drawable.logo, "Close"));
+           game_list.add(new GameModel("0", "Close Triple Patti", R.drawable.logo, "Close"));
+//           game_list.add(new GameModel("144", "", R.drawable.logo, "Open"));
 
            game_list.add(new GameModel("14", "Open Cycle \n Patti ", R.drawable.logo, "Open"));
            game_list.add(new GameModel("14", "Close Cycle \n Patti ", R.drawable.logo, "Close"));

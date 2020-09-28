@@ -323,13 +323,19 @@
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="5"
+                android:layout_height="wrap_content">
     <Button
+        android:layout_weight="3"
         android:id="@+id/add_points"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="40dp"
         android:elevation="@dimen/_5sdp"
-        android:layout_marginLeft="@dimen/_50sdp"
-        android:layout_marginRight="@dimen/_50sdp"
+        android:layout_marginLeft="5dp"
+
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"
@@ -337,7 +343,22 @@
         android:backgroundTint="@color/play3"
         android:background="@drawable/shape2"
     />
+                <Button
+                    android:layout_weight="2"
+                    android:id="@+id/btn_chart"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginLeft="5dp"
 
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@android:color/black"
+                    android:text="Our Charts"
+                    android:backgroundTint="@android:color/white"
+                    android:background="@drawable/shape2"
+                    />
+            </LinearLayout>
 
 <!--        <RelativeLayout-->
 <!--            android:layout_width="match_parent"-->
