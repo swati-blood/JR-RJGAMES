@@ -354,7 +354,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:textColor="@android:color/black"
-                    android:text="Our Charts"
+                    android:text="All Charts"
                     android:backgroundTint="@android:color/white"
                     android:background="@drawable/shape2"
                     />

@@ -64,10 +64,23 @@ public class TableAdaper extends BaseAdapter {
                 int we=list.size();
                 int points=Integer.parseInt(tableModel.getPoints());
                 int tot_pnt=we*points;
+               if(getTotalPoints(list)<=0){
+                   btnSave.setText("Submit");
+               }else{
+                   btnSave.setText("(BIDS="+we+")(Points="+getTotalPoints(list)+")");
+               }
 
-           btnSave.setText("(BIDS="+we+")(Points="+tot_pnt+")");
             }
         });
         return itemView;
+    }
+
+
+    public int getTotalPoints(List<TableModel> list){
+        int sum=0;
+        for(int i=0; i<list.size();i++){
+            sum=sum+Integer.parseInt(list.get(i).getPoints());
+        }
+        return sum;
     }
 }
