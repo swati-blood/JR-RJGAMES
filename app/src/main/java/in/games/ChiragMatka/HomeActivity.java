@@ -79,6 +79,7 @@ public class HomeActivity extends AppCompatActivity
     String chart_url="",no_chart_msg="No Chart Available";
     TextView user_profile_name,txt_admin,tv_admin,txt_coadmin,tv_coadmin,tv_number;
     private Dialog dialog;
+    String whatsapp_no="";
     private Button btn_dialog_ok ,btn_add,btn_chart;
     private CardView pgCard,callCard,cardReload;
     private String name="";
@@ -125,7 +126,7 @@ public class HomeActivity extends AppCompatActivity
         tv_admin.setOnClickListener(this);
         tv_coadmin.setOnClickListener(this);
         btn_chart.setOnClickListener(this);
-        tv_number.setText(withdrw_no.toString());
+
         toolbar.setTitleTextColor(getResources().getColor(R.color.txt_color));
        makeSliderRequest();
         boolean sdfff=common.isConnected();
@@ -199,7 +200,7 @@ public class HomeActivity extends AppCompatActivity
             rl_whatsapp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    whatsapp(withdrw_no,"Hello! Admin ");
+                    whatsapp(whatsapp_no,"Hello! Admin ");
                 }
             });
 
@@ -333,6 +334,7 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+        getMobileData();
         common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
 
 
@@ -560,6 +562,45 @@ public class HomeActivity extends AppCompatActivity
                     if(msg!=null || (!msg.isEmpty()) ||(!msg.equalsIgnoreCase("null"))){
                         no_chart_msg=msg;
                     }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+//                    Toast.makeText(splash_activity.this,"Something went wrong",Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                error.printStackTrace();
+                String msg=common.VolleyErrorMessage(error);
+                if(!msg.isEmpty())
+                {
+                    common.showToast(""+msg);
+                }
+            }
+        });
+
+        AppController.getInstance().addToRequestQueue(customJsonRequest,json_tag);
+
+
+    }
+    public void getMobileData() {
+
+        String json_tag="json_splash_request";
+        HashMap<String,String> params=new HashMap<String, String>();
+        CustomVolleyJsonArrayRequest customJsonRequest=new CustomVolleyJsonArrayRequest(Request.Method.GET, BaseUrl.URL_MOBILEDATA, params, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(final JSONArray response) {
+                Log.e("asdasd",""+response.toString());
+                try
+                {
+                    JSONObject dataObj=response.getJSONObject(0);
+
+                    whatsapp_no = dataObj.getString("mobile");
+                    tv_number.setText(whatsapp_no.toString());
+
                 }
                 catch (Exception ex)
                 {

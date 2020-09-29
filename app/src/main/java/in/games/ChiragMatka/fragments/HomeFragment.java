@@ -191,6 +191,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         {
             getMatkaData();
             ((HomeActivity)getActivity()).getChartData();
+            ((HomeActivity)getActivity()).getMobileData();
         }
     }
 }
