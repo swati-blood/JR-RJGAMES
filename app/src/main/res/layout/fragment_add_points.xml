@@ -40,8 +40,9 @@
             android:textAllCaps="false"
             android:background="@drawable/gradient_button"
             android:layout_below="@id/etRequstPoints"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:textSize="18dp"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
 

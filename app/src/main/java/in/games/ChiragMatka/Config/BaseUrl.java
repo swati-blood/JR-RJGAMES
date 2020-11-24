@@ -1,9 +1,10 @@
 package in.games.ChiragMatka.Config;
 
 public class BaseUrl {
-    public static final String BASE_URL="https://www.chiragmatka.com/api/";
+//    public static final String BASE_URL="https://www.chiragmatka.com/api/";
 //    public static final String BASE_URL="https://admin.anshuwap.com/rajdhani_game/api/";
 //    public static final String BASE_IMAGE_URL="https://admin.anshuwap.com/rajdhani_game/assets/images/";
+    public static final String BASE_URL="https://rdgames.anshuwap.com/api/";
     public static final String BASE_IMAGE_URL="https://www.chiragmatka.com/assets/images/";
     public static final String IMG_SLIDER_URL =BASE_IMAGE_URL+ "sliders/";
     public static final String IMG_STARLINE_URL =BASE_IMAGE_URL+ "starline/";

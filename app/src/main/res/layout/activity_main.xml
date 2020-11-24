@@ -40,6 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-30dp"
         android:padding="@dimen/_10sdp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_below="@id/appLogo"
 
 
@@ -54,17 +56,18 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Mobile Number"
+                android:textColorHint="@color/colorPrimaryDark"
                 app:hintTextAppearance="@dimen/_18sdp"
                 app:helperTextTextAppearance="@dimen/_18sdp"
-
                 style="@style/textstyle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUser"
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_phone_android_black_24dp"
-                    android:drawableTint="@color/colorAccent"
+                    android:drawableTint="@color/colorPrimary"
                     android:textSize="14dp"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -101,6 +104,7 @@
                 android:id="@+id/lay_pass"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_5sdp"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
                 style="@style/textstyle"         >
@@ -109,10 +113,11 @@
                     android:id="@+id/etPass"
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
-                    android:drawableTint="@color/colorAccent"
+                    android:drawableTint="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
+                    android:textColor="@color/colorPrimaryDark"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     />
@@ -147,11 +152,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:textAllCaps="false"
-
             android:background="@drawable/gradient_button"
-
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:layout_marginTop="10dp"
             android:textSize="20dp"
             android:layout_below="@id/relativeLayout3"/>
@@ -188,7 +192,7 @@
                 android:background="@android:color/transparent"
                 android:textSize="12dp"
                 android:layout_marginLeft="30dp"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
                 android:paddingLeft="5dp"
                 android:paddingRight="3dp"/>
             <Button
@@ -214,7 +218,7 @@
                 android:layout_alignParentEnd="true"
                 android:background="@android:color/transparent"
                 android:textSize="12dp"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
 
                 android:layout_marginRight="30dp"
                 android:paddingLeft="5dp"

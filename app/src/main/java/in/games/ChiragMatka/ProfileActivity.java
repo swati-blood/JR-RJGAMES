@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+
 
 import org.json.JSONObject;
 
@@ -35,6 +37,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     LoadingBar progressDialog;
     String wrong="Something Went Wrong";
     private TextView btn_back;
+    TextView tv_profile,tv_address,tv_bank_detail,tv_account;
+    LinearLayout ll_profile,ll_address,ll_bank_detail,ll_account;
     int   year,month,day;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private Button btnDAddress,btnDBank,btnDPaytm,btnDGoogle,btnUpdatePass ,btnUpdate;
@@ -46,6 +50,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         btn_back=(TextView)findViewById(R.id.txt_back);
         progressDialog=new LoadingBar(this);
+
+
 
 
         btn_back.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +83,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         et_dob.setOnClickListener(this);
         et_email = findViewById(R.id.et_email);
         et_mobile = findViewById(R.id.etMobile);
+
+
+
+
+        tv_profile=findViewById(R.id.tv_profile);
+        tv_address= findViewById(R.id.tv_address);
+        tv_bank_detail=findViewById(R.id.tv_bank_detail);
+        tv_account=findViewById(R.id.tv_account);
+
+        ll_profile=findViewById(R.id.ll_profile);
+        ll_address=findViewById(R.id.ll_address);
+        ll_bank_detail=findViewById(R.id.ll_bank_detail);
+        ll_account=findViewById(R.id.ll_account);
+
+
+
+
         btnUpdate = findViewById(R.id.btn_update);
         btnUpdate.setOnClickListener(this);
 
@@ -108,6 +131,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setDataEditText(etBankName,bn);
         setDataEditText(etIfscCode,ic);
         setDataEditText(etAccHolderName,ah);
+
+
+        filldetail();
     }
 
     private void storeBankDetails(final String accno,final String bankname,final String ifsc,final String hod_name,final String mailid) {
@@ -539,6 +565,73 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         });
         AppController.getInstance().addToRequestQueue(customJsonRequest,"json_tez");
 
+    }
+
+    public void filldetail()
+    {
+
+//        TextView tv_profile,tv_address,tv_bank_detail,tv_account;
+//        LinearLayout ll_profile,ll_address,ll_bank_detail,ll_account;
+
+        tv_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ll_profile.setVisibility(View.VISIBLE);
+                tv_profile.setVisibility(View.GONE);
+                ll_address.setVisibility(View.GONE);
+                ll_bank_detail.setVisibility(View.GONE);
+                tv_account.setVisibility(View.GONE);
+                tv_address.setVisibility(View.VISIBLE);
+                tv_bank_detail.setVisibility(View.VISIBLE);
+                tv_account.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        tv_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               tv_address.setVisibility(View.GONE);
+               ll_address.setVisibility(View.VISIBLE);
+               tv_profile.setVisibility(View.VISIBLE);
+               tv_bank_detail.setVisibility(View.VISIBLE);
+               tv_account.setVisibility(View.VISIBLE);
+               ll_account.setVisibility(View.GONE);
+               ll_bank_detail.setVisibility(View.GONE);
+               ll_profile.setVisibility(View.GONE);
+
+
+            }
+        });
+
+        tv_bank_detail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tv_bank_detail.setVisibility(View.GONE);
+                ll_bank_detail.setVisibility(View.VISIBLE);
+                tv_profile.setVisibility(View.VISIBLE);
+                tv_address.setVisibility(View.VISIBLE);
+                tv_account.setVisibility(View.VISIBLE);
+                ll_account.setVisibility(View.GONE);
+                ll_address.setVisibility(View.GONE);
+                ll_profile.setVisibility(View.GONE);
+
+            }
+        });
+
+        tv_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tv_account.setVisibility(View.GONE);
+                ll_account.setVisibility(View.VISIBLE);
+                tv_profile.setVisibility(View.VISIBLE);
+                tv_bank_detail.setVisibility(View.VISIBLE);
+                tv_address.setVisibility(View.VISIBLE);
+                ll_address.setVisibility(View.GONE);
+                ll_bank_detail.setVisibility(View.GONE);
+                ll_profile.setVisibility(View.GONE);
+            }
+        });
     }
 
 }

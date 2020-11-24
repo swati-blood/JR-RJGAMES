@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-auth-api-phone:17.1.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/505c05a0daf1d5d581860db4064d08dd/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/505c05a0daf1d5d581860db4064d08dd/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/505c05a0daf1d5d581860db4064d08dd/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d2a12ea9685b37e678fdbe8ec366dab/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d2a12ea9685b37e678fdbe8ec366dab/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d2a12ea9685b37e678fdbe8ec366dab/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-auth-api-phone/17.1.0/f7687a81343a48ab0fe37a68e596e95054600b9d/play-services-auth-api-phone-17.1.0-javadoc.jar!/" />

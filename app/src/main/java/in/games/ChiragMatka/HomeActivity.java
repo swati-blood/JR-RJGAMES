@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
@@ -63,6 +64,7 @@ import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.CustomSlider;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.Module;
 import maes.tech.intentanim.CustomIntent;
 
 import static in.games.ChiragMatka.Config.BaseUrl.IMG_STARLINE_URL;
@@ -74,6 +76,10 @@ public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
     FrameLayout frame_home;
     private TextView txtWallet,txtNotification ,txt_tagline;
+    TextView tv_vername,tv_name;
+//    NavigationView navigationView;
+//    Module module;
+    private Menu nav_menu;
     ArrayList<MatkaObject> list;
     LinearLayout lin_container;
     String chart_url="",no_chart_msg="No Chart Available";
@@ -97,7 +103,31 @@ public class HomeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        tv_vername = findViewById(R.id.tv_version);
+        PackageManager pm = getApplicationContext().getPackageManager();
+        String pkgName = getApplicationContext().getPackageName();
+        PackageInfo pkgInfo = null;
+        try {
+            pkgInfo = pm.getPackageInfo(pkgName, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String ver = pkgInfo.versionName;
+        tv_vername.setText("Version " +ver);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
+//        navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
+//        nav_menu = navigationView.getMenu();
+//
+//        View header = ((NavigationView) findViewById(R.id.nav_view)).getHeaderView(0);
+//        tv_name = (TextView) header.findViewById(R.id.profile_user_name);
+//        module=new Module(HomeActivity.this);
+//        updatename();
+
         txtNotification=(TextView)findViewById(R.id.txtNotification);
         txtWallet=(TextView)findViewById(R.id.txtWallet);
         tv_coadmin = findViewById(R.id.tv_coadmin);
@@ -126,6 +156,8 @@ public class HomeActivity extends AppCompatActivity
         tv_admin.setOnClickListener(this);
         tv_coadmin.setOnClickListener(this);
         btn_chart.setOnClickListener(this);
+
+
 
         toolbar.setTitleTextColor(getResources().getColor(R.color.txt_color));
        makeSliderRequest();

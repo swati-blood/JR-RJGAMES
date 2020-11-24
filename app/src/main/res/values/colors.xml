@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#010101</color>
-    <color name="colorPrimaryDark">#010101</color>
-    <color name="colorAccent">#F3A003</color>
-    <color name="textColor">#F3A003</color>
+    <color name="colorPrimary">#051B95</color>
+    <color name="colorPrimaryDark">#071250</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="textColor">#FFFFFF</color>
     <color name="btnColor">#F2490F</color>
 <!--    <color name="iconColor">#000000</color>-->
-    <color name="white">#F3A003</color>
+    <color name="white">#FFFFFF</color>
     <color name="lowColor">#d82e43</color>
     <color name="rtr">#43D82E43</color>
     <color name="greenColor">#316D35</color>
     <color name="iconColor">#264267</color>
+    <color name="gray">#A39D9D</color>
     <color name="black">#000000</color>
     <color name="transparent">#009C27B0</color>
     <color name="bg">#40FFFFFF</color>
@@ -25,7 +26,7 @@
     <color name="play4">#FF6D00</color>
     <color name="play1">#C51162</color>
     <color name="blue">#040342</color>
-    <color name="green">#053004</color>
+    <color name="green">#095007</color>
     <color name="red">#911714</color>
     <color name="running">#316D35</color>
     <color name="closed">#990406</color>

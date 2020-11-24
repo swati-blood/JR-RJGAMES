@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.onesignal:OneSignal:3.15.4@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f28b0ca5b0a4276756671fd31b4ec730/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f28b0ca5b0a4276756671fd31b4ec730/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f28b0ca5b0a4276756671fd31b4ec730/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cd9eeb92651dce5fe32d8fde4869fe84/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cd9eeb92651dce5fe32d8fde4869fe84/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cd9eeb92651dce5fe32d8fde4869fe84/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e79f621c5c41559759df002b54be4251/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e79f621c5c41559759df002b54be4251/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e79f621c5c41559759df002b54be4251/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

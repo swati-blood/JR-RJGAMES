@@ -16,10 +16,10 @@
     <style name="textstyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textSize" >14sp</item>
         <item name="errorTextAppearance">@color/play1</item>
-        <item name="hintTextAppearance">@color/colorAccent</item>
-        <item name="boxStrokeColor">@color/colorAccent </item>
-        <item name="android:textColor">@color/colorAccent </item>
-        <item name="android:textColorHint">@color/colorAccent </item>
+        <item name="hintTextAppearance">@color/gray</item>
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimaryDark </item>
+        <item name="android:textColorHint">@color/gray </item>
         <item name="boxBackgroundMode">outline</item>
 
     </style>

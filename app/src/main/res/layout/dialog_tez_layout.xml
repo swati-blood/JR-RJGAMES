@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
     app:cardCornerRadius="@dimen/_10sdp"
     app:cardElevation="@dimen/_10sdp"
     android:layout_height="wrap_content">
@@ -41,10 +41,11 @@
              android:background="@drawable/shape2"
              android:textSize="18dp"
              android:padding="10dp"
+             android:backgroundTint="@color/white"
              android:hint="Enter Google Pay(Tez) number"
              android:gravity="center"
-             android:textColorHint="@color/white"
-             android:textColor="@color/white"
+             android:textColorHint="@color/colorPrimaryDark"
+             android:textColor="@color/colorPrimaryDark"
              android:inputType="number"
              android:textAlignment="center"
 
@@ -59,10 +60,10 @@
             android:layout_height="wrap_content"
             android:text="Save"
             android:background="@drawable/gradient_button"
-android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryDark"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="18dp"
-
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="10dp"
 
             />

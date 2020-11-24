@@ -61,23 +61,21 @@
             <EditText
                 android:id="@+id/et_phone"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/imageViewUserIcon"
                 android:padding="10dp"
                 android:layout_marginTop="0dp"
-
                 android:layout_toRightOf="@id/imageViewUserIcon"
                 android:background="@drawable/gradient_button"
                 android:backgroundTint="@color/txt_color"
                 android:drawableLeft="@drawable/ic_phone_android_black_24dp"
-                android:drawableTint="@color/white"
+                android:drawableTint="@color/colorPrimary"
                 android:drawablePadding="10dp"
                 android:hint="Phone number"
                 android:textSize="16dp"
                 android:inputType="number"
                 android:maxLength="10"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/white"/>
         </RelativeLayout>
 
@@ -90,7 +88,7 @@
             android:layout_height="wrap_content"
             android:text="Send OTP"
             android:textAllCaps="false"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:background="@drawable/gradient_button"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"

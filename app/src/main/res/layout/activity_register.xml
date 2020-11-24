@@ -44,7 +44,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -53,8 +53,7 @@
          android:layout_height="wrap_content"
          android:layout_centerHorizontal="true"
          android:text="*Note: All Fields Are Mandatory*"
-
-         android:textColor="@color/textColor"
+         android:textColor="@color/colorPrimaryDark"
          android:textStyle="italic"
          android:layout_marginTop="15dp"
          android:textSize="18dp"
@@ -66,12 +65,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:padding="@dimen/_10sdp"
             >
-
-
-
-
 
                 <EditText
 
@@ -99,18 +96,15 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Username"
-                style="@style/textstyle"
-
-
-                >
+                android:textColorHint="@color/colorPrimaryDark"
+                style="@style/textstyle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUserName"
-
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_account_circle_black_24dp"
-                    android:drawableTint="@color/black"
-
+                    android:drawableTint="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:inputType="text"
@@ -127,12 +121,11 @@
                     android:layout_alignBottom="@id/imageViewUserIcon"
                     android:paddingLeft="10dp"
                     android:layout_marginTop="0dp"
-
                     android:layout_toRightOf="@id/imageViewUserIcon"
                     android:background="@drawable/gradient_button"
-                    android:backgroundTint="@android:color/white"
+                    android:backgroundTint="@color/red"
                     android:drawableLeft="@drawable/ic_account_circle_black_24dp"
-                    android:drawableTint="@color/colorAccent"
+                    android:drawableTint="@color/colorPrimary"
                     android:drawablePadding="10dp"
                     android:hint="Name"
                     android:textStyle="italic"
@@ -146,20 +139,17 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Name"
+                android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle"
-
-
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
-
                     android:drawablePadding="10dp"
-
                     android:drawableLeft="@drawable/ic_account_circle_black_24dp"
-                    android:drawableTint="@color/black"
-
+                    android:drawableTint="@color/colorPrimary"
                     android:layout_width="match_parent"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_height="60dp"
                     android:inputType="text"
                     android:maxLines="1"
@@ -200,18 +190,16 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter Mobile Number"
                 style="@style/textstyle"
-
+                android:textColorHint="@color/colorPrimaryDark"
 
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etMobile"
-
                     android:drawablePadding="10dp"
-
                     android:drawableLeft="@drawable/ic_phone_android_black_24dp"
-                    android:drawableTint="@color/black"
-
+                    android:drawableTint="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:inputType="number"
@@ -249,6 +237,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
+                android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle"
 
 
@@ -256,11 +245,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPass"
-
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
-                    android:drawableTint="@color/black"
-
+                    android:drawableTint="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:inputType="textPassword"
@@ -295,6 +283,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Confirm Password"
+                android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle"
 
 
@@ -302,12 +291,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConPass"
-
                 android:drawablePadding="10dp"
-
                 android:drawableLeft="@drawable/ic_lock_black_24dp"
-                android:drawableTint="@color/black"
-
+                    android:drawableTint="@color/colorPrimary"
+                    android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:inputType="textPassword"
@@ -321,9 +308,9 @@
                     android:id="@+id/checkbox"
                     android:textStyle="italic"
                     android:textSize="16dp"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="Accept Terms And Contidions"
-                    android:buttonTint="@color/textColor"
+                    android:buttonTint="@color/colorPrimary"
                     android:layout_margin="10dp" />
 
 
@@ -336,15 +323,16 @@
                 android:text="Register"
                 android:textAllCaps="false"
                 android:layout_below="@id/relativeLayout8"
-
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_marginTop="30dp"
                 android:textSize="20dp"
                 android:elevation="5dp"
-                android:textStyle="italic"
+                android:textStyle="bold"
                 android:textColor="@color/txt_color"
                 android:background="@drawable/gradient_button"
                />
 
         </LinearLayout>
-    </RelativeLayout></ScrollView>
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

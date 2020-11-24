@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.media:media:1.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3dd61c20dbc391981d03cf0763fecc3d/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f1198e17a833e1e1fb1889ac17f6b6f/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3dd61c20dbc391981d03cf0763fecc3d/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3dd61c20dbc391981d03cf0763fecc3d/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3dd61c20dbc391981d03cf0763fecc3d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f1198e17a833e1e1fb1889ac17f6b6f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f1198e17a833e1e1fb1889ac17f6b6f/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f1198e17a833e1e1fb1889ac17f6b6f/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
