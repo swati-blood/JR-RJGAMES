@@ -103,9 +103,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         btnUpdate = findViewById(R.id.btn_update);
         btnUpdate.setOnClickListener(this);
 
-        String ad= Prevalent.currentOnlineuser.getAddress();
-        String ct=Prevalent.currentOnlineuser.getCity();
-        String pn=Prevalent.currentOnlineuser.getPincode();
+        String ad= Prevalent.currentOnlineuser.getAddress().toString();
+        String ct=Prevalent.currentOnlineuser.getCity().toString();
+        String pn=Prevalent.currentOnlineuser.getPincode().toString();
         String ac=Prevalent.currentOnlineuser.getAccountno().toString();
         String bn=Prevalent.currentOnlineuser.getBank_name().toString();
         String ic=Prevalent.currentOnlineuser.getIfsc_code().toString();

@@ -1823,6 +1823,21 @@ public class Common {
         intent.setData(Uri.parse(url));
         context.startActivity(intent);
     }
+
+    public String chechNull(String str)
+    {
+        String newstring=" ";
+        if(str==null || str.isEmpty() || str.equalsIgnoreCase("null"))
+        {
+            newstring="";
+
+        }
+        else
+        {
+            newstring=str;
+        }
+        return newstring;
+    }
 }
 
 

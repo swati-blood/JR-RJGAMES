@@ -260,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.show();
         final String tag_json_obj = "json_login_req";
         Map<String, String> params = new HashMap<String, String>();
+
         params.put("mobileno",mName);
         params.put("password",mPass);
 
@@ -276,22 +277,24 @@ public class MainActivity extends AppCompatActivity {
                     if (status) {
                         JSONObject jsonObject = object.getJSONObject("data");
                         UsersObjects users = new UsersObjects();
-                        users.setId(jsonObject.getString("id"));
-                        users.setName(jsonObject.getString("name"));
-                        users.setUsername(jsonObject.getString("username"));
-                        users.setMobileno(jsonObject.getString("mobileno"));
-                        users.setAddress(jsonObject.getString("address"));
-                        users.setCity(jsonObject.getString("city"));
-                        users.setPincode(jsonObject.getString("pincode"));
-                        users.setPassword(jsonObject.getString("password"));
-                        users.setAccountno(jsonObject.getString("accountno"));
-                        users.setBank_name(jsonObject.getString("bank_name"));
-                        users.setIfsc_code(jsonObject.getString("ifsc_code"));
-                        users.setAccount_holder_name(jsonObject.getString("account_holder_name"));
-                        users.setPaytm_no(jsonObject.getString("paytm_no"));
-                        users.setTez_no(jsonObject.getString("tez_no"));
-                        users.setPhonepay_no(jsonObject.getString("phonepay_no"));
+                        users.setId(common.chechNull(jsonObject.getString("id")));
+                        users.setName(common.chechNull(jsonObject.getString("name")));
+                        users.setUsername(common.chechNull(jsonObject.getString("username")));
+                        users.setMobileno(common.chechNull(jsonObject.getString("mobileno")));
+                        users.setAddress(common.chechNull(jsonObject.getString("address")));
+                        users.setCity(common.chechNull(jsonObject.getString("city")));
+                        users.setPincode(common.chechNull(jsonObject.getString("pincode")));
+                        users.setPassword(common.chechNull(jsonObject.getString("password")));
+                        users.setAccountno(common.chechNull(jsonObject.getString("accountno")));
+                        users.setBank_name(common.chechNull(jsonObject.getString("bank_name")));
+                        users.setIfsc_code(common.chechNull(jsonObject.getString("ifsc_code")));
+                        users.setAccount_holder_name(common.chechNull(jsonObject.getString("account_holder_name")));
+                        users.setPaytm_no(common.chechNull(jsonObject.getString("paytm_no")));
+                        users.setTez_no(common.chechNull(jsonObject.getString("tez_no")));
+                        users.setPhonepay_no(common.chechNull(jsonObject.getString("phonepay_no")));
+
                         Prevalent.currentOnlineuser = users;
+                        Log.e(TAG, "onResponse: "+ Prevalent.currentOnlineuser.getId());
                         String p = jsonObject.getString("password");
                         if (mPass.equals(p)) {
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
