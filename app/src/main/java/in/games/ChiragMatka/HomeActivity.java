@@ -77,7 +77,7 @@ public class HomeActivity extends AppCompatActivity
     FrameLayout frame_home;
     private TextView txtWallet,txtNotification ,txt_tagline;
     TextView tv_vername,tv_name;
-//    NavigationView navigationView;
+    NavigationView navigationView;
 //    Module module;
     private Menu nav_menu;
     ArrayList<MatkaObject> list;
@@ -119,14 +119,14 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
-//        navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 //        nav_menu = navigationView.getMenu();
-//
-//        View header = ((NavigationView) findViewById(R.id.nav_view)).getHeaderView(0);
-//        tv_name = (TextView) header.findViewById(R.id.profile_user_name);
+
+        View header = ((NavigationView) findViewById(R.id.nav_view)).getHeaderView(0);
+        tv_name = (TextView) header.findViewById(R.id.profile_user_name);
 //        module=new Module(HomeActivity.this);
-//        updatename();
+        updatename();
 
         txtNotification=(TextView)findViewById(R.id.txtNotification);
         txtWallet=(TextView)findViewById(R.id.txtWallet);
@@ -283,6 +283,11 @@ public class HomeActivity extends AppCompatActivity
 
         getChartData();
 
+    }
+
+    private void updatename() {
+//        tv_name.setText(session_management.getUserDetails().get(KEY_NAME));
+        tv_name.setText("Isha");
     }
 
 
