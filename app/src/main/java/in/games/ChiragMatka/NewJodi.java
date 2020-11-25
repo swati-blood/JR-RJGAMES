@@ -27,15 +27,17 @@ import in.games.ChiragMatka.Intefaces.VolleyCallBack;
 import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
 import static in.games.ChiragMatka.Adapter.PointsAdapter.is_empty;
 import static in.games.ChiragMatka.Adapter.PointsAdapter.is_error;
 import static in.games.ChiragMatka.Adapter.PointsAdapter.jodi_list;
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 import static in.games.ChiragMatka.Objects.sp_input_data.group_jodi_digits;
 
 public class NewJodi extends AppCompatActivity implements View.OnClickListener {
     Common common;
-
+    SessionMangement sessionMangement;
     List<TableModel> list;
 List<String> digit_list ;
     private int val_p=0;
@@ -61,6 +63,7 @@ List<String> digit_list ;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_jodi);
+        sessionMangement = new SessionMangement(NewJodi.this);
         common=new Common(NewJodi.this);
         dashName=getIntent().getStringExtra("matkaName");
         game_id=getIntent().getStringExtra("game_id");
@@ -157,7 +160,8 @@ List<String> digit_list ;
     @Override
     protected void onStart() {
         super.onStart();
-        common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//        common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+        common.setWallet_Amount(txtWallet_amount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
 //        details.setBetDateDay(JodiDigitActivity.this,m_id,btnGameType,progressDialog);
 //        getBetDateDay(m_id);
 
@@ -184,10 +188,12 @@ List<String> digit_list ;
             btnGameType.setClickable(false);
             stat = 1;
 //            btnType.setClickable(false);
-            common.setWallet_Amount(txtWallet_amount, progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount, progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount, progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
         } else {
             stat = 2;
-            common.setWallet_Amount(txtWallet_amount, progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount, progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount, progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
             common.getBetSession(m_id, progressDialog, new VolleyCallBack() {
                 @Override
                 public void getTimeDiffrence(HashMap<String, String> map) {

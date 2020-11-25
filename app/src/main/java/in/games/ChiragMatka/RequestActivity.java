@@ -14,6 +14,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,10 +43,12 @@ import java.util.Map;
 
 import static in.games.ChiragMatka.Config.BaseUrl.URL_INDEX;
 import static in.games.ChiragMatka.Config.BaseUrl.URL_INSERT_REQUEST;
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 import static in.games.ChiragMatka.splash_activity.min_add_amount;
 
 public class RequestActivity extends AppCompatActivity implements PaymentStatusListener {
     Common common;
+    SessionMangement sessionMangement;
     EditText etPoints;
     LoadingBar progressDialog;
     private TextView bt_back,txtMatka;
@@ -61,6 +64,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
+        sessionMangement = new SessionMangement(RequestActivity.this);
         txtMatka=(TextView)findViewById(R.id.board);
         etPoints=(EditText)findViewById(R.id.etRequstPoints);
         btnRequest=(Button)findViewById(R.id.add_Request);
@@ -101,7 +105,11 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
 
                     }
                     else
-                    {   String user_id= Prevalent.currentOnlineuser.getId();
+                    {
+
+//                        String user_id= Prevalent.currentOnlineuser.getId();
+                        String user_id= sessionMangement.getUserDetails().get(KEY_ID);
+
                         String p=String.valueOf(points);
                         String st="pending";
 //                       saveInfoIntoDatabase(user_id,p,st);
@@ -148,7 +156,8 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
     protected void onStart() {
         super.onStart();
         // setSessionTimeOut(RequestActivity.this);
-        common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//        common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+        common.setWallet_Amount(txtWallet_amount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
     }
     private void saveInfoIntoDatabase(final String user_id, final String points, final String st) {
 
@@ -267,7 +276,8 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
         Log.e("transactionDetails",""+transactionDetails);
         if(transactionDetails.getStatus().equalsIgnoreCase("success"))
         {
-            String user_id= Prevalent.currentOnlineuser.getId();
+//            String user_id= Prevalent.currentOnlineuser.getId();
+            String user_id= sessionMangement.getUserDetails().get(KEY_ID);
             addRequest(user_id,transactionDetails.getAmount().toString(),"approved",transactionDetails.getTransactionId().toString());
 
         }

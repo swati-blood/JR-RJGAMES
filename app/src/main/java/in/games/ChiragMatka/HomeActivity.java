@@ -97,7 +97,7 @@ public class HomeActivity extends AppCompatActivity
     private TextView txtUserName,txtNumber;
     LoadingBar progressDialog;
     Common common;
-    RelativeLayout rl_whatsapp;
+    RelativeLayout rl_whatsapp,rl_whats;
     public static String mainName="";
     int flag =0 ;
     SliderLayout home_slider;
@@ -166,6 +166,7 @@ public class HomeActivity extends AppCompatActivity
         tv_admin=findViewById(R.id.tv_admin);
         txt_coadmin=findViewById(R.id.txt_coadmin);
         rl_whatsapp=findViewById(R.id.rl_whatsapp);
+        rl_whats=findViewById(R.id.rl_whats);
         tv_coadmin=findViewById(R.id.tv_coadmin);
         home_slider=findViewById(R.id.home_slider);
        common=new Common(HomeActivity.this);
@@ -361,7 +362,8 @@ public class HomeActivity extends AppCompatActivity
              dialog.setCanceledOnTouchOutside(false);
              dialog.show();
 
-             common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
+//             common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog,sessionMangement.getUserDetails().get(KEY_ID));
 
             btn_dialog_ok.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -644,8 +646,15 @@ public class HomeActivity extends AppCompatActivity
                     JSONObject dataObj=response.getJSONObject(0);
 
                     whatsapp_no = dataObj.getString("mobile");
-                    tv_number.setText(whatsapp_no.toString());
 
+                    if(whatsapp_no==null||whatsapp_no.isEmpty())
+                    {
+                        rl_whats.setVisibility(View.GONE);
+                    }
+                    else
+                    {
+                        tv_number.setText(whatsapp_no.toString());
+                    }
                 }
                 catch (Exception ex)
                 {

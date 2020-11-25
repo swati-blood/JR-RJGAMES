@@ -33,9 +33,13 @@ import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
+
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 public class HalfSangamActivity extends AppCompatActivity {
     Common common;
+    SessionMangement sessionMangement;
     private TextView txtDigit,txtPoint,txtType,btnDelete;
     private TextView txtCurrentDate,txtNextDate,txtAfterNextDate,txtDate_id,tv_timer;
     int val_p=0;
@@ -90,7 +94,7 @@ public class HalfSangamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_half_sangam);
-
+        sessionMangement = new SessionMangement(HalfSangamActivity.this);
         common=new Common(HalfSangamActivity.this);
         btnChange=(Button)findViewById(R.id.btnChange);
         rlLayout_open_digit=(RelativeLayout)findViewById(R.id.relativeLayout4);
@@ -264,7 +268,10 @@ public class HalfSangamActivity extends AppCompatActivity {
                         }
 
 
-                        String id = Prevalent.currentOnlineuser.getId().toString().trim();
+//                        String id = Prevalent.currentOnlineuser.getId().toString().trim();
+                        String id = sessionMangement.getUserDetails().get(KEY_ID).toString().trim();
+
+
                         String matka_id = m_id.toString().trim();
                         String date = "15/02/2020";
                         String dt=btnGameType.getText().toString().trim();
@@ -470,12 +477,15 @@ catch (Exception err)
             btnGameType.setClickable(false);
             stat=1;
 //            btnType.setClickable(false);
-            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog,sessionMangement.getUserDetails().get(KEY_ID));
         }
         else
         {
             stat=2;
-            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
+
             common.setBetDateDay(m_id,btnGameType,progressDialog);
 
         }

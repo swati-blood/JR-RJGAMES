@@ -27,11 +27,15 @@ import in.games.ChiragMatka.Objects.Fund_Request_HistoryObject;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
+
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 public class Fund_RequestActivity extends AppCompatActivity {
 
     Common common;
     private RecyclerView recyclerView;
+    SessionMangement sessionMangement;
     ArrayList<Fund_Request_HistoryObject> list;
     LoadingBar progressDialog;
     RecyclerView.LayoutManager layoutManager;
@@ -43,6 +47,7 @@ public class Fund_RequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fund__request);
         common=new Common(Fund_RequestActivity.this);
+        sessionMangement = new SessionMangement(Fund_RequestActivity.this);
         progressDialog=new LoadingBar(Fund_RequestActivity.this);
 
 
@@ -59,7 +64,9 @@ public class Fund_RequestActivity extends AppCompatActivity {
         //matakListViewAdapter=new MatakListViewAdapter(this,matkaList);
         recyclerView.setAdapter(request_historyAdapter);
 
-        String User_id= Prevalent.currentOnlineuser.getId();
+//        String User_id= Prevalent.currentOnlineuser.getId();
+        String User_id= sessionMangement.getUserDetails().get(KEY_ID);
+
 //        Toast.makeText(this,""+User_id,Toast.LENGTH_LONG).show();
        getRequestData(User_id);
 

@@ -30,10 +30,14 @@ import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.Model.Withdraw_requwset_obect;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
+
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 public class Withdraw_history extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    SessionMangement sessionMangement;
     ArrayList<Withdraw_requwset_obect> list;
     LoadingBar progressDialog;
     RecyclerView.LayoutManager layoutManager;
@@ -55,7 +59,10 @@ public class Withdraw_history extends AppCompatActivity {
 
         txtBack=(TextView)findViewById(R.id.txtBack);
 
-        String User_id= Prevalent.currentOnlineuser.getId();
+//        String User_id= Prevalent.currentOnlineuser.getId();
+        String User_id= sessionMangement.getUserDetails().get(KEY_ID);
+
+
         getRequestData(User_id);
 
 

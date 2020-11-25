@@ -35,13 +35,16 @@ import in.games.ChiragMatka.Model.Starline_Objects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
+
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 
 public class PlayGameActivity extends MyBaseActivity {
 
     Common common;
     TextView txtsp,txtdp,txtsd,txttp;
-
+    SessionMangement sessionMangement;
     private ListView listView;
 
     ArrayList<GameRateModel> list;
@@ -61,6 +64,7 @@ public class PlayGameActivity extends MyBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
+        sessionMangement = new SessionMangement(PlayGameActivity.this);
         progressDialog=new LoadingBar(PlayGameActivity.this);
 
         common=new Common(PlayGameActivity.this);
@@ -165,7 +169,8 @@ public class PlayGameActivity extends MyBaseActivity {
 //            public void getWalletAmount(float wallet) {
 //            }
 //        });
-        common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
+//        common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
+        common.setWallet_Amount(txtWallet_amount,progressDialog,sessionMangement.getUserDetails().get(KEY_ID));
     }
 
     public void getMatkaData()

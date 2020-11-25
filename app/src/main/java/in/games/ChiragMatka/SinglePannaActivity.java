@@ -32,10 +32,14 @@ import in.games.ChiragMatka.Intefaces.VolleyCallBack;
 import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
+
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 public class SinglePannaActivity extends AppCompatActivity {
 
     Common common;
+    SessionMangement sessionMangement;
     private int stat=0;
     ListView list_table;
     RadioButton rd_open,rd_close;
@@ -73,6 +77,7 @@ private final String[] singlePaana=
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_panna);
+        sessionMangement = new SessionMangement(SinglePannaActivity.this);
         common=new Common(SinglePannaActivity.this);
         final String dashName=getIntent().getStringExtra("matkaName");
         game_id=getIntent().getStringExtra("game_id");
@@ -436,12 +441,14 @@ private final String[] singlePaana=
             btnGameType.setClickable(false);
             stat=1;
             btnType.setClickable(false);
-            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
         }
         else
         {
             stat=2;
-            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
             common.getBetSession(m_id, progressDialog, new VolleyCallBack() {
                 @Override
                 public void getTimeDiffrence(HashMap<String, String> map) {

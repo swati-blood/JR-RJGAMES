@@ -43,13 +43,16 @@ import in.games.ChiragMatka.Model.TimeSlots;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 import static in.games.ChiragMatka.URLs.URL_TIME_SLOTS;
 import static in.games.ChiragMatka.splash_activity.withdrw_no;
 import static in.games.ChiragMatka.splash_activity.withdrw_text;
 
  public class WithdrawalActivity extends AppCompatActivity {
      Common common;
+     SessionMangement sessionMangement;
      private TextView txtback,txtWalletAmount,txtMobile,txt_withdrw_instrctions,tv_number;
      private LoadingBar progressDialog;
      private EditText etPoint;
@@ -65,6 +68,7 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_withdrawal);
+         sessionMangement = new SessionMangement(WithdrawalActivity.this);
          common=new Common(WithdrawalActivity.this);
          txtback=(TextView)findViewById(R.id.txtBack);
          tv_number=(TextView)findViewById(R.id.tv_number);
@@ -105,7 +109,8 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
                  else
                  {
 
-                     String user_id = Prevalent.currentOnlineuser.getId();
+//                     String user_id = Prevalent.currentOnlineuser.getId();
+                     String user_id = sessionMangement.getUserDetails().get(KEY_ID);
                      String pnts = String.valueOf(points);
                      String st = "pending";
                      int w_amt = Integer.parseInt(txtWalletAmount.getText().toString().trim());
@@ -188,7 +193,9 @@ import static in.games.ChiragMatka.splash_activity.withdrw_text;
          super.onStart();
          //setSessionTimeOut(WithdrawalActivity.this);
 //        details.setWallet_Amount(txtWalletAmount,progressDialog,Prevalent.currentOnlineuser.getId(),WithdrawalActivity.this);
-         common.setWallet_Amount(txtWalletAmount,progressDialog, Prevalent.currentOnlineuser.getId());
+//         common.setWallet_Amount(txtWalletAmount,progressDialog, Prevalent.currentOnlineuser.getId());
+         common.setWallet_Amount(txtWalletAmount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
+
      }
 
 

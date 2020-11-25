@@ -35,12 +35,15 @@ import in.games.ChiragMatka.Model.Starline_History_Objects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 import static in.games.ChiragMatka.URLs.Starline_Histry_Url;
 
 
 public class Starline_Activity extends AppCompatActivity {
   Common common;
+  SessionMangement sessionMangement;
     private ListView recyclerView;
     ArrayList<Starline_History_Objects> list;
    LoadingBar progressDialog;
@@ -53,6 +56,7 @@ public class Starline_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starline_);
+        sessionMangement = new SessionMangement(Starline_Activity.this);
         common=new Common(Starline_Activity.this);
         matka_id="19";
         browser = findViewById(R.id.bid_histry_webview);
@@ -69,7 +73,8 @@ public class Starline_Activity extends AppCompatActivity {
         });
 
         //   user_id= "3";
-        user_id= Prevalent.currentOnlineuser.getId().toString().trim();
+//        user_id= Prevalent.currentOnlineuser.getId().toString().trim();
+        user_id= sessionMangement.getUserDetails().get(KEY_ID).toString().trim();
         //recyclerView.setHasFixedSize(false);
         //layoutManager= new LinearLayoutManager(this);
         //recyclerView.setLayoutManager(layoutManager);

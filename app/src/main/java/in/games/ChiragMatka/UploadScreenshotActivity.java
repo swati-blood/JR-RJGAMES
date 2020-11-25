@@ -49,15 +49,18 @@ import in.games.ChiragMatka.Remote.UploadCallBacks;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 import in.games.ChiragMatka.utils.Module;
+import in.games.ChiragMatka.utils.SessionMangement;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 
 import static com.android.volley.VolleyLog.TAG;
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 public class UploadScreenshotActivity extends AppCompatActivity implements View.OnClickListener, UploadCallBacks {
     Activity ctx = UploadScreenshotActivity.this;
     Module module;
+    SessionMangement sessionMangement;
     double rewards=0;
     TextView tv_acc_details, tv_acc_holder;
     String total_amount;
@@ -90,6 +93,7 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_screenshot);
+        sessionMangement = new SessionMangement(UploadScreenshotActivity.this);
         initViews();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -121,7 +125,9 @@ public class UploadScreenshotActivity extends AppCompatActivity implements View.
         getpoints=getIntent().getStringExtra("points");
         getstatus=getIntent().getStringExtra("status");
 
-       user_id= prevalent.currentOnlineuser.getId();
+//       user_id= prevalent.currentOnlineuser.getId();
+        user_id= sessionMangement.getUserDetails().get(KEY_ID);
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

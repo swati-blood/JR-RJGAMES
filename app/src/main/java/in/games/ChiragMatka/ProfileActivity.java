@@ -28,12 +28,28 @@ import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
 import static in.games.ChiragMatka.Config.BaseUrl.URL_REGISTER;
+import static in.games.ChiragMatka.Config.Constants.KEY_ACCOUNNO;
+import static in.games.ChiragMatka.Config.Constants.KEY_ADDRESS;
+import static in.games.ChiragMatka.Config.Constants.KEY_BANK_NAME;
+import static in.games.ChiragMatka.Config.Constants.KEY_CITY;
+import static in.games.ChiragMatka.Config.Constants.KEY_DOB;
+import static in.games.ChiragMatka.Config.Constants.KEY_EMAIL;
+import static in.games.ChiragMatka.Config.Constants.KEY_HOLDER;
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
+import static in.games.ChiragMatka.Config.Constants.KEY_IFSC;
+import static in.games.ChiragMatka.Config.Constants.KEY_MOBILE;
+import static in.games.ChiragMatka.Config.Constants.KEY_PAYTM;
+import static in.games.ChiragMatka.Config.Constants.KEY_PHONEPAY;
+import static in.games.ChiragMatka.Config.Constants.KEY_PINCODE;
+import static in.games.ChiragMatka.Config.Constants.KEY_TEZ;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText etPAddress,etPCity,etPPinCode,etAccNo,etBankName,etIfscCode,etAccHolderName,etPaytm,etTez,etPhonePay ,et_dob ,et_email,et_mobile;
     Common common;
+    SessionMangement sessionMangement;
     LoadingBar progressDialog;
     String wrong="Something Went Wrong";
     private TextView btn_back;
@@ -47,6 +63,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         common=new Common(this);
+        sessionMangement = new SessionMangement(ProfileActivity.this);
 
         btn_back=(TextView)findViewById(R.id.txt_back);
         progressDialog=new LoadingBar(this);
@@ -103,19 +120,36 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         btnUpdate = findViewById(R.id.btn_update);
         btnUpdate.setOnClickListener(this);
 
-        String ad= Prevalent.currentOnlineuser.getAddress().toString();
-        String ct=Prevalent.currentOnlineuser.getCity().toString();
-        String pn=Prevalent.currentOnlineuser.getPincode().toString();
-        String ac=Prevalent.currentOnlineuser.getAccountno().toString();
-        String bn=Prevalent.currentOnlineuser.getBank_name().toString();
-        String ic=Prevalent.currentOnlineuser.getIfsc_code().toString();
-        String ah=Prevalent.currentOnlineuser.getAccount_holder_name().toString();
-        String x=Prevalent.currentOnlineuser.getPhonepay_no().toString();
-        String tz=Prevalent.currentOnlineuser.getTez_no().toString();
-        String p=Prevalent.currentOnlineuser.getPaytm_no().toString();
-        String mobile = Prevalent.currentOnlineuser.getMobileno();
-        String email = Prevalent.currentOnlineuser.getEmail();
-        String dob = Prevalent.currentOnlineuser.getDob();
+//        String ad= Prevalent.currentOnlineuser.getAddress().toString();
+//        String ct=Prevalent.currentOnlineuser.getCity().toString();
+//        String pn=Prevalent.currentOnlineuser.getPincode().toString();
+//        String ac=Prevalent.currentOnlineuser.getAccountno().toString();
+//        String bn=Prevalent.currentOnlineuser.getBank_name().toString();
+//        String ic=Prevalent.currentOnlineuser.getIfsc_code().toString();
+//        String ah=Prevalent.currentOnlineuser.getAccount_holder_name().toString();
+//        String x=Prevalent.currentOnlineuser.getPhonepay_no().toString();
+//        String tz=Prevalent.currentOnlineuser.getTez_no().toString();
+//        String p=Prevalent.currentOnlineuser.getPaytm_no().toString();
+//        String mobile = Prevalent.currentOnlineuser.getMobileno();
+//        String email = Prevalent.currentOnlineuser.getEmail();
+//        String dob = Prevalent.currentOnlineuser.getDob();
+
+
+        String ad= sessionMangement.getUserDetails().get(KEY_ADDRESS).toString();
+        String ct=sessionMangement.getUserDetails().get(KEY_CITY).toString();
+        String pn=sessionMangement.getUserDetails().get(KEY_PINCODE).toString();
+        String ac=sessionMangement.getUserDetails().get(KEY_ACCOUNNO).toString();
+        String bn=sessionMangement.getUserDetails().get(KEY_BANK_NAME).toString();
+        String ic=sessionMangement.getUserDetails().get(KEY_IFSC).toString();
+        String ah=sessionMangement.getUserDetails().get(KEY_HOLDER).toString();
+        String x=sessionMangement.getUserDetails().get(KEY_PHONEPAY).toString();
+        String tz=sessionMangement.getUserDetails().get(KEY_TEZ).toString();
+        String p=sessionMangement.getUserDetails().get(KEY_PAYTM).toString();
+        String mobile = sessionMangement.getUserDetails().get(KEY_MOBILE);
+        String email = sessionMangement.getUserDetails().get(KEY_EMAIL);
+        String dob = sessionMangement.getUserDetails().get(KEY_DOB);
+
+
         et_email.setText(email);
         et_dob.setText(dob);
         et_mobile.setText(mobile);
@@ -321,7 +355,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     }
                     else
                     {
-                        String mailid= Prevalent.currentOnlineuser.getId().toString();
+//                        String mailid= Prevalent.currentOnlineuser.getId().toString();
+                        String mailid= sessionMangement.getUserDetails().get(KEY_ID).toString();
                         //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                         storeBankDetails(accno,bankname,ifsc,hod_name,mailid);
                     }
@@ -357,7 +392,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
             else
             {
-                String user_id= Prevalent.currentOnlineuser.getId().toString();
+//                String user_id= Prevalent.currentOnlineuser.getId().toString();
+                String user_id= sessionMangement.getUserDetails().get(KEY_ID).toString();
                 //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                 storeAddressData(a,c,p,user_id);
             }
@@ -389,7 +425,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
             else
             {
-                String user_id= Prevalent.currentOnlineuser.getId().toString();
+//                String user_id= Prevalent.currentOnlineuser.getId().toString();
+                String user_id= sessionMangement.getUserDetails().get(KEY_ID).toString();
                 //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                 storeAccDetails(teznumber,paytmNumber,phonepaynumber,user_id);
             }
@@ -430,7 +467,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
             else
             {
-                String user_id= Prevalent.currentOnlineuser.getId().toString();
+//                String user_id= Prevalent.currentOnlineuser.getId().toString();
+                String user_id= sessionMangement.getUserDetails().get(KEY_ID).toString();
                 //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                 storeProfileData(dob ,user_id,email);
             }

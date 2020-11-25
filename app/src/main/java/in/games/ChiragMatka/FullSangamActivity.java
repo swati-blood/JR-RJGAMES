@@ -32,10 +32,14 @@ import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Model.TableModel;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
+
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 public class FullSangamActivity extends AppCompatActivity {
 
     Common common;
+    SessionMangement sessionMangement;
     private int stat=0;
     private TextView txtDigit,txtPoint,txtType,btnDelete;
     private int val_p=0;
@@ -85,6 +89,7 @@ public class FullSangamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_sangam);
+        sessionMangement = new SessionMangement(FullSangamActivity.this);
         common=new Common(FullSangamActivity.this);
         final String dashName=getIntent().getStringExtra("matkaName");
         game_id=getIntent().getStringExtra("game_id");
@@ -302,7 +307,9 @@ public class FullSangamActivity extends AppCompatActivity {
 
 
 
-                        String id = Prevalent.currentOnlineuser.getId().toString().trim();
+//                        String id = Prevalent.currentOnlineuser.getId().toString().trim();
+                        String id = sessionMangement.getUserDetails().get(KEY_ID).toString().trim();
+
                         String matka_id = m_id.toString().trim();
                         String date = "15/02/2020";
                         String dt=btnGameType.getText().toString().trim();
@@ -338,7 +345,9 @@ public class FullSangamActivity extends AppCompatActivity {
                         } else {
                             int up_amt = wallet_amount - amt;
                             String asd = String.valueOf(up_amt);
-                            String userid = Prevalent.currentOnlineuser.getId();
+//                            String userid = Prevalent.currentOnlineuser.getId();
+                            String userid = sessionMangement.getUserDetails().get(KEY_ID);
+
                             btnSave.setEnabled(false);
                             common.setBidsDialog(Integer.parseInt(w),list,m_id,c,game_id,w,dashName,progressDialog,btnSave,start_time,end_time);
 //                            updateWalletAmountSangum( FullSangamActivity.this, jsonArray, progressDialog,dashName,m_id);
@@ -401,12 +410,15 @@ public class FullSangamActivity extends AppCompatActivity {
             btnGameType.setClickable(false);
             stat=1;
 //            btnType.setClickable(false);
-            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog, sessionMangement.getUserDetails().get(KEY_ID));
+
         }
         else
         {
             stat=2;
-            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+//            common.setWallet_Amount(txtWallet_amount,progressDialog, Prevalent.currentOnlineuser.getId());
+            common.setWallet_Amount(txtWallet_amount,progressDialog,sessionMangement.getUserDetails().get(KEY_ID));
             common.setBetDateDay(m_id,btnGameType,progressDialog);
 
         }

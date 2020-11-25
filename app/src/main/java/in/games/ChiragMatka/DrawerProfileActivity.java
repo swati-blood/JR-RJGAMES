@@ -28,13 +28,26 @@ import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
+import static in.games.ChiragMatka.Config.Constants.KEY_ACCOUNNO;
+import static in.games.ChiragMatka.Config.Constants.KEY_ADDRESS;
+import static in.games.ChiragMatka.Config.Constants.KEY_BANK_NAME;
+import static in.games.ChiragMatka.Config.Constants.KEY_CITY;
+import static in.games.ChiragMatka.Config.Constants.KEY_HOLDER;
+import static in.games.ChiragMatka.Config.Constants.KEY_IFSC;
+import static in.games.ChiragMatka.Config.Constants.KEY_MOBILE;
+import static in.games.ChiragMatka.Config.Constants.KEY_PAYTM;
+import static in.games.ChiragMatka.Config.Constants.KEY_PHONEPAY;
+import static in.games.ChiragMatka.Config.Constants.KEY_PINCODE;
+import static in.games.ChiragMatka.Config.Constants.KEY_TEZ;
 import static in.games.ChiragMatka.URLs.URL_REGIST;
 
 public class DrawerProfileActivity extends AppCompatActivity {
     private EditText etPAddress,etPCity,etPPinCode,etAccNo,etBankName,etIfscCode,etAccHolderName,etPaytm,etTez,etPhonePay;
     private Dialog dialog;
     Common common;
+    SessionMangement sessionMangement;
     LoadingBar progressDialog;
     ProgressBar pb;
     String wrong="Something Went Wrong";
@@ -45,6 +58,7 @@ public class DrawerProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_profile);
+        sessionMangement = new SessionMangement(DrawerProfileActivity.this);
         common=new Common(DrawerProfileActivity.this);
         cvAddress=findViewById(R.id.cvAddress);
         cvBank=findViewById(R.id.cvBank);
@@ -78,9 +92,15 @@ public class DrawerProfileActivity extends AppCompatActivity {
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
 
-                String ad=Prevalent.currentOnlineuser.getAddress();
-                String ct=Prevalent.currentOnlineuser.getCity();
-                String pn=Prevalent.currentOnlineuser.getPincode();
+//                String ad=Prevalent.currentOnlineuser.getAddress();
+//                String ct=Prevalent.currentOnlineuser.getCity();
+//                String pn=Prevalent.currentOnlineuser.getPincode();
+
+                String ad = sessionMangement.getUserDetails().get(KEY_ADDRESS);
+                String ct = sessionMangement.getUserDetails().get(KEY_CITY);
+                String pn = sessionMangement.getUserDetails().get(KEY_PINCODE);
+
+
 
                  setDataEditText(etPAddress,ad);
                  setDataEditText(etPCity,ct);
@@ -116,7 +136,8 @@ public class DrawerProfileActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+//                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                            String mailid = sessionMangement.getUserDetails().get(KEY_MOBILE).toString();
      //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                            storeAddressData(a,c,p,mailid);
                         }
@@ -154,10 +175,16 @@ public class DrawerProfileActivity extends AppCompatActivity {
 //                etIfscCode.setText(Prevalent.currentOnlineuser.getIfsc_code());
 //                etAccHolderName.setText(Prevalent.currentOnlineuser.getAccount_holder_name());
 
-               String ac=Prevalent.currentOnlineuser.getAccountno().toString();
-               String bn=Prevalent.currentOnlineuser.getBank_name().toString();
-               String ic=Prevalent.currentOnlineuser.getIfsc_code().toString();
-               String ah=Prevalent.currentOnlineuser.getAccount_holder_name().toString();
+//               String ac=Prevalent.currentOnlineuser.getAccountno().toString();
+//               String bn=Prevalent.currentOnlineuser.getBank_name().toString();
+//               String ic=Prevalent.currentOnlineuser.getIfsc_code().toString();
+//               String ah=Prevalent.currentOnlineuser.getAccount_holder_name().toString();
+
+                String ac=sessionMangement.getUserDetails().get(KEY_ACCOUNNO).toString();
+                String bn=sessionMangement.getUserDetails().get(KEY_BANK_NAME).toString();
+                String ic=sessionMangement.getUserDetails().get(KEY_IFSC).toString();
+                String ah=sessionMangement.getUserDetails().get(KEY_HOLDER).toString();
+
 
                setDataEditText(etAccNo,ac);
                setDataEditText(etBankName,bn);
@@ -201,7 +228,8 @@ public class DrawerProfileActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+//                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                            String mailid= sessionMangement.getUserDetails().get(KEY_MOBILE).toString();
                             //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                             storeBankDetails(accno,bankname,ifsc,hod_name,mailid);
                         }
@@ -225,7 +253,8 @@ public class DrawerProfileActivity extends AppCompatActivity {
 
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
-                String p=Prevalent.currentOnlineuser.getPaytm_no().toString();
+//                String p=Prevalent.currentOnlineuser.getPaytm_no().toString();
+                String p=sessionMangement.getUserDetails().get(KEY_PAYTM).toString();
                 setDataEditText(etPaytm,p);
 
 
@@ -242,7 +271,8 @@ public class DrawerProfileActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+//                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                            String mailid=sessionMangement.getUserDetails().get(KEY_MOBILE).toString();
                             //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                             storePaytmDetails(paytmNumber,mailid);
                         }
@@ -268,7 +298,8 @@ public class DrawerProfileActivity extends AppCompatActivity {
 
 
                 dialog.show();
-String tz=Prevalent.currentOnlineuser.getTez_no().toString();
+//String tz=Prevalent.currentOnlineuser.getTez_no().toString();
+                String tz=sessionMangement.getUserDetails().get(KEY_TEZ).toString();
 
              setDataEditText(etTez,tz);
              btnDGoogle.setOnClickListener(new View.OnClickListener() {
@@ -287,7 +318,8 @@ String tz=Prevalent.currentOnlineuser.getTez_no().toString();
                         }
                         else
                         {
-                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+//                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                            String mailid= sessionMangement.getUserDetails().get(KEY_MOBILE).toString();
                             //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                             storeTezDetails(teznumber,mailid);
                         }
@@ -311,7 +343,9 @@ String tz=Prevalent.currentOnlineuser.getTez_no().toString();
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.show();
 
-                String x=Prevalent.currentOnlineuser.getPhonepay_no().toString();
+//                String x=Prevalent.currentOnlineuser.getPhonepay_no().toString();
+                String x=sessionMangement.getUserDetails().get(KEY_PHONEPAY).toString();
+
 
                 setDataEditText(etPhonePay,x);
                 btnDPhone.setOnClickListener(new View.OnClickListener() {
@@ -328,7 +362,8 @@ String tz=Prevalent.currentOnlineuser.getTez_no().toString();
                         }
                         else
                         {
-                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+//                            String mailid= Prevalent.currentOnlineuser.getMobileno().toString();
+                            String mailid =sessionMangement.getUserDetails().get(KEY_MOBILE).toString();
                             //                       Toast.makeText(DrawerProfileActivity.this,"Email :"+mailid,Toast.LENGTH_LONG).show();
                             storePhonePayDetails(phonepaynumber,mailid);
                         }
@@ -357,6 +392,7 @@ String tz=Prevalent.currentOnlineuser.getTez_no().toString();
             {
                 progressDialog.dismiss();
                 Prevalent.currentOnlineuser.setPhonepay_no(phonepaynumber);
+              
                 Toast.makeText(DrawerProfileActivity.this, "Phone Pay Number Updated!!!", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
