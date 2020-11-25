@@ -36,13 +36,16 @@ import in.games.ChiragMatka.Model.BidHistoryObjects;
 import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
+import in.games.ChiragMatka.utils.SessionMangement;
 
 import static in.games.ChiragMatka.Config.BaseUrl.Bid_Histry_Url;
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
 
 
 public class BidActivity extends AppCompatActivity {
     Common common;
     private ListView recyclerView;
+    SessionMangement sessionMangement;
     ArrayList<BidHistoryObjects> list;
     //RecyclerView.LayoutManager layoutManager;
    LoadingBar progressDialog;
@@ -57,6 +60,7 @@ public class BidActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bid);
+        sessionMangement = new SessionMangement(BidActivity.this);
         common=new Common(BidActivity.this);
         matka_id=getIntent().getStringExtra("matka_id");
         progressDialog=new LoadingBar(BidActivity.this);
@@ -64,7 +68,10 @@ public class BidActivity extends AppCompatActivity {
         recyclerView=(ListView) findViewById(R.id.recyclerView);
         bt_back=(TextView)findViewById(R.id.txtBack);
      //   user_id= "3";
-        user_id= Prevalent.currentOnlineuser.getId().toString().trim();
+//        user_id= Prevalent.currentOnlineuser.getId().toString().trim();
+
+        user_id = sessionMangement.getUserDetails().get(KEY_ID).toString().trim();
+
         list=new ArrayList();
 
         //user_id= Prevalent.currentOnlineuser.getId().toString().trim();

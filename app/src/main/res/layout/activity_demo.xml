@@ -67,7 +67,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_toRightOf="@id/imageViewUserIcon"
                 android:background="@drawable/gradient_button"
-                android:backgroundTint="@color/txt_color"
+                android:backgroundTint="@color/white"
                 android:drawableLeft="@drawable/ic_phone_android_black_24dp"
                 android:drawableTint="@color/colorPrimary"
                 android:drawablePadding="10dp"
@@ -76,7 +76,7 @@
                 android:inputType="number"
                 android:maxLength="10"
                 android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/colorPrimaryDark"/>
         </RelativeLayout>
 
 
@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:text="Send OTP"
             android:textAllCaps="false"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimary"
             android:background="@drawable/gradient_button"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"

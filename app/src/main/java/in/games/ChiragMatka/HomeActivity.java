@@ -65,9 +65,12 @@ import in.games.ChiragMatka.utils.CustomSlider;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.LoadingBar;
 import in.games.ChiragMatka.utils.Module;
+import in.games.ChiragMatka.utils.SessionMangement;
 import maes.tech.intentanim.CustomIntent;
 
 import static in.games.ChiragMatka.Config.BaseUrl.IMG_STARLINE_URL;
+import static in.games.ChiragMatka.Config.Constants.KEY_ID;
+import static in.games.ChiragMatka.Config.Constants.KEY_NAME;
 import static in.games.ChiragMatka.splash_activity.home_text;
 import static in.games.ChiragMatka.splash_activity.message;
 import static in.games.ChiragMatka.splash_activity.withdrw_no;
@@ -78,6 +81,7 @@ public class HomeActivity extends AppCompatActivity
     private TextView txtWallet,txtNotification ,txt_tagline;
     TextView tv_vername,tv_name;
     NavigationView navigationView;
+    SessionMangement sessionMangement;
 //    Module module;
     private Menu nav_menu;
     ArrayList<MatkaObject> list;
@@ -104,6 +108,9 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        sessionMangement=new SessionMangement(HomeActivity.this);
+//        tv_name.getText(sessionMangement.getUserDetails().get(KEY_NAME)).toString();
+
         tv_vername = findViewById(R.id.tv_version);
         PackageManager pm = getApplicationContext().getPackageManager();
         String pkgName = getApplicationContext().getPackageName();
@@ -127,14 +134,14 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(HomeActivity.this.getResources().getColorStateList(R.color.txt_color));
-        txtUserName=(TextView)navigationView.getHeaderView(0).findViewById(R.id.profile_user_name);
-        if(Prevalent.currentOnlineuser.getName().isEmpty() || Prevalent.currentOnlineuser.getName().equals(""))
-        {
-
-        }
-        else {
-            txtUserName.setText(Prevalent.currentOnlineuser.getName());
-        }
+//        txtUserName=(TextView)navigationView.getHeaderView(0).findViewById(R.id.profile_user_name);
+//        if(Prevalent.currentOnlineuser.getName().isEmpty() || Prevalent.currentOnlineuser.getName().equals(""))
+//        {
+//
+//        }
+//        else {
+//            txtUserName.setText(Prevalent.currentOnlineuser.getName());
+//        }
 
 //        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -285,9 +292,9 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-    private void updatename() {
-//        tv_name.setText(session_management.getUserDetails().get(KEY_NAME));
-        tv_name.setText("Isha");
+    public void updatename() {
+        tv_name.setText(sessionMangement.getUserDetails().get(KEY_NAME).toString());
+//        tv_name.setText("Isha");
     }
 
 
@@ -372,7 +379,8 @@ public class HomeActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         getMobileData();
-        common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
+//        common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
+        common.setWallet_Amount(txtWallet,progressDialog,sessionMangement.getUserDetails().get(KEY_ID));
 
 
     }

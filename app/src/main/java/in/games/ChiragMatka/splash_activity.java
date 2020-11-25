@@ -24,10 +24,12 @@ import in.games.ChiragMatka.Common.Common;
 import in.games.ChiragMatka.Config.BaseUrl;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
+import in.games.ChiragMatka.utils.SessionMangement;
 
 public class splash_activity extends AppCompatActivity {
 
    float version_code;
+   SessionMangement sessionMangement;
    Common common;
    public static String home_text ="", withdrw_text="",tagline= "",withdrw_no="" ,min_add_amount="",message="",
            msg_status="",app_link="",share_link="",update_msg="";
@@ -36,6 +38,10 @@ public class splash_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_activity);
+
+        sessionMangement = new SessionMangement(splash_activity.this);
+
+
    common=new Common(splash_activity.this);
         try {
             PackageInfo pInfo = getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -88,9 +94,10 @@ public class splash_activity extends AppCompatActivity {
 
                     if(version_code==ver_code)
                     {
-                        Intent intent = new Intent(splash_activity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+//                        Intent intent = new Intent(splash_activity.this, MainActivity.class);
+//                        startActivity(intent);
+//                        finish();
+                        go_next();
 
                     }
                     else
@@ -149,6 +156,23 @@ public class splash_activity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(customJsonRequest,json_tag);
 
 
+    }
+
+    public void go_next() {
+        if(sessionMangement.isLoggedIn())
+        {
+            Intent i = new Intent(splash_activity.this,HomeActivity.class);
+            startActivity(i);
+            finish();
+
+        }
+        else
+        {
+            Intent in = new Intent(splash_activity.this,MainActivity.class);
+            startActivity(in);
+            finish();
+
+        }
     }
 
 }

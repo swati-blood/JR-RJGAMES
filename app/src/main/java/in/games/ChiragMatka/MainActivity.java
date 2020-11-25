@@ -49,6 +49,7 @@ import in.games.ChiragMatka.Prevalent.Prevalent;
 import in.games.ChiragMatka.utils.CustomJsonRequest;
 import in.games.ChiragMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.ChiragMatka.utils.Module;
+import in.games.ChiragMatka.utils.SessionMangement;
 import maes.tech.intentanim.CustomIntent;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
   TextInputLayout lay_u_name ,lay_pass;
    Common common;
    Module module ;
+   SessionMangement sessionMangement;
     Button btn_login,btn_loginWithMPin;
     ProgressDialog progressDialog;
     private Dialog dialog;
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sessionMangement=new SessionMangement(MainActivity.this);
 
         etName=findViewById(R.id.etUser);
         etPassword=findViewById(R.id.etPass);
@@ -276,6 +280,13 @@ public class MainActivity extends AppCompatActivity {
                     boolean status = object.getBoolean("responce");
                     if (status) {
                         JSONObject jsonObject = object.getJSONObject("data");
+
+                        sessionMangement.createLoginSession(jsonObject.getString("id"),jsonObject.getString("name"),jsonObject.getString("username"),
+                                jsonObject.getString("mobileno"),jsonObject.getString("email"),jsonObject.getString("dob"),jsonObject.getString("address"),jsonObject.getString("city"),
+                                jsonObject.getString("pincode"),jsonObject.getString("accountno"),jsonObject.getString("bank_name"),jsonObject.getString("ifsc_code"),jsonObject.getString("account_holder_name"),
+                                jsonObject.getString("paytm_no"),jsonObject.getString("tez_no"),jsonObject.getString("phonepay_no"),jsonObject.getString("wallet"));
+
+
                         UsersObjects users = new UsersObjects();
                         users.setId(common.chechNull(jsonObject.getString("id")));
                         users.setName(common.chechNull(jsonObject.getString("name")));

@@ -71,7 +71,7 @@ android:orientation="vertical"
         <RelativeLayout
             android:id="@+id/cvAddFunds"
             android:background="@drawable/shape2"
-
+            android:backgroundTint="@color/white"
             android:padding="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="10dp"
@@ -99,7 +99,7 @@ android:orientation="vertical"
                 android:text="Add Points"
                 android:textSize="25dp"
                 android:textStyle="bold|italic"
-                android:textColor="@color/textColor"/>
+                android:textColor="@color/colorPrimaryDark"/>
 
 
         </RelativeLayout>
@@ -121,7 +121,7 @@ android:orientation="vertical"
         <RelativeLayout
             android:id="@+id/cvWithdrawFunds"
             android:background="@drawable/shape2"
-
+            android:backgroundTint="@color/white"
             android:padding="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="10dp"
@@ -149,7 +149,7 @@ android:orientation="vertical"
                 android:text="Withdraw Points"
                 android:textSize="25dp"
                 android:textStyle="bold|italic"
-                android:textColor="@color/textColor"/>
+                android:textColor="@color/colorPrimaryDark"/>
 
 
         </RelativeLayout>
