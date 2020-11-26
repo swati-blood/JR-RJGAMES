@@ -26,19 +26,21 @@
         app:itemTextColor="@color/txt_color"
         app:itemIconTint="@color/txt_color"
         android:fitsSystemWindows="true"
+        android:scrollbars="vertical"
+        android:nestedScrollingEnabled="true"
         app:headerLayout="@layout/nav_header_home"
         app:menu="@menu/activity_home_drawer" >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="@dimen/_10sdp">
         <TextView
             android:id="@+id/tv_version"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="version"
-            android:textSize="16sp"
+            android:textSize="@dimen/_14sdp"
             android:textAlignment="center"
             android:background="@color/white"
             android:textColor="@color/colorPrimaryDark"
