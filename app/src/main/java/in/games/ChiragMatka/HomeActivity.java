@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
@@ -325,6 +326,10 @@ public class HomeActivity extends AppCompatActivity
                     });
             AlertDialog alertDialog=builder.create();
             alertDialog.show();
+            Button nbutton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            nbutton.setTextColor(Color.BLACK);
+            Button pbutton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+            pbutton.setTextColor(Color.BLACK);
 
         }
     }
