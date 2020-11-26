@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardBackgroundColor="@color/darkPink"
     app:cardCornerRadius="@dimen/_10sdp"
     app:cardElevation="@dimen/_10sdp"
     android:layout_height="wrap_content">
@@ -16,30 +16,24 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp">
 
-
-
         <RelativeLayout
             android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-
-            >
-
+            android:padding="5dp">
 
             <EditText
                 android:id="@+id/etForget_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:background="@drawable/shape2"
+                android:backgroundTint="@color/white"
                 android:textSize="18dp"
                 android:padding="10dp"
                 android:hint="Enter your email address"
                 android:gravity="left"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
                 android:inputType="textEmailAddress"
-
                 />
 
 
@@ -52,7 +46,8 @@
             android:layout_height="wrap_content"
             android:text="Get MPIN"
             android:textAllCaps="false"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:textSize="18dp"
 
             android:layout_marginTop="10dp"

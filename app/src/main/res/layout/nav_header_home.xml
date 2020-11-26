@@ -19,14 +19,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp">
 
         <RelativeLayout
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:id="@+id/rlicon"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@color/colorPrimaryDark">
 
             <ImageView
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/rlicon"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:text="User Name"
@@ -55,16 +55,6 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="181dp"
-            android:layout_marginTop="36dp"
-            app:srcCompat="@drawable/ic_baseline_edit_24"
-            android:layout_toRightOf="@+id/profile_user_name"
-            android:tint="@color/white" />
 
     </RelativeLayout>
 

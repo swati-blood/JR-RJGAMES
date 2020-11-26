@@ -333,16 +333,17 @@
     <Button
         android:layout_weight="3"
         android:id="@+id/add_points"
-    android:layout_width="0dp"
-    android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         android:elevation="@dimen/_5sdp"
         android:layout_marginLeft="5dp"
-
+        android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@android:color/white"
         android:text="Add Points"
-        android:backgroundTint="@color/play3"
+        android:paddingLeft="10dp"
+        android:backgroundTint="#952D26"
         android:background="@drawable/shape2"
     />
                 <Button

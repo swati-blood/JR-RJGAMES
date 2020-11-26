@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardBackgroundColor="@color/darkPink"
     app:cardCornerRadius="@dimen/_10sdp"
     app:cardElevation="@dimen/_10sdp"
     android:layout_height="wrap_content">
@@ -12,11 +12,8 @@
         android:layout_height="350dp"
         android:orientation="vertical"
         android:gravity="center"
-
         android:layout_margin="5dp"
         android:padding="10dp">
-
-
 
 
            <ImageView
@@ -25,20 +22,21 @@
                android:layout_height="100dp"
                android:layout_centerHorizontal="true"
                android:layout_marginBottom="10dp"
-
                android:background="@drawable/location"/>
+
          <EditText
              android:id="@+id/etAddress"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_below="@id/logo"
              android:background="@drawable/input_design_reg"
+             android:backgroundTint="@color/white"
              android:textSize="18dp"
              android:padding="9dp"
              android:hint="Address"
              android:gravity="left"
-             android:textColorHint="@color/white"
-             android:textColor="@color/white"
+             android:textColorHint="@color/colorPrimaryDark"
+             android:textColor="@color/colorPrimaryDark"
              android:inputType="textMultiLine"
 
              />
@@ -49,13 +47,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/etAddress"
                 android:background="@drawable/input_design_reg"
+                android:backgroundTint="@color/white"
                 android:layout_marginTop="5dp"
                 android:textSize="18dp"
                 android:padding="9dp"
                 android:hint="City"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
                 android:inputType="text"/>
 
             <EditText
@@ -65,15 +63,14 @@
                 android:layout_below="@id/etCity"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/input_design_reg"
+                android:backgroundTint="@color/white"
                 android:textSize="17dp"
                 android:padding="9dp"
                 android:maxLength="6"
                 android:hint="PinCode"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:inputType="number"
-
-                />
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                android:inputType="number" />
 
 
 
@@ -84,10 +81,9 @@
             android:text="Add Address"
             android:textAllCaps="false"
             android:background="@drawable/gradient_button"
-
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:textSize="18dp"
-
+            android:backgroundTint="@color/colorPrimaryDark"
             android:layout_marginTop="20dp"
 
             />

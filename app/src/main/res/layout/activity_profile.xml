@@ -33,7 +33,6 @@
                     android:text="Profile "
                     android:textSize="20dp"
                     android:textColor="@color/textColor"
-                    android:textStyle="italic"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20dp"
 

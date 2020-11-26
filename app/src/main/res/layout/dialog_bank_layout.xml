@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardBackgroundColor="@color/darkPink"
     app:cardCornerRadius="@dimen/_10sdp"
     app:cardElevation="@dimen/_10sdp"
     android:layout_height="wrap_content">
@@ -14,8 +14,6 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:padding="10dp">
-
-
 
 
            <ImageView
@@ -31,12 +29,13 @@
              android:layout_height="wrap_content"
              android:layout_below="@id/logo"
              android:background="@drawable/input_design_reg"
+             android:backgroundTint="@color/white"
              android:textSize="18dp"
              android:padding="7dp"
              android:hint="Account No."
              android:gravity="left"
-             android:textColorHint="@color/white"
-             android:textColor="@color/white"
+             android:textColorHint="@color/colorPrimaryDark"
+             android:textColor="@color/colorPrimaryDark"
              android:inputType="number"
 
              />
@@ -47,12 +46,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/etAccNo"
                 android:background="@drawable/input_design"
+                android:backgroundTint="@color/white"
                 android:layout_marginTop="5dp"
                 android:textSize="18dp"
                 android:padding="7dp"
                 android:hint="Bank Name"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
 
                 android:inputType="textMultiLine"/>
 
@@ -62,12 +62,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/etBankName"
             android:layout_marginTop="5dp"
-            android:background="@drawable/input_design_reg"
+            android:background="@drawable/input_design_reg" android:backgroundTint="@color/white"
             android:textSize="18dp"
             android:padding="7dp"
             android:hint="IFSC Code"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
             android:inputType="text"
 
             />
@@ -78,11 +78,12 @@
                 android:layout_below="@id/etIfsc"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/input_design_reg"
+                android:backgroundTint="@color/white"
                 android:textSize="18dp"
                 android:padding="7dp"
                 android:hint="Account Holder Name"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
                 android:inputType="text"
 
                 />
@@ -95,10 +96,9 @@
             android:layout_height="wrap_content"
             android:text="Add Bank Details"
             android:background="@drawable/gradient_button"
-
-            android:textColor="@color/colorPrimaryDark"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:textSize="18dp"
-
             android:layout_marginTop="20dp"
 
             />

@@ -25,11 +25,12 @@
             android:elevation="@dimen/_5sdp"
             android:textColor="@android:color/white"
             android:text="Withdraw Points"
-
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/money_bag_rupee"
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/shape2"
-            android:backgroundTint="@color/play1"
+            android:backgroundTint="#2B978C"
             />
 
                 <Button

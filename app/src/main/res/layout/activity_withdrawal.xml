@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WithdrawalActivity"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".WithdrawalActivity">
 
     <include layout="@layout/background_layout"/>
     <androidx.appcompat.widget.Toolbar
@@ -30,7 +30,6 @@
                 android:text="Withdraw Funds"
                 android:layout_toRightOf="@id/txtBack"
                 android:layout_marginLeft="10dp"
-                android:textStyle="italic"
                 android:textSize="17dp"
                 android:textColor="@color/textColor"/>
 
@@ -41,6 +40,7 @@
     android:layout_width="match_parent"
    android:layout_margin="@dimen/_10sdp"
     android:id="@+id/card"
+    app:cardCornerRadius="10dp"
     android:layout_below="@+id/toolbar"
     android:layout_height="wrap_content">
 
@@ -57,10 +57,11 @@
         >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview1"
             android:text="Withdraw"
+           android:textAlignment="center"
             android:textSize="20dp"
             android:paddingLeft="2dp"
             android:paddingRight="10dp"
@@ -81,7 +82,7 @@
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:fontFamily="sans-serif"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/colorPrimaryDark"/>
 
         <RelativeLayout
             android:id="@+id/rl_whts"
@@ -196,7 +197,7 @@
                 android:id="@+id/w_img"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:backgroundTint="@color/txt_color"
+                android:backgroundTint="@color/colorPrimary"
                 android:background="@drawable/ic_account_balance_wallet_black_24dp"
                 />
             <TextView
@@ -208,7 +209,7 @@
                 android:layout_marginTop="2dp"
                 android:paddingRight="5dp"
                 android:text=" Loading.."
-                android:textColor="@color/txt_color"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="15dp"/>
 
 
@@ -243,9 +244,8 @@
             android:textSize="18dp"
             android:padding="10dp"
             android:hint="Enter Points"
-            android:gravity="left"
-            android:textColorHint="@color/textColor"
-            android:textColor="@color/white"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimaryDark"
             android:inputType="number"
             android:backgroundTint="@color/txt_color"
             android:textAlignment="center"
@@ -260,6 +260,7 @@
             android:text="Add Request"
             android:textAllCaps="false"
             android:background="@drawable/gradient_button"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_below="@id/etRequstPoints"
             android:textColor="@color/txt_color"
             android:textSize="18dp"

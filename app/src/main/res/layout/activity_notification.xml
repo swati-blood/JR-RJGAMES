@@ -34,7 +34,6 @@
             android:text="Notifications"
             android:textSize="22dp"
             android:textColor="@color/textColor"
-            android:textStyle="italic"
             android:gravity="center_horizontal"
             android:layout_marginLeft="40dp"/>
     </androidx.appcompat.widget.Toolbar>
