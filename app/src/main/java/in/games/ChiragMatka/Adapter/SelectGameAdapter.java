@@ -64,7 +64,7 @@ public class SelectGameAdapter extends RecyclerView.Adapter<SelectGameAdapter.Vi
             holder.itemView.setVisibility(View.INVISIBLE);
         }
        holder.game_name.setText(model.getName());
-       switch (position%5)
+       /*switch (position%5)
        {
            case 0 :
                holder.game_name.setBackgroundTintList(ColorStateList.valueOf(activity.getResources().getColor(R.color.play1)));
@@ -81,7 +81,7 @@ public class SelectGameAdapter extends RecyclerView.Adapter<SelectGameAdapter.Vi
            case 4 :
                holder.game_name.setBackgroundTintList(ColorStateList.valueOf(activity.getResources().getColor(R.color.play3)));
                break;
-       }
+       }*/
 
 holder.game_name.setOnClickListener(new View.OnClickListener() {
     @Override

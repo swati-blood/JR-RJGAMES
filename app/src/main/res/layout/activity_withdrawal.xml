@@ -49,10 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relativelayout"
-
         android:padding="20dp"
         android:gravity="center"
-
         android:orientation="vertical"
         >
 
@@ -135,7 +133,6 @@
             android:id="@+id/imageview"
             android:layout_below="@+id/textview4"
             android:layout_marginTop="5dp"
-
             android:backgroundTint="@color/greenColor"
             android:visibility="gone"
             android:layout_marginLeft="100dp" />
@@ -189,7 +186,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/dialog_buttons"
             android:backgroundTint="@color/white"
-
             android:layout_centerHorizontal="true"
             android:padding="8dp">
 
@@ -220,7 +216,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relWallet"
-
             >
 
             <ImageView
@@ -230,7 +225,6 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/icons8_money_bag_rupee_240px"
-
                 android:backgroundTint="@color/white"/>
 
         </RelativeLayout>
@@ -240,7 +234,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape2"
-
             android:textSize="18dp"
             android:padding="10dp"
             android:hint="Enter Points"
@@ -248,26 +241,27 @@
             android:textColor="@color/colorPrimaryDark"
             android:inputType="number"
             android:backgroundTint="@color/txt_color"
-            android:textAlignment="center"
+            android:textAlignment="gravity"
             android:layout_marginRight="10dp"
             android:layout_below="@id/relWallet"
             android:layout_marginTop="10dp"
            />
         <Button
             android:id="@+id/add_Request"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Request"
             android:textAllCaps="false"
             android:background="@drawable/gradient_button"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/white"
             android:layout_below="@id/etRequstPoints"
-            android:textColor="@color/txt_color"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18dp"
+            android:padding="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-
-
+            android:layout_marginTop="@dimen/_20sdp"
             />
     </RelativeLayout>
 </RelativeLayout>

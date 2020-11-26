@@ -18,7 +18,6 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/colorPrimaryDark">
 
         <RelativeLayout
@@ -126,51 +125,54 @@
             android:src="@drawable/logo"
             android:layout_centerHorizontal="true"/>
 
+        <ImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:id="@+id/bag"
+            android:src="@drawable/money_bag_rupee"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_below="@+id/addpointsimage"/>
 
         <EditText
             android:id="@+id/etRequstPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/addpointsimage"
             android:layout_marginTop="20dp"
+            android:layout_below="@+id/bag"
             android:background="@drawable/shape2"
             android:backgroundTint="@color/txt_color"
             android:textSize="18dp"
+            android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
             android:padding="10dp"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/colorPrimary"
             android:hint="Enter Points"
+            android:gravity="left"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColor="@color/white"
             android:inputType="number"
-            android:textAlignment="center"
+            android:textAlignment="gravity"
             android:layout_marginRight="10dp" />
-
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_account_balance_wallet_black_24dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_alignTop="@+id/etRequstPoints"
-            />
 
 
         <Button
             android:id="@+id/add_Request"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Request"
             android:textAllCaps="false"
             android:background="@drawable/gradient_button"
-            android:backgroundTint="@color/colorPrimary"
             android:layout_below="@id/etRequstPoints"
-            android:textColor="@color/txt_color"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18dp"
+            android:padding="@dimen/_10sdp"
+            android:textStyle="bold"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-            />
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
 
+            />
     </RelativeLayout>
 </RelativeLayout>
 </RelativeLayout>

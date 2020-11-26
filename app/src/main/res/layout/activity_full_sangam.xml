@@ -255,7 +255,11 @@
                 >
                 <Button
                     android:id="@+id/digit_add"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
                     android:layout_height="35dp"
                     android:backgroundTint="@color/white"
                     android:background="@drawable/gradient_button"

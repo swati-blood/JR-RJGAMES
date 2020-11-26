@@ -10,17 +10,18 @@
     <TextView
         android:id="@+id/game_name"
         android:layout_margin="5dp"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:text="Open \nSingle"
         android:textAlignment="center"
         android:gravity="center"
         android:textSize="14dp"
         android:fontFamily="serif"
+        android:backgroundTint="@color/play3"
         android:textStyle="bold"
         android:layout_centerInParent="true"
         android:textColor="@android:color/white"
-        android:background="@drawable/circle"
+        android:background="@drawable/circle_text"
         />
 <!--    </androidx.cardview.widget.CardView>-->
 

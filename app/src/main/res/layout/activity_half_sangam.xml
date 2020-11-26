@@ -343,8 +343,12 @@
 
                 <Button
                     android:id="@+id/digit_add"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
                     android:backgroundTint="@color/white"
                     android:background="@drawable/gradient_button"
                     android:textAllCaps="false"
@@ -352,9 +356,7 @@
                     android:textSize="16dp"
                     android:textColor="@color/colorPrimaryDark"/>
 
-
             </RelativeLayout>
-
         </RelativeLayout>
 
             <include layout="@layout/all_games_layout"
