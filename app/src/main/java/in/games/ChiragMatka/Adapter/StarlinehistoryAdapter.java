@@ -43,12 +43,12 @@ public class StarlinehistoryAdapter extends BaseAdapter {
         TextView txtMatkaName=(TextView)itemView.findViewById(R.id.matkaname);
         TextView txtPlayOn=(TextView)itemView.findViewById(R.id.play_on);
         TextView txtPlayFor=(TextView)itemView.findViewById(R.id.play_for);
-        TextView txtDay=(TextView)itemView.findViewById(R.id.day);
+//        TextView txtDay=(TextView)itemView.findViewById(R.id.day);
         TextView txtId=(TextView)itemView.findViewById(R.id.bid_id);
-        TextView txtDigits=(TextView)itemView.findViewById(R.id.digit);
-        TextView txtPoints=(TextView)itemView.findViewById(R.id.points);
-        TextView txtCredit=(TextView)itemView.findViewById(R.id.credit);
-        RelativeLayout credit_rel=itemView.findViewById(R.id.credit_rel);
+//        TextView txtDigits=(TextView)itemView.findViewById(R.id.digit);
+//        TextView txtPoints=(TextView)itemView.findViewById(R.id.points);
+//        TextView txtCredit=(TextView)itemView.findViewById(R.id.credit);
+//        RelativeLayout credit_rel=itemView.findViewById(R.id.credit_rel);
 
         Starline_History_Objects objects=list.get(position);
 
@@ -60,10 +60,10 @@ public class StarlinehistoryAdapter extends BaseAdapter {
         txtMatkaName.setText("Nagpur Starline "+" \n"+objects.getS_game_time());
         //viewHolder.txtPlayOn.setText(sd[0]+" "+dt.toString());
         //viewHolder.txtPlayFor.setText(sd[0]+" "+dt.toString());
-      txtDigits.setText(objects.getDigits());
-      txtPoints.setText(objects.getPoints());
+//      txtDigits.setText(objects.getDigits());
+//      txtPoints.setText(objects.getPoints());
       txtId.setText(objects.getId());
-      txtDay.setText("("+objects.getDay()+")");
+//      txtDay.setText("("+objects.getDay()+")");
 
         String st=objects.getStatus().toString();
 //        if(st.equals("win"))
@@ -79,13 +79,13 @@ public class StarlinehistoryAdapter extends BaseAdapter {
 
         if(st.equals("win"))
         {
-            credit_rel.setVisibility(View.VISIBLE);
-
-            txtCredit.setText("You Won");
+//            credit_rel.setVisibility(View.VISIBLE);
+//
+//            txtCredit.setText("You Won");
         }
         else if(st.equals("loss"))
         {
-            credit_rel.setVisibility(View.VISIBLE);
+//            credit_rel.setVisibility(View.VISIBLE);
 
         }
 

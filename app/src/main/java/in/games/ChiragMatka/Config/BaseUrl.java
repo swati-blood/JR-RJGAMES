@@ -27,6 +27,7 @@ public class BaseUrl {
     public static final String URL_MOBILE=BASE_URL+"getMobile";
     public static final String URL_INSERT_DATA=BASE_URL+"insert_data";
     public static final String URL_StarLine_id = BASE_URL+"starline_data";
+    public static  final  String URL_HISTORY= BASE_URL+"get_history";
     public static final String URL_DpMotor = BASE_URL+"get_dpmotor";
     public static final String URL_SpMotor = BASE_URL+"getSpMotor";
     public static final String Url_req_history=BASE_URL+"request_history";

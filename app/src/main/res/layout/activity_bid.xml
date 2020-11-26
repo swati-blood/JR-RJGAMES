@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    tools:context=".BidActivity">
-    <include layout="@layout/background_layout"/>
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -33,34 +31,114 @@
                 android:layout_marginLeft="10dp"
 
                 android:textSize="17dp"
-                android:textColor="@color/textColor"/>
+                android:textColor="@color/white"/>
 
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <ScrollView
         android:layout_below="@+id/toolbar"
-        android:layout_margin="15dp"
-        app:cardCornerRadius="15dp"
-        android:visibility="gone"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
 
-                <ListView
-                    android:layout_below="@+id/heading"
-                    android:id="@+id/recyclerView"
+            android:paddingBottom="@dimen/_100sdp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_history"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                    />
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_pages"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 
-  </androidx.cardview.widget.CardView>
-    <WebView
-        android:layout_below="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/_10sdp"
-        android:id="@+id/bid_histry_webview"/>
-    </RelativeLayout>
+</RelativeLayout>
+
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+
+<!--    tools:context=".BidActivity">-->
+<!--    <include layout="@layout/background_layout"/>-->
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/colorPrimaryDark">-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+<!--            <TextView-->
+<!--                android:id="@+id/txtBack"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:background="@drawable/ic_keyboard_backspace_black_24dp"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/board"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Game History"-->
+<!--                android:layout_toRightOf="@id/txtBack"-->
+<!--                android:layout_marginLeft="10dp"-->
+
+<!--                android:textSize="17dp"-->
+<!--                android:textColor="@color/textColor"/>-->
+
+<!--        </RelativeLayout>-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_below="@+id/toolbar"-->
+<!--        android:layout_margin="15dp"-->
+<!--        app:cardCornerRadius="15dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--                <ListView-->
+<!--                    android:layout_below="@+id/heading"-->
+<!--                    android:id="@+id/recyclerView"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--                    />-->
+
+<!--  </androidx.cardview.widget.CardView>-->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rcy_bid_history"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--    </androidx.recyclerview.widget.RecyclerView>-->
+<!--&lt;!&ndash;    <WebView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_below="@+id/toolbar"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_margin="@dimen/_10sdp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/bid_histry_webview"/>&ndash;&gt;-->
+<!--    </RelativeLayout>-->

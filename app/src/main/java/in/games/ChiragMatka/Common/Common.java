@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -23,6 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -1837,6 +1840,11 @@ public class Common {
             newstring=str;
         }
         return newstring;
+    }
+    public void setRelativeTint(RelativeLayout mView,int color){
+        Drawable wrappedDrawable = DrawableCompat.wrap(mView.getBackground());
+        DrawableCompat.setTint(wrappedDrawable, color);
+        mView.setBackgroundDrawable(wrappedDrawable);
     }
 }
 

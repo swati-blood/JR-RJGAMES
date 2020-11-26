@@ -46,12 +46,12 @@ public class BidHistoryListViewAdapter extends BaseAdapter {
         TextView txtMatkaName=(TextView)itemView.findViewById(R.id.matkaname);
         TextView  txtPlayOn=(TextView)itemView.findViewById(R.id.play_on);
         TextView  txtPlayFor=(TextView)itemView.findViewById(R.id.play_for);
-        TextView txtDay=(TextView)itemView.findViewById(R.id.day);
+//        TextView txtDay=(TextView)itemView.findViewById(R.id.day);
         TextView txtId=(TextView)itemView.findViewById(R.id.bid_id);
-        TextView txtDigits=(TextView)itemView.findViewById(R.id.digit);
-        TextView txtPoints=(TextView)itemView.findViewById(R.id.points);
-        TextView txtCredit=(TextView)itemView.findViewById(R.id.credit);
-        RelativeLayout credit_rel=itemView.findViewById(R.id.credit_rel);
+//        TextView txtDigits=(TextView)itemView.findViewById(R.id.digit);
+//        TextView txtPoints=(TextView)itemView.findViewById(R.id.points);
+//        TextView txtCredit=(TextView)itemView.findViewById(R.id.credit);
+//        RelativeLayout credit_rel=itemView.findViewById(R.id.credit_rel);
 
         BidHistoryObjects objects=list.get(position);
 
@@ -61,12 +61,12 @@ public class BidHistoryListViewAdapter extends BaseAdapter {
         if(bet.equals("open"))
         {
             txtMatkaName.setText(objects.getName()+" "+objects.getBet_type());
-            txtDigits.setText(objects.getDigits());
+//            txtDigits.setText(objects.getDigits());
         }
         else if(bet.equals("close"))
         {
             txtMatkaName.setText(objects.getName()+" "+objects.getBet_type());
-            txtDigits.setText(objects.getDigits());
+//            txtDigits.setText(objects.getDigits());
         }
         else
         {
@@ -79,16 +79,16 @@ public class BidHistoryListViewAdapter extends BaseAdapter {
             {
             txtMatkaName.setText(objects.getName()+" Full Sangam");
             }
-            txtDigits.setText(objects.getDigits()+" - "+objects.getBet_type());
+//            txtDigits.setText(objects.getDigits()+" - "+objects.getBet_type());
         }
 
 
         txtPlayOn.setText("Play On "+objects.getPlay_on());
         txtPlayFor.setText("Play For "+objects.getPlay_for());
 
-        txtPoints.setText(objects.getPoints());
+//        txtPoints.setText(objects.getPoints());
         txtId.setText(objects.getId());
-        txtDay.setText("("+objects.getDay()+")");
+//        txtDay.setText("("+objects.getDay()+")");
 
         String st=objects.getStatus().toString();
 
@@ -96,16 +96,16 @@ public class BidHistoryListViewAdapter extends BaseAdapter {
         {
 //            credit_rel.setVisibility(View.VISIBLE);
 
-            txtCredit.setText("You WON");
+//            txtCredit.setText("You WON");
         }
         else if(st.equals("loss"))
         {
 //            credit_rel.setVisibility(View.VISIBLE);
-            txtCredit.setText("Better Luck Next Time");
+//            txtCredit.setText("Better Luck Next Time");
         }
         else
         {
-            credit_rel.setVisibility(View.GONE);
+//            credit_rel.setVisibility(View.GONE);
         }
 
 

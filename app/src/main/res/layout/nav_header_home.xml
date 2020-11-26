@@ -35,7 +35,7 @@
                 android:id="@+id/icon"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="5dp"
-                android:background="@drawable/logo"
+                android:background="@drawable/logo2"
 
                 />
 

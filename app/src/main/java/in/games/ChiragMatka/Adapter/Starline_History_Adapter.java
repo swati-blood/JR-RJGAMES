@@ -90,12 +90,12 @@ public class Starline_History_Adapter extends RecyclerView.Adapter<Starline_Hist
             txtMatkaName=(TextView)itemView.findViewById(R.id.matkaname);
             txtPlayOn=(TextView)itemView.findViewById(R.id.play_on);
             txtPlayFor=(TextView)itemView.findViewById(R.id.play_for);
-            txtDay=(TextView)itemView.findViewById(R.id.day);
+//            txtDay=(TextView)itemView.findViewById(R.id.day);
             txtId=(TextView)itemView.findViewById(R.id.bid_id);
-            txtDigits=(TextView)itemView.findViewById(R.id.digit);
-            txtPoints=(TextView)itemView.findViewById(R.id.points);
-            txtCredit=(TextView)itemView.findViewById(R.id.credit);
-            credit_rel=itemView.findViewById(R.id.credit_rel);
+//            txtDigits=(TextView)itemView.findViewById(R.id.digit);
+//            txtPoints=(TextView)itemView.findViewById(R.id.points);
+//            txtCredit=(TextView)itemView.findViewById(R.id.credit);
+//            credit_rel=itemView.findViewById(R.id.credit_rel);
 
         }
     }
