@@ -77,7 +77,7 @@
     <include layout="@layout/timer_layout"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardBackgroundColor="@color/homebg"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
                 android:layout_margin="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 android:layout_height="wrap_content">

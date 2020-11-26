@@ -51,6 +51,7 @@ public class Withdraw_history extends AppCompatActivity {
         progressDialog=new LoadingBar(Withdraw_history.this);
 
         list=new ArrayList();
+        sessionMangement=new SessionMangement(this);
 
         recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(false);

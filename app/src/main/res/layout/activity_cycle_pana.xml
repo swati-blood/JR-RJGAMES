@@ -200,7 +200,6 @@
                     android:textColorHint="@color/textColor"
                     android:maxLength="5"
                     android:textCursorDrawable="@drawable/cursor_color"
-
                     android:textSize="14dp"
                     android:hint="Points"
                     android:textColor="@color/textColor"
@@ -221,13 +220,17 @@
                 >
                 <Button
                     android:id="@+id/digit_add"
-                    android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_width="wrap_content"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="@dimen/_35sdp"
                     android:backgroundTint="@color/white"
                     android:background="@drawable/gradient_button"
                     android:textAllCaps="false"
                     android:text="Add"
                     android:textSize="16dp"
+                    android:textStyle="bold"
                     android:textColor="@color/colorPrimaryDark"/>
 
 
