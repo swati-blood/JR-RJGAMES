@@ -47,8 +47,7 @@ public class BidActivity extends AppCompatActivity {
     private ListView recyclerView;
     SessionMangement sessionMangement;
     ArrayList<BidHistoryObjects> list;
-    //RecyclerView.LayoutManager layoutManager;
-   LoadingBar progressDialog;
+    LoadingBar progressDialog;
     private BidHistoryListViewAdapter bidHistoryAdapter;
     private TextView bt_back;
     private String user_id;
@@ -67,15 +66,13 @@ public class BidActivity extends AppCompatActivity {
         browser = findViewById(R.id.bid_histry_webview);
         recyclerView=(ListView) findViewById(R.id.recyclerView);
         bt_back=(TextView)findViewById(R.id.txtBack);
-     //   user_id= "3";
-//        user_id= Prevalent.currentOnlineuser.getId().toString().trim();
+
 
         user_id = sessionMangement.getUserDetails().get(KEY_ID).toString().trim();
 
         list=new ArrayList();
 
         //user_id= Prevalent.currentOnlineuser.getId().toString().trim();
-
         bidHistoryAdapter=new BidHistoryListViewAdapter(this,list);
         recyclerView.setAdapter(bidHistoryAdapter);
 
