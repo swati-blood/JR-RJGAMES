@@ -481,6 +481,11 @@ public class HomeActivity extends AppCompatActivity
                     });
             AlertDialog alertDialog=builder.create();
             alertDialog.show();
+            Button nbutton = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            nbutton.setTextColor(Color.BLACK);
+            Button pbutton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+            pbutton.setTextColor(Color.BLACK);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
