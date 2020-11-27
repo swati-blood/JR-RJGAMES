@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "609303645989",
-    "firebase_url": "https://chiragmatka.firebaseio.com",
-    "project_id": "chiragmatka",
-    "storage_bucket": "chiragmatka.appspot.com"
+    "project_number": "122314617085",
+    "firebase_url": "https://rdgames.firebaseio.com",
+    "project_id": "rdgames",
+    "storage_bucket": "rdgames.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:609303645989:android:bbde80e21ccee5b9e754cc",
+        "mobilesdk_app_id": "1:122314617085:android:b65064cd067d153349ce94",
         "android_client_info": {
-          "package_name": "in.games.ChiragMatka"
+          "package_name": "in.games.rdgames"
         }
       },
       "oauth_client": [
         {
-          "client_id": "609303645989-lflj4v0et2e3l1qrqof2b0j0fkv25o0c.apps.googleusercontent.com",
+          "client_id": "122314617085-t4t2vhgin5s1pb7512t3j41tcg4ckfhe.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "in.games.ChiragMatka",
-            "certificate_hash": "1f7a21d1af31096927e98a4780ea71907c2784de"
+            "package_name": "in.games.rdgames",
+            "certificate_hash": "651131e495da265f0073502fe3c96520b369b6ea"
           }
         },
         {
-          "client_id": "609303645989-bn6etojltp5383c1pt2dvcmv0ort52cm.apps.googleusercontent.com",
+          "client_id": "122314617085-d712ml7vkkpbhi7molhi6m7ko0pjnulb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBnMilNrv62iHZD2FQ8Be0tUwCUxIt-jKY"
+          "current_key": "AIzaSyCw1g21HhrkYp4p_lUuC_Ms0PrbzWmGPDI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "609303645989-bn6etojltp5383c1pt2dvcmv0ort52cm.apps.googleusercontent.com",
+              "client_id": "122314617085-d712ml7vkkpbhi7molhi6m7ko0pjnulb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

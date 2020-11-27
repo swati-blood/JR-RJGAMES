@@ -129,7 +129,7 @@
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
             android:id="@+id/bag"
-            android:src="@drawable/money_bag_rupee"
+            android:src="@drawable/icons8_money_bag_rupee_240px"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_below="@+id/addpointsimage"/>
