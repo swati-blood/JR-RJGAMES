@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context="in.rdapss.splash_activity"
+    tools:context="com.rdapss.splash_activity"
    >
 
 <!--    <ImageView-->

@@ -7,7 +7,7 @@
 
     android:id="@+id/main_layout"
 
-    tools:context="in.rdapss.MainActivity">
+    tools:context="com.rdapss.MainActivity">
 
 
     <ScrollView

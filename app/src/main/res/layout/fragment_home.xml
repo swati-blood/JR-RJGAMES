@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/transparent"
-    tools:context="in.rdapss.fragments.HomeFragment">
+    tools:context="com.rdapss.fragments.HomeFragment">
 
 <RelativeLayout
     android:layout_width="match_parent"
