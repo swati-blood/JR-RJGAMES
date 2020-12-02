@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.games.rdgames">
+    package="com.rdapss">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".AppController"
+        android:name="in.rdapss.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,50 +22,50 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".NewJodi"></activity>
-        <activity android:name=".NewSingleDigit" />
-        <activity android:name=".NewGameActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".DemoActivity" />
-        <activity android:name=".Withdraw_history" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Starline_Activity" />
-        <activity android:name=".Fund_RequestActivity" />
-        <activity android:name=".FundsActivity" />
-        <activity android:name=".BidActivity" />
-        <activity android:name=".WithdrawalActivity" />
-        <activity android:name=".RequestActivity" />
-        <activity android:name=".UploadScreenshotActivity" />
-        <activity android:name=".CyclePana" />
-        <activity android:name=".VerificationActivity" />
-        <activity android:name=".UpdatePasswordActivity" />
+        <activity android:name="in.rdapss.NewJodi"></activity>
+        <activity android:name="in.rdapss.NewSingleDigit" />
+        <activity android:name="in.rdapss.NewGameActivity" />
+        <activity android:name="in.rdapss.ProfileActivity" />
+        <activity android:name="in.rdapss.DemoActivity" />
+        <activity android:name="in.rdapss.Withdraw_history" />
+        <activity android:name="in.rdapss.MainActivity" />
+        <activity android:name="in.rdapss.Starline_Activity" />
+        <activity android:name="in.rdapss.Fund_RequestActivity" />
+        <activity android:name="in.rdapss.FundsActivity" />
+        <activity android:name="in.rdapss.BidActivity" />
+        <activity android:name="in.rdapss.WithdrawalActivity" />
+        <activity android:name="in.rdapss.RequestActivity" />
+        <activity android:name="in.rdapss.UploadScreenshotActivity" />
+        <activity android:name="in.rdapss.CyclePana" />
+        <activity android:name="in.rdapss.VerificationActivity" />
+        <activity android:name="in.rdapss.UpdatePasswordActivity" />
         <activity
-            android:name=".TriplePanaActivity"
+            android:name="in.rdapss.TriplePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".DoublePanaActivity"
+            android:name="in.rdapss.DoublePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".FullSangamActivity"
+            android:name="in.rdapss.FullSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".HalfSangamActivity"
+            android:name="in.rdapss.HalfSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".SinglePannaActivity"
+            android:name="in.rdapss.SinglePannaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".DrawerNoticeBoardActivity" />
-        <activity android:name=".DrawerGameRates" />
-        <activity android:name=".DrawerHowToPlayActivity" />
-        <activity android:name=".DrawerProfileActivity" />
-        <activity android:name=".NotificationActivity" />
-        <activity android:name=".PlayGameActivity" />
+        <activity android:name="in.rdapss.RegisterActivity" />
+        <activity android:name="in.rdapss.DrawerNoticeBoardActivity" />
+        <activity android:name="in.rdapss.DrawerGameRates" />
+        <activity android:name="in.rdapss.DrawerHowToPlayActivity" />
+        <activity android:name="in.rdapss.DrawerProfileActivity" />
+        <activity android:name="in.rdapss.NotificationActivity" />
+        <activity android:name="in.rdapss.PlayGameActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name="in.rdapss.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".splash_activity">
+        <activity android:name="in.rdapss.splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -73,14 +73,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyFirebaseMessagingService">
+        <service android:name="in.rdapss.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <receiver
-            android:name=".NetworkStateChangeReciever"
+            android:name="in.rdapss.NetworkStateChangeReciever"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -89,7 +89,7 @@
 
         <meta-data android:name="com.onesignal.NotificationAccentColor.DEFAULT" android:value="FF00FF00" />
         <service
-            android:name=".utils.NotificationExtenderExample"
+            android:name="in.rdapss.utils.NotificationExtenderExample"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false">
             <intent-filter>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".RegisterActivity"
+    tools:context="in.rdapss.RegisterActivity"
    >
 
         <androidx.appcompat.widget.Toolbar
@@ -64,7 +64,7 @@
             android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:padding="@dimen/_10sdp"
@@ -96,6 +96,8 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Username"
+                app:hintTextAppearance="@style/textstyle"
+                app:helperTextTextAppearance="@dimen/_18sdp"
                 android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle">
 
@@ -138,6 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/textstyle"
+                app:helperTextTextAppearance="@dimen/_18sdp"
                 android:hint="Enter Name"
                 android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle"
@@ -189,6 +193,8 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Mobile Number"
+                app:hintTextAppearance="@style/textstyle"
+                app:helperTextTextAppearance="@dimen/_18sdp"
                 style="@style/textstyle"
                 android:textColorHint="@color/colorPrimaryDark"
 
@@ -237,6 +243,8 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
+                app:hintTextAppearance="@style/textstyle"
+                app:helperTextTextAppearance="@dimen/_18sdp"
                 android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle"
 
@@ -283,6 +291,8 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Confirm Password"
+                app:hintTextAppearance="@style/textstyle"
+                app:helperTextTextAppearance="@dimen/_18sdp"
                 android:textColorHint="@color/colorPrimaryDark"
                 style="@style/textstyle"
 

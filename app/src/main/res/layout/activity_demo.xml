@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/gradient_bakcground"
-    tools:context="in.games.rdgames.VerificationActivity">
+    tools:context="in.rdapss.rdgames.in.games.VerificationActivity">
 
     <ImageView
         android:id="@+id/iv_back"

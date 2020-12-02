@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".NewGameActivity">
+    tools:context="in.rdapss.NewGameActivity">
     <include layout="@layout/background_layout"/>
     <RelativeLayout
         android:layout_width="match_parent"

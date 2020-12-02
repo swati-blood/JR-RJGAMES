@@ -17,7 +17,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "in.games.rdgames"
+        applicationId "com.rdapss"
         manifestPlaceholders = [onesignal_app_id: 'bc941d05-87b2-44f8-9c52-9b3b7be141cd',
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: 'REMOTE']

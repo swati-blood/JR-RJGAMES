@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
   android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".HalfSangamActivity">
+    tools:context="in.rdapss.HalfSangamActivity">
 
 
     <androidx.appcompat.widget.Toolbar
