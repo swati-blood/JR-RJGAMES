@@ -23,7 +23,8 @@ import com.rdapss.HalfSangamActivity;
 import com.rdapss.Model.GameModel;
 import com.rdapss.NewJodi;
 import com.rdapss.NewSingleDigit;
-import com.rdapss.rdapss.R;
+
+import com.rdapss.R;
 import com.rdapss.SinglePannaActivity;
 import com.rdapss.TriplePanaActivity;
 

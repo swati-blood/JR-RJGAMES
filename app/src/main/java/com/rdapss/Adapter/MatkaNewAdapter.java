@@ -24,7 +24,8 @@ import java.util.Date;
 import com.rdapss.Common.Common;
 import com.rdapss.Model.MatkasObjects;
 import com.rdapss.NewGameActivity;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
+
 import maes.tech.intentanim.CustomIntent;
 
 /**

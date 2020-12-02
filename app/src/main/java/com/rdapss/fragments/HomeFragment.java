@@ -29,7 +29,7 @@ import com.rdapss.Adapter.MatkaNewAdapter;
 import com.rdapss.Common.Common;
 import com.rdapss.HomeActivity;
 import com.rdapss.Model.MatkasObjects;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
 import com.rdapss.WithdrawalActivity;
 import com.rdapss.utils.LoadingBar;
 

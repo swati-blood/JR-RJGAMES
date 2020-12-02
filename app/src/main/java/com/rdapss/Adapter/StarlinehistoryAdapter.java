@@ -10,7 +10,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import com.rdapss.Model.Starline_History_Objects;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
+
 
 public class StarlinehistoryAdapter extends BaseAdapter {
     Context context;

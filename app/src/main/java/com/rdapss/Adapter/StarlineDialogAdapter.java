@@ -6,9 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.rdapss.R;
+
 import java.util.ArrayList;
 
-import com.rdapss.rdapss.R;
 
 
 public class StarlineDialogAdapter extends BaseAdapter {

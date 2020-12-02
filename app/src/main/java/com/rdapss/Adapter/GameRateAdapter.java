@@ -11,7 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import com.rdapss.Model.GameRateModel;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
+
 
 public class GameRateAdapter extends RecyclerView.Adapter<GameRateAdapter.ViewHolder> {
     ArrayList<GameRateModel> ratelist ;

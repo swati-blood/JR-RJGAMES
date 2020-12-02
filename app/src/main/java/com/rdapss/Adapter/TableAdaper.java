@@ -11,7 +11,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import com.rdapss.Model.TableModel;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
+
 
 /**
  * Developed by Binplus Technologies pvt. ltd.  on 05,December,2019

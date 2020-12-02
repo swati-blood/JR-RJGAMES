@@ -15,7 +15,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.rdapss.Model.TransactionHistoryObjects;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
+
 
 public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionHistoryAdapter.ViewHolder> {
     private Context context;

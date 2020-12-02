@@ -16,7 +16,7 @@ import java.util.Date;
 
 import com.rdapss.Model.HistryModel;
 import com.rdapss.Prevalent.Prevalent;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
 
 
 public class AllHistoryAdapter extends RecyclerView.Adapter<AllHistoryAdapter.ViewHolder> {

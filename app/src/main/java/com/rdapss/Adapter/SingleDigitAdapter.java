@@ -10,7 +10,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import com.rdapss.Model.SingleDigitObjects;
-import com.rdapss.rdapss.R;
+
+import com.rdapss.R;
 import com.rdapss.utils.LoadingBar;
 
 public class SingleDigitAdapter extends BaseAdapter {

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 
 import com.rdapss.Model.BidHistoryObjects;
-import com.rdapss.rdapss.R;
+import com.rdapss.R;
+
 
 public class BidHistoryListViewAdapter extends BaseAdapter {
 
