@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 
 import in.rdapss.Common.Common;
 import in.rdapss.Config.BaseUrl;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.CustomJsonRequest;
 import maes.tech.intentanim.CustomIntent;
 

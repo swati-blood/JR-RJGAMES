@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.rdapss.Model.TableModel;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class PointsAdapter extends RecyclerView.Adapter<PointsAdapter.ViewHolder> {
     public static ArrayList<TableModel> jodi_list ;

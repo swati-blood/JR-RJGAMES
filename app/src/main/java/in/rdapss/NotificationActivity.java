@@ -25,7 +25,7 @@ import java.util.List;
 import in.rdapss.Adapter.NotificationAdapter;
 import in.rdapss.Common.Common;
 import in.rdapss.Model.NotificationObjects;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.CustomJsonRequest;
 import in.rdapss.utils.LoadingBar;
 

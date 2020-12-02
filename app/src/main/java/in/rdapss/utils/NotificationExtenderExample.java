@@ -8,7 +8,7 @@ import com.onesignal.NotificationExtenderService;
 import com.onesignal.OSNotificationDisplayedResult;
 import com.onesignal.OSNotificationReceivedResult;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 
 /**

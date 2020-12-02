@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import in.rdapss.Common.Common;
 import in.rdapss.Model.Withdraw_requwset_obect;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_request_Adapter.ViewHolder> {
 

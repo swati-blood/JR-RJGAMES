@@ -3,7 +3,7 @@ package in.rdapss;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class DemoActivity extends AppCompatActivity {
 

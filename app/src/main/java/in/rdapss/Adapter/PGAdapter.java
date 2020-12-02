@@ -17,7 +17,7 @@ import java.util.Date;
 
 import in.rdapss.Common.Common;
 import in.rdapss.Model.Starline_Objects;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class PGAdapter extends BaseAdapter {
 

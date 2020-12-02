@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class DialogAddress extends AppCompatDialogFragment {
 

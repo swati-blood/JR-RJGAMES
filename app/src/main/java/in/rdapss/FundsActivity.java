@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class FundsActivity extends AppCompatActivity {
 

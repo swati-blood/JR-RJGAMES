@@ -1,4 +1,4 @@
-package in.rdapss.rdgames;
+package in.rdapss.rdapss;
 
 import org.junit.Test;
 

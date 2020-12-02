@@ -27,7 +27,7 @@ import in.rdapss.Intefaces.VolleyCallBack;
 import in.rdapss.Model.TableModel;
 import in.rdapss.Objects.sp_input_data;
 import in.rdapss.Prevalent.Prevalent;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.LoadingBar;
 import in.rdapss.utils.SessionMangement;
 

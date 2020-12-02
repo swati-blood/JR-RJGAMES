@@ -39,7 +39,7 @@ import in.rdapss.Adapter.StarlinehistoryAdapter;
 import in.rdapss.Common.Common;
 
 import in.rdapss.Model.HistryModel;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.CustomJsonRequest;
 import in.rdapss.utils.LoadingBar;
 import in.rdapss.utils.RecyclerTouchListener;

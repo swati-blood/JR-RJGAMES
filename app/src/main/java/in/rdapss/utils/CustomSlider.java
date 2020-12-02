@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 
 public class CustomSlider extends BaseSliderView {

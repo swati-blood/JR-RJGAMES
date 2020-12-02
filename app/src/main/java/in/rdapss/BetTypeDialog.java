@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class BetTypeDialog extends AppCompatDialogFragment  {
 

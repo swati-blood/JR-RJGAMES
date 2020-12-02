@@ -5,7 +5,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 /**
  * Developed by Binplus Technologies pvt. ltd.  on 06,April,2020

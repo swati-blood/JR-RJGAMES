@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import maes.tech.intentanim.CustomIntent;
 
 

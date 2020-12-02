@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.rdapss.Model.NotificationObjects;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> {
 

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.rdapss.Objects.Fund_Request_HistoryObject;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 
 public class Request_HistoryAdapter extends RecyclerView.Adapter<Request_HistoryAdapter.ViewHolder> {

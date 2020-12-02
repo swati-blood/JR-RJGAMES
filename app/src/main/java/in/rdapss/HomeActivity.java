@@ -59,7 +59,7 @@ import in.rdapss.Common.Common;
 import in.rdapss.Config.BaseUrl;
 import in.rdapss.Model.MatkaObject;
 import in.rdapss.fragments.HomeFragment;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.CustomJsonRequest;
 import in.rdapss.utils.CustomSlider;
 import in.rdapss.utils.CustomVolleyJsonArrayRequest;

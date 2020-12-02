@@ -67,7 +67,7 @@ import in.rdapss.Model.TableModel;
 import in.rdapss.Model.WalletObjects;
 import in.rdapss.NewGameActivity;
 import in.rdapss.Prevalent.Prevalent;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 import in.rdapss.utils.CustomJsonRequest;
 import in.rdapss.utils.CustomVolleyJsonArrayRequest;

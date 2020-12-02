@@ -42,7 +42,7 @@ import in.rdapss.Remote.FileUtil;
 import in.rdapss.Remote.IUpoladAPI;
 import in.rdapss.Remote.ProgressRequestBody;
 import in.rdapss.Remote.UploadCallBacks;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.LoadingBar;
 import in.rdapss.utils.Module;
 import in.rdapss.utils.SessionMangement;

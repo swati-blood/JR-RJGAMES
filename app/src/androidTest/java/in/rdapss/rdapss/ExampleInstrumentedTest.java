@@ -1,4 +1,4 @@
-package in.rdapss.rdgames;
+package in.rdapss.rdapss;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

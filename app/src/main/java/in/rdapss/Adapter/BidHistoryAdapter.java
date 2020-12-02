@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import in.rdapss.Model.BidHistoryObjects;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class BidHistoryAdapter extends RecyclerView.Adapter<BidHistoryAdapter.ViewHolder> {
     private Dialog dialog;

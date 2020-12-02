@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 
 /**

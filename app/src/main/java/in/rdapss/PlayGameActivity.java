@@ -32,7 +32,7 @@ import in.rdapss.Common.Common;
 import in.rdapss.Config.BaseUrl;
 import in.rdapss.Model.GameRateModel;
 import in.rdapss.Model.Starline_Objects;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.CustomJsonRequest;
 import in.rdapss.utils.LoadingBar;
 import in.rdapss.utils.SessionMangement;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import in.rdapss.Model.TableModel;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 /**
  * Developed by Binplus Technologies pvt. ltd.  on 03,February,2020

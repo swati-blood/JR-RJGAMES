@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 
 public class StarlineDialogAdapter extends BaseAdapter {

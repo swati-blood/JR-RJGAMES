@@ -18,7 +18,7 @@ import java.util.List;
 
 import in.rdapss.Common.Common;
 import in.rdapss.Model.TableModel;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 import static in.rdapss.NewJodi.bet_list;
 import static in.rdapss.NewJodi.btnReset;

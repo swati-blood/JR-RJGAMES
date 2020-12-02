@@ -18,7 +18,7 @@ import com.onesignal.OneSignal;
 
 import org.json.JSONObject;
 
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.NotificationClickHandler;
 
 public class AppController extends Application {

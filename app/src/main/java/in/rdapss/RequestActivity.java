@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import in.rdapss.Common.Common;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.CustomJsonRequest;
 import in.rdapss.utils.CustomVolleyJsonArrayRequest;
 import in.rdapss.utils.LoadingBar;

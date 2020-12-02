@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import in.rdapss.Adapter.SelectGameAdapter;
 import in.rdapss.Common.Common;
 import in.rdapss.Model.GameModel;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 
 public class NewGameActivity extends AppCompatActivity implements View.OnClickListener {
     TextView open_single_p , close_single_p , open_double,close_double ,open_triple , close_triple,open_cylce,close_cylce,halfsngm,fullsngm,jodi ,open_single,close_single;

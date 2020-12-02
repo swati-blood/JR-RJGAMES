@@ -31,7 +31,7 @@ import in.rdapss.Adapter.TableAdaper;
 import in.rdapss.Common.Common;
 import in.rdapss.Model.TableModel;
 import in.rdapss.Prevalent.Prevalent;
-import in.rdapss.rdgames.R;
+import in.rdapss.rdapss.R;
 import in.rdapss.utils.LoadingBar;
 import in.rdapss.utils.SessionMangement;
 
