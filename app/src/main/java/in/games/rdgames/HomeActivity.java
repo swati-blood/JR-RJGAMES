@@ -462,6 +462,7 @@ public class HomeActivity extends AppCompatActivity
                     .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            sessionMangement.logoutSession();
                             Intent intent=new Intent(HomeActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);

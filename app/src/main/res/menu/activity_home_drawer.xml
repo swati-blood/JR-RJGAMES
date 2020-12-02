@@ -114,7 +114,6 @@
         android:visible="false"
         android:id="@+id/nav_noticeBoard"
         android:icon="@drawable/icons8_bulleted_list_128px"
-
         android:title="Notice Board/Rules" />
     </group>
     <group
@@ -123,7 +122,6 @@
     <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/icons8_logout_rounded_up_128px"
-
         android:title="Logout" />
     </group>
 
