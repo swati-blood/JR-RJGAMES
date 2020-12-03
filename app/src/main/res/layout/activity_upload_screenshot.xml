@@ -223,7 +223,6 @@
                     <EditText
                         android:layout_margin="10dp"
                         android:id="@+id/et_trans_id"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/txt_trans_id"
@@ -305,6 +304,7 @@
                                     android:textAllCaps="false"
                                     android:id="@+id/btn_choose"
                                     android:background="@drawable/dialog_buttons"
+                                    android:backgroundTint="@android:color/holo_red_dark"
                                     android:layout_height="40sp"/>
                                 <Button
                                     android:layout_toRightOf="@id/btn_choose"

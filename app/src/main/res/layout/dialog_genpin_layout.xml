@@ -30,6 +30,7 @@
              android:layout_below="@id/logo"
              android:backgroundTint="@color/white"
              android:background="@drawable/shape2"
+             android:textCursorDrawable="@drawable/cursor_pointer"
              android:textSize="18dp"
              android:padding="10dp"
              android:hint="Enter 4 Digit MPIN"

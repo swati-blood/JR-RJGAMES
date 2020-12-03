@@ -237,6 +237,7 @@
             android:textSize="18dp"
             android:padding="10dp"
             android:hint="Enter Points"
+            android:textCursorDrawable="@drawable/cursor_pointer"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColor="@color/colorPrimaryDark"
             android:inputType="number"

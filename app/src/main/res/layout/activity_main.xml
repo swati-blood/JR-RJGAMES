@@ -67,7 +67,7 @@
                     android:drawableLeft="@drawable/ic_phone_android_black_24dp"
                     android:drawableTint="@color/colorPrimary"
                     android:textSize="16dp"
-
+                    android:textCursorDrawable="@drawable/cursor_pointer"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,6 +118,7 @@
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
                     android:drawableTint="@color/colorPrimary"
                     android:layout_width="match_parent"
+                    android:textCursorDrawable="@drawable/cursor_pointer"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
                     android:textColor="@color/colorPrimaryDark"

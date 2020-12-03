@@ -34,6 +34,7 @@
             android:backgroundTint="@color/white"
             android:textSize="18dp"
             android:padding="10dp"
+            android:textCursorDrawable="@drawable/cursor_pointer"
             android:hint="Enter Points"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColor="@color/colorPrimaryDark"

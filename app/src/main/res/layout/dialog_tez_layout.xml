@@ -41,6 +41,7 @@
              android:background="@drawable/shape2"
              android:textSize="18dp"
              android:padding="10dp"
+             android:textCursorDrawable="@drawable/cursor_pointer"
              android:backgroundTint="@color/white"
              android:hint="Enter Google Pay(Tez) number"
              android:gravity="center"

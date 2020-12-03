@@ -35,6 +35,7 @@
              android:layout_below="@id/logo"
              android:background="@drawable/shape2"
              android:textSize="18dp"
+                android:textCursorDrawable="@drawable/cursor_pointer"
                 android:backgroundTint="@color/white"
              android:padding="10dp"
              android:hint="Enter Phone pay number"

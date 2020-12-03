@@ -24,6 +24,7 @@
              android:textSize="18dp"
                 android:backgroundTint="@color/white"
              android:padding="10dp"
+                android:textCursorDrawable="@drawable/cursor_pointer"
              android:hint="Enter Mobile Number"
              android:gravity="left"
                 android:drawableLeft="@drawable/ic_phone_android_black_24dp"

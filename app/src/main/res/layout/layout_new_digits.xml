@@ -33,7 +33,6 @@
             android:layout_marginRight="@dimen/_5sdp"/>
         <EditText
             android:id="@+id/et_points"
-
             android:textSize="15dp"
             android:textAlignment="center"
             android:layout_width="0dp"

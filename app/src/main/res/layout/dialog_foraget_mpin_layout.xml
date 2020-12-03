@@ -28,6 +28,7 @@
                 android:background="@drawable/shape2"
                 android:backgroundTint="@color/white"
                 android:textSize="18dp"
+                android:textCursorDrawable="@drawable/cursor_pointer"
                 android:padding="10dp"
                 android:hint="Enter your email address"
                 android:gravity="left"
