@@ -88,13 +88,13 @@ public class HomeActivity extends AppCompatActivity
     private Dialog dialog;
     String whatsapp_no="";
     private Button btn_dialog_ok ,btn_add,btn_chart;
-    private CardView pgCard,callCard,cardReload;
+    private CardView pgCard,cardReload;
     private String name="";
     private TextView txtWallet_amount;
     private TextView txtUserName,txtNumber;
     LoadingBar progressDialog;
     Common common;
-    RelativeLayout rl_whatsapp,rl_whats;
+    RelativeLayout rl_whatsapp,rl_whats,callCard;
     public static String mainName="";
     int flag =0 ;
     SliderLayout home_slider;
@@ -219,7 +219,7 @@ public class HomeActivity extends AppCompatActivity
         list=new ArrayList<>();
 
          pgCard=(CardView)findViewById(R.id.cardView3);
-        callCard=(CardView)findViewById(R.id.cardView4);
+        callCard=(RelativeLayout) findViewById(R.id.cardView4);
         txtNumber=(TextView)findViewById(R.id.txtNumber);
 
         common.setMobileNumber(txtNumber);
