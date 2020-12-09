@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.hajiyevelnur92:intentanimation:1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eac7202c7f7c88bedff4d5ac43059462/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eac7202c7f7c88bedff4d5ac43059462/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eac7202c7f7c88bedff4d5ac43059462/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2f01636f86ecf699e2358e090a52a523/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2f01636f86ecf699e2358e090a52a523/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2f01636f86ecf699e2358e090a52a523/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52d3fcf8d06bf60d3219b102018a0467/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52d3fcf8d06bf60d3219b102018a0467/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52d3fcf8d06bf60d3219b102018a0467/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

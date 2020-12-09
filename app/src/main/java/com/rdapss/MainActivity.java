@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        progressDialog=new ProgressDialog(MainActivity.this);
+        progressDialog=new ProgressDialog(MainActivity.this,R.style.MyAlertDialogStyle);
 //        progressDialog.setTitle("Please wait");
         progressDialog.setMessage("Loading...");
         btn_login=(Button) findViewById(R.id.login_login_btn);

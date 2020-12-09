@@ -480,7 +480,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void setDataEditText(EditText edt,String data)
     {
         String s=data.toString();
-        if(data.equalsIgnoreCase("null"))
+        if(data == null || data.isEmpty() || data.equalsIgnoreCase("null"))
         {
 
         }

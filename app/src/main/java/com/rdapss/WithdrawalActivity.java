@@ -380,6 +380,8 @@ import static com.rdapss.splash_activity.withdrw_text;
              @Override
              public void onErrorResponse(VolleyError error) {
                  progressDialog.dismiss();
+                 error.printStackTrace();
+                 common.showToast(""+error.getMessage());
                  common.showVolleyError(error);
              }
          });

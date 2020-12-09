@@ -2,7 +2,7 @@ package com.rdapss;
 
 public class URLs {
 
-    public static final String BASE_URL="https://www.chiragmatka.com/restApi/";
+    public static final String BASE_URL="https://www.rdgames.in/restApi/";
     public static final String BASE_URL2="api.php?api=";
     public static final String URL_CHECK1=BASE_URL+BASE_URL2+"getMatkas";
     public static final String URL_CHECK2=BASE_URL+BASE_URL2+"getStarline";
@@ -26,8 +26,6 @@ public class URLs {
 
     public static final String URL_REGIST=BASE_URL+"users.php";
 
-    public static final String Bid_Histry_Url="https://www.chiragmatka.com/admin/app_bid_history?user_id=";
-    public static final String Starline_Histry_Url="https://www.chiragmatka.com/admin/app_bid_history?user_id=";
     public static final String URL_StarLine = BASE_URL+"starline.php";
     public static final String Url_matka_with_id=BASE_URL+"matka_with_id.php";
     public static final String URL_Matka = BASE_URL+"matka.php";
