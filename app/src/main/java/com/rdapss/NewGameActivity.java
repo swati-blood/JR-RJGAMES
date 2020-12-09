@@ -116,7 +116,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
            game_list.add(new GameModel("14", "Close Cycle \n Patti ", R.drawable.logo, "Close"));
 //           game_list.add(new GameModel("0", "Close Cycle \n Patti ", R.drawable.logo, "Close"));
        }
-        if (Integer.parseInt(m_id)>15)
+        if (Integer.parseInt(m_id)>20)
         {game_list.clear();
 //           Toast.makeText(this,"starlne",Toast.LENGTH_LONG).show();
             common.setBackTint(open_single);

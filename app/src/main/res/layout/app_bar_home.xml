@@ -282,9 +282,9 @@
                         android:layout_marginRight="5dp"
                         android:paddingRight="10dp"
                         android:text="0"
-                        android:textSize="23dp"
+                        android:textSize="18dp"
                         android:layout_centerVertical="true"
-                        android:textStyle="bold"/>
+                        />
 
 
                 </RelativeLayout>
@@ -319,14 +319,14 @@
                     </RelativeLayout>
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="25dp"
+                        android:layout_height="30dp"
                         android:id="@+id/tv_number"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="2dp"
                         android:paddingRight="@dimen/_10sdp"
                         android:layout_toRightOf="@id/rl_round"
-                        android:text=""
-                        android:textSize="18dp"
+                        android:text="WhatsApp No"
+                        android:textSize="20dp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:textColor="@color/txt_color"
                         android:layout_centerHorizontal="true"
