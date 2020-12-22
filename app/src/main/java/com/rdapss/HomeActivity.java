@@ -222,7 +222,7 @@ public class HomeActivity extends AppCompatActivity
         callCard=(RelativeLayout) findViewById(R.id.cardView4);
         txtNumber=(TextView)findViewById(R.id.txtNumber);
 
-        common.setMobileNumber(txtNumber);
+//        common.setMobileNumber(txtNumber);
 
         progressDialog=new LoadingBar(HomeActivity.this);
 
@@ -651,7 +651,9 @@ public class HomeActivity extends AppCompatActivity
                 {
                     JSONObject dataObj=response.getJSONObject(0);
 
-                    whatsapp_no = dataObj.getString("mobile");
+                    String mobile = dataObj.getString("mobile");
+                    txtNumber.setText(mobile.toString());
+                    whatsapp_no = dataObj.getString("whatsapp");
 
                     if(whatsapp_no==null||whatsapp_no.isEmpty())
                     {
@@ -659,7 +661,7 @@ public class HomeActivity extends AppCompatActivity
                     }
                     else
                     {
-                        tv_number.setText(whatsapp_no.toString());
+                        tv_number.setText("WhatsApp Now");
                     }
                 }
                 catch (Exception ex)

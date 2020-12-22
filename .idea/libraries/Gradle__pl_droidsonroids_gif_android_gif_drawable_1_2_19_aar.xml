@@ -1,15 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: pl.droidsonroids.gif:android-gif-drawable:1.2.19@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa83b0c9a7d8d65a89e7755955a00ab8/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa83b0c9a7d8d65a89e7755955a00ab8/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa83b0c9a7d8d65a89e7755955a00ab8/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1ac32e826cd8295cc13e8b985f8d37c5/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1ac32e826cd8295cc13e8b985f8d37c5/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1ac32e826cd8295cc13e8b985f8d37c5/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/29b689ed3850df474df6c56a26f9ace4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/29b689ed3850df474df6c56a26f9ace4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/29b689ed3850df474df6c56a26f9ace4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f780d55843486241ef4d554a5116c64/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f780d55843486241ef4d554a5116c64/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8f780d55843486241ef4d554a5116c64/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/pl.droidsonroids.gif/android-gif-drawable/1.2.19/f4b4893d307ddaaa17202728d534ed6ee93a528/android-gif-drawable-1.2.19-javadoc.jar!/" />

@@ -7,7 +7,7 @@
 
     android:id="@+id/main_layout"
 
-    tools:context="com.rdapss.MainActivity">
+    tools:context=".MainActivity">
 
 
     <ScrollView
@@ -58,7 +58,7 @@
                 android:hint="Enter Mobile Number"
                 android:textColorHint="@color/colorPrimaryDark"
                 app:hintTextAppearance="@style/textstyle"
-                app:helperTextTextAppearance="@dimen/_18sdp"
+                app:helperTextTextAppearance="@dimen/_25sdp"
                 style="@style/textstyle">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -106,10 +106,11 @@
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_5sdp"
                 android:textColorHint="@color/colorPrimaryDark"
-                app:hintTextAppearance="@style/textstyle"
-                app:helperTextTextAppearance="@dimen/_18sdp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
+
+                app:hintTextAppearance="@style/textstyle"
+                app:helperTextTextAppearance="@dimen/_25sdp"
                 style="@style/textstyle"         >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -120,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:textCursorDrawable="@drawable/cursor_pointer"
                     android:layout_height="wrap_content"
-                    android:textSize="16dp"
+                    android:textSize="14dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:inputType="textPassword"
                     android:maxLines="1"

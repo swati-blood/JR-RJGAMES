@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.intuit.sdp:sdp-android:1.0.5@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e004f86dafc561313921845e59672678/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e004f86dafc561313921845e59672678/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e004f86dafc561313921845e59672678/jars/classes.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d60d4f70f7225297dd4474dcb1f5af/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d60d4f70f7225297dd4474dcb1f5af/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d60d4f70f7225297dd4474dcb1f5af/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/81114acd367fba41413aa63c6549538e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/81114acd367fba41413aa63c6549538e/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/81114acd367fba41413aa63c6549538e/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

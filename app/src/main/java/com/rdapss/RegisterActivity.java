@@ -63,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
         l_pass=findViewById(R.id.lay_pass);
        l_c_pass=findViewById(R.id.lay_c_pass);
         btnRegister=(Button)findViewById(R.id.btnRegister);
-        progressDialog=new ProgressDialog(RegisterActivity.this);
+        progressDialog=new ProgressDialog(RegisterActivity.this,R.style.MyAlertDialogStyle);
         progressDialog.setMessage("Loading...");
         mob=getIntent().getStringExtra("mobile");
         txtMobile.setText(mob);

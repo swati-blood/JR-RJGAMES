@@ -1,15 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.bestsoft32.tayyab:tt-fancy-gif-dialog:1.0.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df1335fa80e40651adfe5cbe4461c623/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df1335fa80e40651adfe5cbe4461c623/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df1335fa80e40651adfe5cbe4461c623/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1e48f87805bd0a56b12c441e654021ef/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1e48f87805bd0a56b12c441e654021ef/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1e48f87805bd0a56b12c441e654021ef/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/48a52951501c8d045d4d8e1851375f9b/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/48a52951501c8d045d4d8e1851375f9b/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/48a52951501c8d045d4d8e1851375f9b/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e07677a1b313d3e8d8da1460bb22c45e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e07677a1b313d3e8d8da1460bb22c45e/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e07677a1b313d3e8d8da1460bb22c45e/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bestsoft32.tayyab/tt-fancy-gif-dialog/1.0.2/6ef8f1f9f368774fca72864d844a85d4d78edc74/tt-fancy-gif-dialog-1.0.2-javadoc.jar!/" />

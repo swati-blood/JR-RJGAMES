@@ -1,15 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-messaging:17.3.4@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e0f6726163f935d8accc798a3f50ef55/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e0f6726163f935d8accc798a3f50ef55/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e0f6726163f935d8accc798a3f50ef55/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61fe95cf3e62e21e200cb7ca7a4c6d1b/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61fe95cf3e62e21e200cb7ca7a4c6d1b/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/61fe95cf3e62e21e200cb7ca7a4c6d1b/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2db5100287012a78d0ff13b5ad2c639/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2db5100287012a78d0ff13b5ad2c639/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2db5100287012a78d0ff13b5ad2c639/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ae54b9e4d235e2d0e0801d3645e07d5e/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ae54b9e4d235e2d0e0801d3645e07d5e/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ae54b9e4d235e2d0e0801d3645e07d5e/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-messaging/17.3.4/5a0ecbcab24f4136e8ae8a99f2fd80a3a05a4a68/firebase-messaging-17.3.4-javadoc.jar!/" />
