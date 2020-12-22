@@ -2,6 +2,8 @@ package com.rdapss;
 
 import android.app.DatePickerDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -48,13 +50,13 @@ import static com.rdapss.Config.Constants.KEY_PINCODE;
 import static com.rdapss.Config.Constants.KEY_TEZ;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText etPAddress,etPCity,etPPinCode,etAccNo,etBankName,etIfscCode,etAccHolderName,etPaytm,etTez,etPhonePay ,et_dob ,et_email,et_mobile;
+    private EditText etPAddress,etPCity,etPPinCode,etAccNo,etBankName,etIfscCode,etAccHolderName,etPaytm,etTez,etPhonePay  ,et_email,et_mobile;
     Common common;
     SessionMangement sessionMangement;
     LoadingBar progressDialog;
     String wrong="Something Went Wrong";
     private TextView btn_back;
-    TextView tv_profile,tv_address,tv_bank_detail,tv_account;
+    TextView tv_profile,tv_address,tv_bank_detail,tv_account,et_dob;
     LinearLayout ll_profile,ll_address,ll_bank_detail,ll_account;
     int   year,month,day;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -191,10 +193,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     if(success)
                     {
                         progressDialog.dismiss();
-                        Prevalent.currentOnlineuser.setAccountno(accno);
-                        Prevalent.currentOnlineuser.setBank_name(bankname);
-                        Prevalent.currentOnlineuser.setIfsc_code(ifsc);
-                        Prevalent.currentOnlineuser.setAccount_holder_name(hod_name);
+                        //Prevalent.currentOnlineuser.setAccountno(accno);
+                        //Prevalent.currentOnlineuser.setBank_name(bankname);
+                        //Prevalent.currentOnlineuser.setIfsc_code(ifsc);
+                        //Prevalent.currentOnlineuser.setAccount_holder_name(hod_name);
+                        sessionMangement.updateAccSection(accno,bankname,ifsc,hod_name);
                         String msg=response.getString("message");
                         Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
@@ -252,9 +255,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     if(success)
                     {
                         progressDialog.dismiss();
-                        Prevalent.currentOnlineuser.setAddress(a);
-                        Prevalent.currentOnlineuser.setCity(c);
-                        Prevalent.currentOnlineuser.setPincode(p);
+                       // Prevalent.currentOnlineuser.setAddress(a);
+                        //Prevalent.currentOnlineuser.setCity(c);
+                        //Prevalent.currentOnlineuser.setPincode(p);
+                        sessionMangement.updateAddressSection(a,c,p);
                         String msg=response.getString("message");
                         Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
@@ -312,7 +316,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         },year,month,day);
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 568025136000L);
         datePickerDialog.show();
-
+        datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLUE);
+        datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE);
     }
 
     @Override
@@ -509,9 +514,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     if(success)
                     {
                         progressDialog.dismiss();
-                        Prevalent.currentOnlineuser.setTez_no(teznumber);
-                        Prevalent.currentOnlineuser.setPaytm_no(paytmno);
-                        Prevalent.currentOnlineuser.setPhonepay_no(phonepay);
+                       // Prevalent.currentOnlineuser.setTez_no(teznumber);
+                      //  Prevalent.currentOnlineuser.setPaytm_no(paytmno);
+                      //  Prevalent.currentOnlineuser.setPhonepay_no(phonepay);
+                        sessionMangement.updatePaymentSection(teznumber,paytmno,phonepay);
                         String msg=response.getString("message");
                         Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
@@ -567,10 +573,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     if(success)
                     {
                         progressDialog.dismiss();
-                        Prevalent.currentOnlineuser.setEmail(email);
-                        Prevalent.currentOnlineuser.setDob(dob);
+                       //Prevalent.currentOnlineuser.setEmail(email);
+                       // Prevalent.currentOnlineuser.setDob(dob);
+                        String m =  sessionMangement.getUserDetails().get(KEY_MOBILE);
+                        sessionMangement.updateAddressSections(m,email,dob);
                         String msg=response.getString("message");
-
+                        Log.e("snwbdef",""+msg.toString());
                         Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
                     }
@@ -578,6 +586,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     {
                         progressDialog.dismiss();
                         String msg=response.getString("message");
+                        Log.e("snwjh",""+msg.toString());
                         Toast.makeText(ProfileActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
                         return;

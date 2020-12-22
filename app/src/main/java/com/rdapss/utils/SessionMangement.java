@@ -101,6 +101,13 @@ public class SessionMangement {
     }
 
 
+    public void updateAddressSections(String mobile, String email, String dob)
+    {
+        editor.putString(KEY_MOBILE, mobile);
+        editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_DOB, dob);
+        editor.apply();
+    }
     public void updateAccSection(String acc_no, String bank_name, String ifsc, String holder)
     {
         editor.putString(KEY_ACCOUNNO, acc_no);
