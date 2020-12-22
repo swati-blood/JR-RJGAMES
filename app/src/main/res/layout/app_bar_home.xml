@@ -325,7 +325,7 @@
                         android:layout_marginTop="2dp"
                         android:paddingRight="@dimen/_10sdp"
                         android:layout_toRightOf="@id/rl_round"
-                        android:text=""
+                        android:text="WhatsApp Now"
                         android:textSize="18dp"
                         android:paddingLeft="@dimen/_10sdp"
                         android:textColor="@color/txt_color"
