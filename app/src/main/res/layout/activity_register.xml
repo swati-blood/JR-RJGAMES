@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.rdapss.RegisterActivity"
+    tools:context="com.rjgames.RegisterActivity"
    >
 
         <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+            android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimaryDark">
@@ -40,11 +41,35 @@
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txtreg"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_17sdp"
+        android:textStyle="bold"
+        android:text="@string/registration"/>
+    <View
+        android:layout_below="@+id/txtreg"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:background="@color/colorPrimary"
+        android:layout_height="2dp"/>
     <ScrollView
+
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content">
+      android:fillViewport="true"
+        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -55,6 +80,7 @@
          android:text="*Note: All Fields Are Mandatory*"
          android:textColor="@color/colorPrimaryDark"
          android:textStyle="italic"
+         android:visibility="gone"
          android:layout_marginTop="15dp"
          android:textSize="18dp"
          android:fontFamily="sans-serif-black"/>
@@ -64,7 +90,7 @@
             android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:padding="@dimen/_10sdp"
@@ -104,7 +130,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUserName"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                    android:drawableLeft="@drawable/user_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16dp"
@@ -152,7 +178,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                    android:drawableLeft="@drawable/user_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:textSize="16dp"
@@ -207,9 +233,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etMobile"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_phone_android_black_24dp"
+                    android:drawableLeft="@drawable/phone_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:textSize="16dp"
+                    android:maxLength="10"
                     android:textColor="@color/colorPrimaryDark"
                     android:textCursorDrawable="@drawable/cursor_pointer"
                     android:layout_width="match_parent"
@@ -260,7 +287,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPass"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:drawableLeft="@drawable/key_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:textColor="@color/colorPrimaryDark"
                     android:textCursorDrawable="@drawable/cursor_pointer"
@@ -309,7 +336,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etConPass"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:drawableLeft="@drawable/key_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:textColor="@color/colorPrimaryDark"
                     android:textCursorDrawable="@drawable/cursor_pointer"
@@ -321,10 +348,11 @@
 
         </com.google.android.material.textfield.TextInputLayout>
                 <CheckBox
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkbox"
-                    android:textStyle="italic"
+                    android:id="@+id/check"
+
+                    android:textStyle="bold"
                     android:textSize="16dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="Accept Terms And Contidions"
@@ -341,16 +369,45 @@
                 android:text="Register"
                 android:textAllCaps="false"
                 android:layout_below="@id/relativeLayout8"
-                android:backgroundTint="@color/colorPrimaryDark"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:textSize="20dp"
                 android:elevation="5dp"
                 android:textStyle="bold"
-                android:textColor="@color/txt_color"
                 android:background="@drawable/gradient_button"
                />
 
         </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rel_login"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimaryDark"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/user_24px"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/txtLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Existing User ? Login Here"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
     </ScrollView>
+    </LinearLayout>
 </RelativeLayout>

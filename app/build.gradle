@@ -64,6 +64,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth-api-phone:17.1.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.airbnb.android:lottie:3.4.0'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'

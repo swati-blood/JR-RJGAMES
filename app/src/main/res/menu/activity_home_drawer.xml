@@ -8,9 +8,8 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/icons8_home_128px"
-            android:iconTint="@color/colorPrimaryDark"
-            android:iconTintMode="src_in"
+            android:icon="@drawable/home"
+
             android:title="Home"
             />
     </group>
@@ -19,7 +18,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/icons8_male_user_240px"
+            android:icon="@drawable/profile"
             android:title="Profile"
             />
     </group>
@@ -49,7 +48,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_s_history"
-            android:icon="@drawable/icons8_order_history_100px"
+            android:icon="@drawable/time_machine_50px"
 
 
             android:title="Starline History" />
@@ -68,7 +67,7 @@
         android:checkableBehavior="single">
     <item
         android:id="@+id/nav_funds"
-        android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+        android:icon="@drawable/addmoney"
 
         android:title="Add Points" />
     </group>
@@ -79,7 +78,7 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_withdrw"
-            android:icon="@drawable/icons8_receive_cash_240px"
+            android:icon="@drawable/request_money_50px"
 
             android:title="Withdrawal Request" />
     </group>
@@ -89,7 +88,7 @@
         android:checkableBehavior="single">
     <item
         android:id="@+id/nav_gameRates"
-        android:icon="@drawable/icons8_coins_100px"
+        android:icon="@drawable/money_bag"
 
         android:title="Game Rates" />
     </group>
@@ -115,6 +114,16 @@
         android:id="@+id/nav_noticeBoard"
         android:icon="@drawable/icons8_bulleted_list_128px"
         android:title="Notice Board/Rules" />
+    </group>
+    <group
+android:visible="false"
+        android:id="@+id/nav_allchart"
+        android:checkableBehavior="single">
+        <item
+            android:visible="false"
+            android:id="@+id/nav_chart"
+            android:icon="@drawable/icons8_bulleted_list_128px"
+            android:title="All Chart" />
     </group>
     <group
         android:id="@+id/nav_group_logout"

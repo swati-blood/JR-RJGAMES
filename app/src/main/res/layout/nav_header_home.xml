@@ -3,23 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    android:padding="@dimen/_10sdp"
+
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
-    <TextView
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:id="@+id/icon"
+        android:padding="@dimen/_20sdp"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+       android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/logo2"
+
+        />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome To RD_Games"
-        android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
+        android:padding="@dimen/_5sdp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome ,"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/profile_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    </LinearLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:visibility="gone"
         android:layout_marginTop="5dp">
 
         <RelativeLayout
@@ -29,32 +59,11 @@
             android:layout_marginTop="20dp"
             android:background="@color/colorPrimaryDark">
 
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:id="@+id/icon"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/logo2"
 
-                />
 
         </RelativeLayout>
 
 
-        <TextView
-            android:id="@+id/profile_user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/rlicon"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="User Name"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     </RelativeLayout>
 

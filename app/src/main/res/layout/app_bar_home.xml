@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_layout"
-    tools:context="com.rdapss.HomeActivity">
+    tools:context="com.rjgames.HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -222,16 +222,110 @@
             <com.daimajia.slider.library.SliderLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/homebg"
+                android:background="@drawable/edittextcorner"
                 android:id="@+id/home_slider"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <RelativeLayout
 
+                    android:id="@+id/cardView4"
+                    android:layout_below="@id/cardView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gradient_bakcground"
+
+
+                        android:layout_centerInParent="true">
+
+                        <TextView
+                            android:id="@+id/imgwhts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="@drawable/ic_baseline_local_phone_24" />
+
+                        <TextView
+                            android:id="@+id/txtNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:layout_toRightOf="@id/imgwhts"
+                            android:paddingLeft="5dp"
+                            android:paddingEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:paddingRight="10dp"
+                            android:text="0"
+                            android:textSize="18dp"
+                            android:layout_centerVertical="true"
+                            />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_whatsapp"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_whats"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="#4CAF50"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:id="@+id/rl_round"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            >
+
+                            <ImageView
+                                android:id="@+id/iv_whts"
+                                android:src="@drawable/icons8_whatsapp_48px_1"
+                                android:layout_width="30dp"
+                                android:padding="2dp"
+                                android:layout_centerInParent="true"
+                                android:layout_height="30dp"/>
+                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:id="@+id/tv_number"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="2dp"
+                            android:paddingRight="@dimen/_10sdp"
+                            android:layout_toRightOf="@id/rl_round"
+                            android:text="WhatsApp No"
+                            android:textSize="20dp"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:textColor="@color/txt_color"
+                            android:layout_centerHorizontal="true"
+                            android:textAlignment="center"
+                            android:fontFamily="sans-serif-black"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView3"
 
                 android:layout_below="@id/cardView4"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 app:cardBackgroundColor="@color/colorPrimary"
@@ -246,95 +340,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/cardView4"
-                android:layout_below="@id/cardView1"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                >
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/shape2"
-                    android:backgroundTint="#4CAF50"
 
-                    android:layout_centerInParent="true">
-
-                    <TextView
-                        android:id="@+id/imgwhts"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="6dp"
-                        android:background="@drawable/ic_baseline_local_phone_24" />
-
-                    <TextView
-                        android:id="@+id/txtNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/white"
-                        android:layout_toRightOf="@id/imgwhts"
-                        android:paddingLeft="5dp"
-                        android:paddingEnd="5dp"
-                        android:layout_marginRight="5dp"
-                        android:paddingRight="10dp"
-                        android:text="0"
-                        android:textSize="18dp"
-                        android:layout_centerVertical="true"
-                        />
-
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/rl_whatsapp"
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="40dp">
-
-                <RelativeLayout
-                    android:id="@+id/rl_whats"
-                    android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:background="@drawable/shape2"
-                    android:backgroundTint="#4CAF50"
-                    android:layout_height="wrap_content">
-                    <RelativeLayout
-                        android:id="@+id/rl_round"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        >
-
-                    <ImageView
-                        android:id="@+id/iv_whts"
-                        android:src="@drawable/icons8_whatsapp_48px_1"
-                        android:layout_width="30dp"
-                        android:padding="2dp"
-                        android:layout_centerInParent="true"
-                        android:layout_height="30dp"/>
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:id="@+id/tv_number"
-                        android:layout_centerInParent="true"
-                        android:layout_marginTop="2dp"
-                        android:paddingRight="@dimen/_10sdp"
-                        android:layout_toRightOf="@id/rl_round"
-                        android:text="WhatsApp No"
-                        android:textSize="20dp"
-                        android:paddingLeft="@dimen/_10sdp"
-                        android:textColor="@color/txt_color"
-                        android:layout_centerHorizontal="true"
-                        android:textAlignment="center"
-                        android:fontFamily="sans-serif-black"/>
-                </RelativeLayout>
-
-            </RelativeLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -347,6 +353,7 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:elevation="@dimen/_5sdp"
+        android:visibility="gone"
         android:layout_marginLeft="5dp"
         android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
         android:layout_marginBottom="10dp"
@@ -358,12 +365,16 @@
         android:background="@drawable/shape2"
     />
                 <Button
+                    android:visibility="visible"
                     android:layout_weight="2"
                     android:id="@+id/btn_chart"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"
                     android:elevation="@dimen/_5sdp"
-                    android:layout_marginLeft="5dp"
+
+    android:layout_gravity="center"
 
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"

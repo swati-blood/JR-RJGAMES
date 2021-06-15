@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.rdapss">
+    package="com.rjgames">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".AppController"
+        android:name="com.rjgames.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,50 +22,50 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".NewJodi"></activity>
-        <activity android:name=".NewSingleDigit" />
-        <activity android:name=".NewGameActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".DemoActivity" />
-        <activity android:name=".Withdraw_history" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Starline_Activity" />
-        <activity android:name=".Fund_RequestActivity" />
-        <activity android:name=".FundsActivity" />
-        <activity android:name=".BidActivity" />
-        <activity android:name=".WithdrawalActivity" />
-        <activity android:name=".RequestActivity" />
-        <activity android:name=".UploadScreenshotActivity" />
-        <activity android:name=".CyclePana" />
-        <activity android:name=".VerificationActivity" />
-        <activity android:name=".UpdatePasswordActivity" />
+        <activity android:name="com.rjgames.NewJodi"></activity>
+        <activity android:name="com.rjgames.NewSingleDigit" />
+        <activity android:name="com.rjgames.NewGameActivity" />
+        <activity android:name="com.rjgames.ProfileActivity" />
+        <activity android:name="com.rjgames.DemoActivity" />
+        <activity android:name="com.rjgames.Withdraw_history" />
+        <activity android:name="com.rjgames.MainActivity" />
+        <activity android:name="com.rjgames.Starline_Activity" />
+        <activity android:name="com.rjgames.Fund_RequestActivity" />
+        <activity android:name="com.rjgames.FundsActivity" />
+        <activity android:name="com.rjgames.BidActivity" />
+        <activity android:name="com.rjgames.WithdrawalActivity" />
+        <activity android:name="com.rjgames.RequestActivity" />
+        <activity android:name="com.rjgames.UploadScreenshotActivity" />
+        <activity android:name="com.rjgames.CyclePana" />
+        <activity android:name="com.rjgames.VerificationActivity" />
+        <activity android:name="com.rjgames.UpdatePasswordActivity" />
         <activity
-            android:name=".TriplePanaActivity"
+            android:name="com.rjgames.TriplePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".DoublePanaActivity"
+            android:name="com.rjgames.DoublePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".FullSangamActivity"
+            android:name="com.rjgames.FullSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".HalfSangamActivity"
+            android:name="com.rjgames.HalfSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name=".SinglePannaActivity"
+            android:name="com.rjgames.SinglePannaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".DrawerNoticeBoardActivity" />
-        <activity android:name=".DrawerGameRates" />
-        <activity android:name=".DrawerHowToPlayActivity" />
-        <activity android:name=".DrawerProfileActivity" />
-        <activity android:name=".NotificationActivity" />
-        <activity android:name=".PlayGameActivity" />
+        <activity android:name="com.rjgames.RegisterActivity" />
+        <activity android:name="com.rjgames.DrawerNoticeBoardActivity" />
+        <activity android:name="com.rjgames.DrawerGameRates" />
+        <activity android:name="com.rjgames.DrawerHowToPlayActivity" />
+        <activity android:name="com.rjgames.DrawerProfileActivity" />
+        <activity android:name="com.rjgames.NotificationActivity" />
+        <activity android:name="com.rjgames.PlayGameActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.rjgames.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".splash_activity">
+        <activity android:name="com.rjgames.splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -73,14 +73,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MyFirebaseMessagingService">
+        <service android:name="com.rjgames.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <receiver
-            android:name=".NetworkStateChangeReciever"
+            android:name="com.rjgames.NetworkStateChangeReciever"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -89,7 +89,7 @@
 
         <meta-data android:name="com.onesignal.NotificationAccentColor.DEFAULT" android:value="FF00FF00" />
         <service
-            android:name=".utils.NotificationExtenderExample"
+            android:name="com.rjgames.utils.NotificationExtenderExample"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false">
             <intent-filter>

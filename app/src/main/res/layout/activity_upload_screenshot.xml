@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.rdapss.UploadScreenshotActivity">
+    tools:context="com.rjgames.UploadScreenshotActivity">
     <include layout="@layout/background_layout"/>
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
