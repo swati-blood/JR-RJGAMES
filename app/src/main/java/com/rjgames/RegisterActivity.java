@@ -218,6 +218,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void register(String phone_value) {
 
+
         loadingBar.show();
         final String uname=txtUserName.getText().toString().trim();
         final String fname=txtName.getText().toString().trim();
