@@ -28,12 +28,12 @@
     <color name="play4">#FF6D00</color>
     <color name="play1">#C51162</color>
     <color name="blue">#040342</color>
-    <color name="green">#095007</color>
+    <color name="green">#32CD32</color>
     <color name="red">#911714</color>
-    <color name="running">#316D35</color>
-    <color name="closed">#990406</color>
+    <color name="running">#32CD32</color>
+    <color name="closed">#FF0000</color>
     <color name="txt_color">#FFFFFF</color>
     <color name="rates_color">#AE0324</color>
     <color name="number_color">#990406</color>
-
+<color name="lightkahki">#D2B48C</color>
 </resources>

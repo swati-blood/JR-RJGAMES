@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/lightkahki"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
     app:cardCornerRadius="@dimen/_10sdp"
     app:cardElevation="@dimen/_10sdp"
     android:layout_height="wrap_content">
@@ -10,38 +10,49 @@
         android:layout_width="350dp"
         android:layout_height="200dp"
         android:orientation="vertical"
-        android:gravity="center"
-
         android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:background="@drawable/gradients_background"
         android:layout_centerInParent="true"
         android:padding="10dp">
 
+
+
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/danger"
-            android:layout_gravity="center"
-            />
+            android:id="@+id/id_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"/>
 
         <TextView
             android:id="@+id/txtmessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This Part is under Progress"
-            android:textColor="@color/colorPrimaryDark"
-           />
-
+            android:text="message"
+            android:textSize="23dp"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/id_img"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            />
         <Button
             android:id="@+id/btnOK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_gravity="center_horizontal"
-          android:background="@drawable/gradient_button"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:text="OK"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/txtmessage"
             android:layout_marginTop="10dp"
             android:textColor="@color/white"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -228,6 +228,7 @@ public class RegisterActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.e ("Register", "onResponse: "+response);
                         try
                         {
                             JSONObject jsonObject=new JSONObject(response);

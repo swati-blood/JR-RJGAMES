@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.rjgames.ProfileActivity">
     <include layout="@layout/background_layout"/>
-
+<include layout="@layout/game_bg"/>
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"

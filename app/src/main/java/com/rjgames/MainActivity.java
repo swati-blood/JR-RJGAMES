@@ -267,7 +267,7 @@ progressDialog=new ProgressDialog(MainActivity.this,R.style.MyAlertDialogStyle);
 
         params.put("mobileno",mName);
         params.put("password",mPass);
-
+        Log.e ("loginparams",""+params);
 //        final CustomJsonRequest loginRequest=new CustomJsonRequest(Request.Method.POST, URLs.URL_USER_LOGIN, params, new Response.Listener<JSONObject>() {
         final CustomJsonRequest loginRequest=new CustomJsonRequest(Request.Method.POST, BaseUrl.URL_LOGIN, params, new Response.Listener<JSONObject>() {
             @Override

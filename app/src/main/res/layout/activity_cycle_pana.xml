@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
+
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.rjgames.CyclePana">
@@ -93,19 +93,19 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:layout_height="30dp"
-                android:background="@drawable/shape2"
+                android:background="@drawable/edittextcorner"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="26/06/2019 - FRIDAY - BET OPEN"
                 android:textSize="9dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/colorPrimaryDark"/>
             <Button
                 android:visibility="gone"
                 android:id="@+id/btnBetType"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
-                android:backgroundTint="@color/white"
+
                 android:background="@drawable/gradient_button"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
@@ -146,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cycle_pana"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
                     android:textSize="14dp"/>
@@ -163,10 +163,10 @@
                     android:textSize="14dp"
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:hint="@string/cycle_pana"
-                    android:textColorHint="@color/textColor"
-                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimaryDark"
                     android:completionThreshold="1"
-                    android:background="@drawable/shape2"/>
+                    android:background="@drawable/edittextcorner"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -183,8 +183,8 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="POINTS    "
-                    android:textColor="@color/textColor"
+                    android:text="Points    "
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
                     android:textSize="14dp"/>
@@ -197,13 +197,13 @@
                     android:layout_centerVertical="true"
                     android:textAlignment="center"
                     android:inputType="number"
-                    android:textColorHint="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
                     android:maxLength="5"
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:textSize="14dp"
                     android:hint="Points"
-                    android:textColor="@color/textColor"
-                    android:background="@drawable/shape2"/>
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/edittextcorner"/>
 
 
             </RelativeLayout>
@@ -225,13 +225,13 @@
                     android:paddingLeft="@dimen/_10sdp"
                     android:layout_centerHorizontal="true"
                     android:layout_height="@dimen/_35sdp"
-                    android:backgroundTint="@color/white"
+
                     android:background="@drawable/gradient_button"
                     android:textAllCaps="false"
                     android:text="Add"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    android:textColor="@color/colorPrimaryDark"/>
+                    android:textColor="@color/white"/>
 
 
 

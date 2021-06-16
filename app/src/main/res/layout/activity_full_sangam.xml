@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+
     tools:context="com.rjgames.FullSangamActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -89,13 +89,13 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:layout_height="30dp"
-                android:background="@drawable/shape2"
+                android:background="@drawable/edittextcorner"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="26/06/2019 - FRIDAY - BET OPEN"
                 android:textSize="9dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/colorPrimaryDark"/>
             <Button
                 android:visibility="gone"
                 android:id="@+id/btnBetType"
@@ -138,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/open_pana"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
                     android:textSize="14dp"/>
@@ -153,13 +153,13 @@
 
                     android:textAlignment="center"
                     android:inputType="number"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:maxLength="3"
                     android:hint="@string/open_pana"
-                    android:textColorHint="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
                     android:textSize="14dp"
                     android:completionThreshold="1"
-                    android:background="@drawable/shape2"/>
+                    android:background="@drawable/edittextcorner"/>
 
 
             </RelativeLayout>
@@ -179,7 +179,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/close_pana"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
 
@@ -196,11 +196,11 @@
                     android:inputType="number"
                     android:maxLength="3"
                     android:hint="@string/close_pana"
-                    android:textColorHint="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
                     android:textSize="14dp"
                     android:completionThreshold="1"
-                    android:textColor="@color/textColor"
-                    android:background="@drawable/shape2"/>
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/edittextcorner"/>
 
 
             </RelativeLayout>
@@ -217,8 +217,8 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="POINTS    "
-                    android:textColor="@color/textColor"
+                    android:text="Points    "
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
                     android:textSize="14dp"/>
@@ -236,9 +236,9 @@
                     android:maxLength="5"
                     android:textSize="14dp"
                     android:hint="Points"
-                    android:textColorHint="@color/textColor"
-                    android:textColor="@color/textColor"
-                    android:background="@drawable/shape2"/>
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/edittextcorner"/>
 
 
             </RelativeLayout>
@@ -261,12 +261,12 @@
                     android:layout_centerHorizontal="true"
                     android:textStyle="bold"
                     android:layout_height="35dp"
-                    android:backgroundTint="@color/white"
+
                     android:background="@drawable/gradient_button"
                     android:textAllCaps="false"
                     android:text="Add"
                     android:textSize="16dp"
-                    android:textColor="@color/colorPrimaryDark"/>
+                    android:textColor="@color/white"/>
             </RelativeLayout>
 
         </RelativeLayout>

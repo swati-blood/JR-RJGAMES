@@ -347,7 +347,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    private void register(String user_name,String name,String mobile,String pass) {
+    private void register(String user_name, String name, String mobile, final String pass) {
 
         loadingBar.show();
         final String uname=user_name;
@@ -358,6 +358,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.e ("Registration", "onResponse:" +response);
                         try
                         {
                             JSONObject jsonObject=new JSONObject(response);
@@ -420,8 +421,9 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                 params.put("mobile",fmobile);
 //                params.put("email","");
                 params.put("password",fpass);
-
+                Log.e ("Regsiterparama",""+params);
                 return params;
+
             }
 
         };

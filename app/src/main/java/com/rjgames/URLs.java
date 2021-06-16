@@ -2,7 +2,8 @@ package com.rjgames;
 
 public class URLs {
 
-    public static final String BASE_URL="https://www.rdgames.in/restApi/";
+//    public static final String BASE_URL="https://www.rdgames.in/restApi/";
+    public static final String BASE_URL="https://rjonline.mobi/restApi/";
     public static final String BASE_URL2="api.php?api=";
     public static final String URL_CHECK1=BASE_URL+BASE_URL2+"getMatkas";
     public static final String URL_CHECK2=BASE_URL+BASE_URL2+"getStarline";

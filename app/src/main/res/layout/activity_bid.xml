@@ -15,6 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/txtBack"
                 android:layout_width="wrap_content"
@@ -46,6 +47,8 @@
      <RelativeLayout
          android:layout_width="match_parent"
          android:layout_height="match_parent">
+<!--         <include-->
+<!--             layout="@layout/game_bg"/>-->
          <ImageView
              android:id="@+id/no_history"
              android:layout_width="match_parent"

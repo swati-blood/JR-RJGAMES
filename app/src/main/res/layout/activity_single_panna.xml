@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+
     tools:context="com.rjgames.SinglePannaActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -63,16 +63,23 @@
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
 
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
       >
+<!--        //<include layout="@layout/game_bg"/>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:orientation="vertical">
             <include layout="@layout/timer_layout"/>
 
@@ -120,7 +127,7 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:layout_height="30dp"
-                android:background="@drawable/shape2"
+                android:background="@drawable/gradient_button"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -227,7 +234,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/single_pana"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
                     android:textSize="14dp"/>
@@ -243,11 +250,11 @@
                     android:inputType="number"
                     android:maxLength="3"
                     android:hint="@string/pana"
-                    android:textColorHint="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
                     android:textSize="14dp"
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:completionThreshold="1"
-                    android:background="@drawable/shape2"/>
+                    android:background="@drawable/edittextcorner"/>
 
 
             </RelativeLayout>
@@ -267,7 +274,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="POINTS    "
-                    android:textColor="@color/textColor"
+                    android:textColor="@color/colorPrimaryDark"
                     android:layout_centerVertical="true"
                     android:paddingLeft="10dp"
                     android:textSize="14dp"/>
@@ -282,12 +289,12 @@
                     android:inputType="number"
                     android:textCursorDrawable="@drawable/cursor_color"
 
-                    android:textColorHint="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
                     android:maxLength="5"
                     android:textSize="14dp"
                     android:hint="Points"
-                    android:textColor="@color/textColor"
-                    android:background="@drawable/shape2"/>
+                    android:textColor="@color/colorPrimaryDark"
+                    android:background="@drawable/edittextcorner"/>
 
 
             </RelativeLayout>
@@ -309,13 +316,13 @@
                         android:textStyle="bold"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingRight="@dimen/_10sdp"
-                        android:backgroundTint="@color/white"
+
                         android:background="@drawable/gradient_button"
                         android:textAllCaps="false"
                         android:text="Add"
                         android:layout_centerHorizontal="true"
                         android:textSize="16dp"
-                        android:textColor="@color/colorPrimaryDark"/>
+                        android:textColor="@color/white"/>
 
                 </RelativeLayout>
         </RelativeLayout>
@@ -324,5 +331,5 @@
                 />
         </LinearLayout>
     </RelativeLayout>
-
+</ScrollView>
     </LinearLayout>

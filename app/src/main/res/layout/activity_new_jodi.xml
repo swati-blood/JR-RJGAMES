@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
+
     tools:context="com.rjgames.NewJodi">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -63,22 +63,29 @@
     </androidx.appcompat.widget.Toolbar>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/toolbar">
+        <include layout="@layout/game_bg"/>
+        <include layout="@layout/timer_layout"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
-    <include layout="@layout/timer_layout"/>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_15sdp"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_5sdp"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -107,7 +114,7 @@
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
                         android:layout_height="30dp"
-                        android:background="@drawable/shape2"
+                        android:background="@drawable/gradient_button"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
@@ -145,7 +152,7 @@
                             android:text="Total Points : 0"
                             android:textAllCaps="false"
                             android:layout_margin="@dimen/_5sdp"
-                            android:background="@drawable/shape2"
+                            android:background="@drawable/gradient_button"
                             android:textColor="@color/white"/>
                         <Button
                             android:id="@+id/btn_sbmit"
@@ -153,7 +160,7 @@
                             android:layout_height="40dp"
                             android:text="Submit"
                             android:layout_margin="@dimen/_5sdp"
-                            android:background="@drawable/shape2"
+                            android:background="@drawable/gradient_button"
                             android:textColor="@color/white"/>
                     </LinearLayout>
                 </LinearLayout>
