@@ -117,6 +117,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
        }
         if (Integer.parseInt(m_id)>20)
         {game_list.clear();
+
 //           Toast.makeText(this,"starlne",Toast.LENGTH_LONG).show();
             common.setBackTint(open_single);
             common.setBackTint(jodi);
