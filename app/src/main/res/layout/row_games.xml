@@ -10,18 +10,19 @@
     <TextView
         android:id="@+id/game_name"
         android:layout_margin="5dp"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Open \nSingle"
-        android:textAlignment="center"
-        android:gravity="center"
+android:gravity="center"
+     android:drawableStart="@drawable/play_button"
         android:textSize="14dp"
         android:fontFamily="serif"
-        android:backgroundTint="@color/play3"
+       android:padding="@dimen/_5sdp"
         android:textStyle="bold"
-        android:layout_centerInParent="true"
+       android:drawableEnd="@drawable/gameremote"
         android:textColor="@android:color/white"
-        android:background="@drawable/circle_text"
+        android:background="@drawable/gradient_button"
         />
 <!--    </androidx.cardview.widget.CardView>-->
 

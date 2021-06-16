@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,6 +63,8 @@ public class Starline_Activity extends AppCompatActivity {
     private String user_id;
     private String matka_id;
     int page=1;
+    LinearLayout lin_main;
+    ImageView no_history;
     SessionMangement session_management;
     AllHistoryAdapter historyAdapter;
     private StarlinehistoryAdapter bidHistoryAdapter;
@@ -75,10 +79,13 @@ public class Starline_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_starline_);
+
         setContentView(R.layout.activity_bid);
 //       getActionBar().setDisplayHomeAsUpEnabled(true);
         common=new Common(Starline_Activity.this);
 //        matka_id="19";
+        lin_main=findViewById (R.id.lin_main);
+        no_history=findViewById (R.id.no_history);
         matka_id=getIntent().getStringExtra("matka_id");
 //        browser = findViewById(R.id.bid_histry_webview);
         progressDialog=new LoadingBar(Starline_Activity.this);
@@ -166,9 +173,13 @@ public class Starline_Activity extends AppCompatActivity {
                         list=gson.fromJson(response.getJSONArray("data").toString(),listType);
                         historyAdapter =new AllHistoryAdapter(Starline_Activity.this,list);
                         if(list.size()<=0){
+                            no_history.setVisibility (View.VISIBLE);
+                            lin_main.setVisibility (View.GONE);
 //                            new ToastMsg(BidActivity.this).toastIconError("No History Available");
                             common.showToast("No History Available");
                         }else {
+                            no_history.setVisibility (View.GONE);
+                            lin_main.setVisibility (View.VISIBLE);
                             int totsize = response.getInt("total_data");
 //                     int pageListsize=common.getPageCount(String.valueOf((float)totsize/(float) 10));
                             int pageListsize = getPageCount((float) totsize / (float) 10);

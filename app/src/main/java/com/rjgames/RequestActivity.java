@@ -86,7 +86,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
             public void onClick(View v) {
 
 
-                int points=Integer.parseInt(etPoints.getText().toString().trim());
+
 
                 if(TextUtils.isEmpty(etPoints.getText().toString()))
                 {
@@ -95,6 +95,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
                 }
                 else
                 {
+                    int points=Integer.parseInt(etPoints.getText().toString().trim());
                     if(points<amt_limit)
                     {
                         common.errorMessageDialog("Minimum Range for points is "+ amt_limit);

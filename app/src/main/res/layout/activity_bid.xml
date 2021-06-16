@@ -40,15 +40,31 @@
     <ScrollView
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:background="@color/white"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_margin="@dimen/_10sdp"
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+         <ImageView
+             android:id="@+id/no_history"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:visibility="gone"
+             android:src="@drawable/no_history"/>
 
+
+        <LinearLayout
+            android:id="@+id/lin_main"
+            android:layout_margin="@dimen/_10sdp"
+android:visibility="visible"
             android:paddingBottom="@dimen/_100sdp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <RelativeLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.recyclerview.widget.RecyclerView
@@ -66,6 +82,7 @@
                     android:layout_height="wrap_content"/>
             </RelativeLayout>
         </LinearLayout>
+     </RelativeLayout>
     </ScrollView>
 
 </RelativeLayout>

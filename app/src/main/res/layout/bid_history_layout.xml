@@ -21,8 +21,8 @@
                 android:id="@+id/matka_name"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@drawable/dialog_buttons"
-                android:backgroundTint="@color/colorPrimaryDark"
+                android:background="@drawable/gradient_button"
+
                 android:layout_below="@id/txtTransId"
                 android:gravity="center"
                 android:textColor="@color/white"
@@ -88,6 +88,12 @@
                         android:textStyle="italic" />
                 </LinearLayout>
             </LinearLayout>
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:background="@color/colorPrimaryDark"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -175,6 +181,11 @@
                         />
                 </LinearLayout>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_margin="@dimen/_2sdp"
+                android:background="@color/colorPrimaryDark"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:weightSum="2"

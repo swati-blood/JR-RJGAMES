@@ -7,7 +7,7 @@
     tools:context="com.rjgames.RequestActivity"
 
     >
-    <include layout="@layout/background_layout"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -69,6 +69,14 @@
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
         <androidx.cardview.widget.CardView
@@ -111,69 +119,86 @@
 
 
     <RelativeLayout
-
-        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/_60sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="20dp"
-        android:layout_marginTop="80dp">
+       >
 
         <ImageView
             android:id="@+id/addpointsimage"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/logo2"
+android:visibility="gone"
             android:layout_centerHorizontal="true"/>
 
-        <ImageView
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/bag"
-            android:src="@drawable/icons8_money_bag_rupee_240px"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_below="@+id/addpointsimage"/>
-
-        <EditText
-            android:id="@+id/etRequstPoints"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/bag"
-            android:background="@drawable/shape2"
-            android:backgroundTint="@color/txt_color"
-            android:textSize="18dp"
-            android:textCursorDrawable="@drawable/cursor_pointer"
-            android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
-            android:padding="10dp"
-            android:drawablePadding="@dimen/_5sdp"
-            android:drawableTint="@color/colorPrimary"
-            android:hint="Enter Points"
-            android:gravity="left"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColor="@color/colorPrimaryDark"
-            android:inputType="number"
-            android:textAlignment="gravity"
-            android:layout_marginRight="10dp" />
-
-
-        <Button
-            android:id="@+id/add_Request"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Request"
-            android:textAllCaps="false"
-            android:background="@drawable/gradient_button"
-            android:layout_below="@id/etRequstPoints"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18dp"
-            android:padding="@dimen/_10sdp"
-            android:textStyle="bold"
-            android:layout_marginRight="8dp"
+            android:layout_width="180dp"
+            android:layout_height="160dp"
+            android:layout_below="@+id/addpointsimage"
+            app:lottie_rawRes="@raw/wallet"
+            app:lottie_autoPlay="true"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+           android:layout_centerHorizontal="true"
+            app:lottie_loop="true"/>
 
-            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/bag"
+
+            android:layout_marginTop="@dimen/_50sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            android:elevation="@dimen/_20sdp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/etRequstPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+
+                    android:background="@drawable/edittextcorner"
+
+                    android:textSize="18dp"
+                    android:textCursorDrawable="@drawable/cursor_pointer"
+                    android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
+                    android:padding="10dp"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawableTint="@color/colorPrimary"
+                    android:hint="Enter Points"
+                    android:gravity="left"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="number"
+                    android:textAlignment="gravity"
+                   />
+
+
+                <Button
+                    android:id="@+id/add_Request"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Request"
+                  android:textStyle="bold"
+                    android:background="@drawable/gradient_button"
+                    android:layout_below="@id/etRequstPoints"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
     </RelativeLayout>
 </RelativeLayout>
+
+</ScrollView>
+    </RelativeLayout>
 </RelativeLayout>

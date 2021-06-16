@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     tools:context="com.rjgames.NewGameActivity">
-    <include layout="@layout/background_layout"/>
+<!--    <include layout="@layout/background_layout"/>-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -47,6 +47,7 @@
             android:layout_below="@id/toolbar">
 
 <RelativeLayout
+    android:layout_marginTop="@dimen/_5sdp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView

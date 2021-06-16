@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
@@ -106,12 +107,10 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
            game_list.add(new GameModel("8", "Open Double Patti", R.drawable.logo, "Open"));
            game_list.add(new GameModel("8", "Close Double Patti", R.drawable.logo, "Close"));
            game_list.add(new GameModel("13", "Full Sangam", R.drawable.logo, "Open"));
-
            game_list.add(new GameModel("9", "Open Triple Patti", R.drawable.logo, "Open"));
            game_list.add(new GameModel("9", "Close Triple Patti", R.drawable.logo, "Close"));
            game_list.add(new GameModel("0", "Close Triple Patti", R.drawable.logo, "Close"));
 //           game_list.add(new GameModel("144", "", R.drawable.logo, "Open"));
-
            game_list.add(new GameModel("14", "Open Cycle \n Patti ", R.drawable.logo, "Open"));
            game_list.add(new GameModel("14", "Close Cycle \n Patti ", R.drawable.logo, "Close"));
 //           game_list.add(new GameModel("0", "Close Cycle \n Patti ", R.drawable.logo, "Close"));
@@ -157,7 +156,8 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         halfsngm.setOnClickListener(this);
         fullsngm.setOnClickListener(this);
         jodi.setOnClickListener(this);
-        rv_games.setLayoutManager(new GridLayoutManager(NewGameActivity.this,3));
+        rv_games.setLayoutManager(new LinearLayoutManager (NewGameActivity.this));
+       // rv_games.setLayoutManager(new GridLayoutManager(NewGameActivity.this,3));
         selectGameAdapter = new SelectGameAdapter(NewGameActivity.this,game_list,
                 m_id,
               dashName,

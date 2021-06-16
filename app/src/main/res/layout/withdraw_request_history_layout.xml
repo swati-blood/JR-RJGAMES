@@ -135,88 +135,147 @@
 
 <!--    </RelativeLayout>-->
 <!--</android.support.v7.widget.CardView>-->
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        android:background="@drawable/outline"
-        android:backgroundTint="@android:color/darker_gray"
-        android:weightSum="10"
+        app:cardCornerRadius="5dp"
+        android:layout_margin="5dp"
 
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@drawable/gradient_button"
+            android:layout_margin="1dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_height="wrap_content">
 
-        >
-        <TextView
-            android:id="@+id/fund_Date"
-            android:layout_width="0dp"
-            android:layout_weight="5"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="5dp"
+            <TextView
+                android:id="@+id/fund_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textAlignment="center"
+                android:text="id "
+                android:textSize="15dp"
+                android:visibility="gone"
+android:textStyle="bold"
+                android:textColor="@color/white"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+         android:weightSum="2"
+                android:orientation="horizontal">
 
-            android:text=""
-            android:textSize="13dp"
+                <TextView
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:text="Date"
+                    android:layout_weight="1"
+                    android:textSize="13dp"
+                    android:textColor="@color/white"/>
 
-            android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/fund_Date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/fund_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:text="date.."
+                   android:textAlignment="viewEnd"
+                    android:textSize="13dp"
 
-            android:text=" "
-            android:textSize="15dp"
-            android:visibility="gone"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
 
-            android:textColor="@color/colorPrimaryDark"/>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_weight=".01"/>
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:text="Time"
+                    android:layout_weight="1"
+                    android:textSize="13dp"
+                    android:textColor="@color/white"/>
 
-        <TextView
-            android:id="@+id/fund_amount"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="match_parent"
-            android:gravity="center"
+                <TextView
+                    android:id="@+id/fund_time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
 
-            android:padding="5dp"
-            android:text=" "
-            android:textSize="13dp"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:text="Time.."
+                    android:textAlignment="viewEnd"
+                    android:textSize="13dp"
 
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:text="Points"
+                    android:layout_weight="1"
+                    android:textSize="13dp"
+                    android:textColor="@color/white"/>
 
-            android:textColor="@color/black"/>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_weight=".01"/>
+                <TextView
+                    android:id="@+id/fund_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
 
-        <TextView
-            android:id="@+id/fund_status"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="5dp"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:text="amount.."
+                    android:textAlignment="viewEnd"
+                    android:textSize="13dp"
 
-            android:text=" "
-            android:textSize="13dp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:text="Status"
+                    android:layout_weight="1"
+                    android:textSize="13dp"
+                    android:textColor="@color/white"/>
 
-            android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/fund_status"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
 
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:text="status.."
+                    android:textAlignment="viewEnd"
+                    android:textSize="13dp"
 
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-
-
-
-
-    </LinearLayout>
 </RelativeLayout>

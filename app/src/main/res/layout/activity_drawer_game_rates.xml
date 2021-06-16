@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     tools:context="com.rjgames.DrawerGameRates">
-    <include layout="@layout/background_layout"/>
+
 
 
     <androidx.appcompat.widget.Toolbar
@@ -54,12 +54,13 @@
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:layout_margin="@dimen/_10sdp"
-        android:background="@drawable/circle"
+
         android:layout_below="@+id/toolbar"
         android:paddingBottom="35dp"
        >
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/text1"
                 android:textAlignment="center"
                 android:layout_width="match_parent"
@@ -67,6 +68,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:textColor="@color/white"
                 android:textSize="16dp"
+
                 android:layout_margin="10dp"
                 android:textStyle="bold"
                 android:text="GAME RATES"/>
@@ -78,6 +80,7 @@
             android:background="@color/white"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:id="@+id/jannat_recycler"
             android:layout_below="@id/line1"

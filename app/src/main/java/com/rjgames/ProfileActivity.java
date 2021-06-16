@@ -169,7 +169,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setDataEditText(etAccHolderName,ah);
 
 
-        filldetail();
+       // filldetail();
     }
 
     private void storeBankDetails(final String accno,final String bankname,final String ifsc,final String hod_name,final String mailid) {

@@ -131,8 +131,8 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
 
 
-            holder.txtmatkaBid_openTime.setText("OPEN-BIDS-"+String.valueOf(s_time));
-            holder.txtmatkaBid_closeTime.setText("CLOSE-BIDS-"+String.valueOf(e_time));
+            holder.txtmatkaBid_openTime.setText("OPEN-"+String.valueOf(s_time));
+            holder.txtmatkaBid_closeTime.setText("CLOSE-"+String.valueOf(e_time));
 
             holder.txtMatka_resNo.setText(postion.getNumber());
             String end_number=postion.getEnd_num().toString();

@@ -72,8 +72,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_home"
-      />
+<!--    <include layout="@layout/content_home"-->
+<!--      />-->
 
 
     <ScrollView
@@ -370,6 +370,7 @@
                     android:id="@+id/btn_chart"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+
                     android:layout_marginRight="40dp"
                     android:layout_marginLeft="40dp"
                     android:elevation="@dimen/_5sdp"
@@ -380,8 +381,8 @@
                     android:layout_marginTop="10dp"
                     android:textColor="@android:color/black"
                     android:text="All Charts"
-                    android:backgroundTint="@android:color/white"
-                    android:background="@drawable/shape2"
+
+                    android:background="@drawable/edittextcorner"
                     />
             </LinearLayout>
 

@@ -45,8 +45,8 @@ public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_requ
         viewHolder.txtId.setText(postion.getId());
 
         String[] arrTime=postion.getTime().toString().split(" ");
-        viewHolder.txtdate.setText(arrTime[0].toString()+" "+common.changeTimeFormat(arrTime[1].toString()));
-
+        viewHolder.txtdate.setText(arrTime[0].toString());
+viewHolder.txttime.setText (common.changeTimeFormat(arrTime[1].toString()));
         String type = postion.getType().trim();
         if (type.equals("Add"))
         {
@@ -80,11 +80,12 @@ public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_requ
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtId,txtAmount,txtStatus,txtdate;
+        TextView txtId,txtAmount,txtStatus,txtdate,txttime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtId=(TextView)itemView.findViewById(R.id.fund_id);
+            txttime=(TextView)itemView.findViewById(R.id.fund_time);
             txtAmount=(TextView)itemView.findViewById(R.id.fund_amount);
             txtStatus=(TextView)itemView.findViewById(R.id.fund_status);
             txtdate=(TextView)itemView.findViewById(R.id.fund_Date);

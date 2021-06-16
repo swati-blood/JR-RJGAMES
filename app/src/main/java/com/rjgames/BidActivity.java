@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -51,6 +53,8 @@ public class BidActivity extends AppCompatActivity {
     private String user_id;
     private String matka_id;
     int page=1;
+    LinearLayout lin_main;
+    ImageView no_history;
     SessionMangement session_management;
     AllHistoryAdapter historyAdapter;
     PageAdapter pageAdapter;
@@ -64,6 +68,8 @@ public class BidActivity extends AppCompatActivity {
         matka_id=getIntent().getStringExtra("matka_id");
         progressDialog=new LoadingBar(BidActivity.this);
         rv_pages=findViewById(R.id.rv_pages);
+        lin_main=findViewById (R.id.lin_main);
+        no_history=findViewById (R.id.no_history);
         rv_history=findViewById(R.id.rv_history);
         bt_back=(TextView)findViewById(R.id.txtBack);
         user_id= new SessionMangement(this).getUserDetails().get(KEY_ID);
@@ -121,9 +127,13 @@ public class BidActivity extends AppCompatActivity {
                         historyList=gson.fromJson(response.getJSONArray("data").toString(),listType);
                         historyAdapter =new AllHistoryAdapter(BidActivity.this,historyList);
                         if(historyList.size()<=0){
+                            no_history.setVisibility (View.VISIBLE);
+                            lin_main.setVisibility (View.GONE);
 //                            new ToastMsg(BidActivity.this).toastIconError("No History Available");
                             common.showToast("No History Available");
                         }else {
+                            no_history.setVisibility (View.GONE);
+                            lin_main.setVisibility (View.VISIBLE);
                             int totsize = response.getInt("total_data");
 //                     int pageListsize=common.getPageCount(String.valueOf((float)totsize/(float) 10));
                             int pageListsize = getPageCount((float) totsize / (float) 10);

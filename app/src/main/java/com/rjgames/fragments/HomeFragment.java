@@ -147,8 +147,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                             }
                         }
 
-                       listView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                     //   listView.setLayoutManager (new GridLayoutManager (getActivity (),2));
+                       //listView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        listView.setLayoutManager (new GridLayoutManager (getActivity (),2));
                         newAdapter=new MatkaNewAdapter(getActivity(),matkaList);
                         listView.setAdapter(newAdapter);
                         newAdapter.notifyDataSetChanged();

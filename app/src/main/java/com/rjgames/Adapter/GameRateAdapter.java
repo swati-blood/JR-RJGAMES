@@ -35,7 +35,7 @@ public class GameRateAdapter extends RecyclerView.Adapter<GameRateAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
       GameRateModel rlist = ratelist.get( i );
-      viewHolder.game_rate.setText(rlist.getRate_range()+" KA " +rlist.getRate());
+      viewHolder.game_rate.setText(rlist.getRate_range()+" : " +rlist.getRate());
        viewHolder.game_name.setText( rlist.getName() );
 
     }
