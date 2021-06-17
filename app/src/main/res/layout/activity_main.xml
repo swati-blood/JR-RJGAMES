@@ -71,16 +71,16 @@
 
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/lay_user_name"
-                android:layout_width="match_parent"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_height="wrap_content"
-                android:hint="Enter Mobile Number"
-                android:textColorHint="@color/colorPrimaryDark"
-                app:hintTextAppearance="@style/textstyle"
-                app:helperTextTextAppearance="@dimen/_25sdp"
-                style="@style/textstyle">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/lay_user_name"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_margin="@dimen/_5sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Enter Mobile Number"-->
+<!--                android:textColorHint="@color/colorPrimaryDark"-->
+<!--                app:hintTextAppearance="@style/textstyle"-->
+<!--                app:helperTextTextAppearance="@dimen/_25sdp"-->
+<!--                style="@style/textstyle">-->
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUser"
@@ -89,15 +89,18 @@
                     android:drawableTint="@color/colorPrimary"
                     android:textSize="16dp"
                     android:maxLength="10"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/edittextcorner"
+                    android:hint="Enter Mobile Number"
                     android:textCursorDrawable="@drawable/cursor_pointer"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLines="1"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <EditText
                android:visibility="gone"
@@ -123,33 +126,37 @@
 
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/lay_pass"
-                android:layout_width="match_parent"
-                android:layout_margin="@dimen/_5sdp"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:layout_height="wrap_content"
-                android:hint="Enter Password"
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/lay_pass"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_margin="@dimen/_5sdp"-->
+<!--                android:textColorHint="@color/colorPrimaryDark"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Enter Password"-->
 
-                app:hintTextAppearance="@style/textstyle"
-                app:helperTextTextAppearance="@dimen/_25sdp"
-                style="@style/textstyle"         >
+<!--                app:hintTextAppearance="@style/textstyle"-->
+<!--                app:helperTextTextAppearance="@dimen/_25sdp"-->
+<!--                style="@style/textstyle"         >-->
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPass"
                     android:drawablePadding="10dp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:drawableLeft="@drawable/key_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:layout_width="match_parent"
+                    android:hint="Enter Password"
                     android:textCursorDrawable="@drawable/cursor_pointer"
                     android:layout_height="wrap_content"
                     android:textSize="14dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/edittextcorner"
+                    android:textColor="@color/black"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
             <EditText
@@ -175,6 +182,7 @@
 
 
         <Button
+
             android:id="@+id/login_login_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -183,7 +191,7 @@
             android:textAllCaps="false"
             android:background="@drawable/gradient_button"
             android:textColor="@color/white"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:textSize="20dp"
             android:layout_below="@id/relativeLayout3"/>
 

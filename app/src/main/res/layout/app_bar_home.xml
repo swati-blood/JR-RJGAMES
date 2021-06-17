@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_layout"
-    tools:context="com.rjgames.HomeActivity">
+    tools:context="com.jrgames.HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -74,6 +74,10 @@
 
 <!--    <include layout="@layout/content_home"-->
 <!--      />-->
+<!--<androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:id="@+id/swipe"-->
+<!--    android:layout_height="match_parent">-->
 
 
     <ScrollView
@@ -403,4 +407,5 @@
 
     </ScrollView>
 
+<!--</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 </RelativeLayout>

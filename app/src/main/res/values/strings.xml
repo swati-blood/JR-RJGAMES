@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">RJ Games</string>
+    <string name="app_name">JR Online</string>
     <string name="login">Login</string>
     <string name="registration">Registration</string>
-    <string name="title_activity_home">RJ Games</string>
+    <string name="title_activity_home">JR Online</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>

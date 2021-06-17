@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.rjgames.TriplePanaActivity">
+    tools:context="com.jrgames.TriplePanaActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

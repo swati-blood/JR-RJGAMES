@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.rjgames.ProfileActivity">
+    tools:context="com.jrgames.ProfileActivity">
     <include layout="@layout/background_layout"/>
 <include layout="@layout/game_bg"/>
 
@@ -123,11 +123,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/phone_24px"
                         android:layout_margin="5dp"
                         android:background="@drawable/edittextcorner"
                         android:textColorHint="@color/black"
                         android:textColor="@color/black"
-                        android:hint="mobile number"
+                        android:hint="Mobile number"
                         android:inputType="textEmailAddress"
                         android:padding="10dp"
                         />
@@ -149,7 +152,10 @@
                         android:background="@drawable/edittextcorner"
                         android:textColorHint="@color/black"
                         android:textColor="@color/black"
-                        android:hint="email "
+                        android:hint="Email "
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawableStart="@drawable/ic_email_black_24dp"
                         android:textSize="16dp"
                         android:inputType="textEmailAddress"
                         android:padding="10dp"
@@ -170,9 +176,11 @@
                         android:id="@+id/et_dob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:drawableTint="@color/colorPrimaryDark"
                         android:layout_margin="5dp"
+                        android:drawablePadding="@dimen/_10sdp"
                         android:background="@drawable/edittextcorner"
+                       android:drawableStart="@drawable/birthday_24px"
                         android:textColorHint="@color/black"
                         android:textColor="@color/black"
 
@@ -274,6 +282,9 @@ android:layout_marginTop="@dimen/_20sdp"
                         />
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/ic_baseline_home_24"
                         android:id="@+id/etAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -302,6 +313,9 @@ android:layout_marginTop="@dimen/_20sdp"
                         />
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/ic_baseline_person_pin_circle_24"
                         android:id="@+id/etCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -328,7 +342,11 @@ android:layout_marginTop="@dimen/_20sdp"
 
                         />
 
+
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/ic_baseline_person_pin_circle_24"
                         android:id="@+id/etPin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -432,6 +450,9 @@ android:layout_marginTop="@dimen/_20sdp"
 
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/bankss"
                         android:id="@+id/etAccNo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -460,6 +481,9 @@ android:layout_marginTop="@dimen/_20sdp"
                         />
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/bankss"
                         android:id="@+id/etBankName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -486,6 +510,9 @@ android:layout_marginTop="@dimen/_20sdp"
                         />
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/bankss"
                         android:id="@+id/etIfsc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -515,6 +542,9 @@ android:layout_marginTop="@dimen/_20sdp"
                         />
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/user_24px"
                         android:id="@+id/etHName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -616,6 +646,9 @@ android:layout_marginTop="@dimen/_20sdp"
                         />
 
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/phone_24px"
                         android:id="@+id/etPaytmNo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -643,6 +676,9 @@ android:layout_marginTop="@dimen/_20sdp"
 
                         />
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/phone_24px"
                         android:id="@+id/etPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -670,6 +706,9 @@ android:layout_marginTop="@dimen/_20sdp"
 
                         />
                     <EditText
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:drawableStart="@drawable/phone_24px"
                         android:id="@+id/etTezNo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

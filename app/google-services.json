@@ -1,42 +1,41 @@
 {
   "project_info": {
-    "project_number": "306505651687",
-    "firebase_url": "https://rd-games-923c3.firebaseio.com",
-    "project_id": "rd-games-923c3",
-    "storage_bucket": "rd-games-923c3.appspot.com"
+    "project_number": "710028658389",
+    "project_id": "jrgames-d81c1",
+    "storage_bucket": "jrgames-d81c1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:306505651687:android:f24bdece7c1ee275465942",
+        "mobilesdk_app_id": "1:710028658389:android:1898815e183cbbac4d845c",
         "android_client_info": {
-          "package_name": "com.rdapss"
+          "package_name": "com.jrgames"
         }
       },
       "oauth_client": [
         {
-          "client_id": "306505651687-j54cm79kbpeg8co0iv4bb4c1hucu8it0.apps.googleusercontent.com",
+          "client_id": "710028658389-sij18u4c56j115f10o3ouinokfqmgvgu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.rdapss",
-            "certificate_hash": "651131e495da265f0073502fe3c96520b369b6ea"
+            "package_name": "com.jrgames",
+            "certificate_hash": "67fc4e38c7a7063beebdf6e7c12816455ece0852"
           }
         },
         {
-          "client_id": "306505651687-gon91eg06imq5fj0bim33coulan8iif5.apps.googleusercontent.com",
+          "client_id": "710028658389-2t6pp8g1m1olko1agd263ro9v7ovihqr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDfkhlCzVIPBPOi8dGiTrAYDv-jlsGOqYI"
+          "current_key": "AIzaSyAzVHPfrTd6FlDK5IkTHZdpAaq0zqpVko8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "306505651687-gon91eg06imq5fj0bim33coulan8iif5.apps.googleusercontent.com",
+              "client_id": "710028658389-2t6pp8g1m1olko1agd263ro9v7ovihqr.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
