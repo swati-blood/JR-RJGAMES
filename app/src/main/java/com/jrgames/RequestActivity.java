@@ -117,7 +117,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
                         String description = upi_desc;
                         String amount = p.toString()+".00";
 //                        String user_id= common.getUserID();
-                        if(upi_status.equals("0")){
+                        if(upi_status.equals("1")){
                             addRequest(user_id,p,"pending","");
 
                         }else{

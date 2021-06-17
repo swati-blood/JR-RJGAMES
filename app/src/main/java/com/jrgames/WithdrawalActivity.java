@@ -54,7 +54,7 @@ import static com.jrgames.splash_activity.withdrw_text;
      private TextView txtback,txtWalletAmount,txtMobile,txt_withdrw_instrctions,tv_number;
      private LoadingBar progressDialog;
      private EditText etPoint;
-     private Button btnSave;
+     private Button btnSave,btn_whatsapp;
      ArrayList<TimeSlots> timeList;
      int amount_limt=0;
      int req_limit=1;
@@ -85,6 +85,16 @@ import static com.jrgames.splash_activity.withdrw_text;
              @Override
              public void onClick(View v) {  finish();  }
          });
+         btn_whatsapp=findViewById (R.id.btn_whatsapp);
+         btn_whatsapp.setOnClickListener (new View.OnClickListener ( ) {
+             @Override
+             public void onClick(View view) {
+                // startActivity(new Intent (Intent.ACTION_VIEW, Uri.parse(String.format("https://api.whatsapp.com/send?phone=%s&text=%s",withdrw_no.toString (),"Hi Admin"))));
+///                 whatsapp(withdrw_no.toString(),"Hello! Admin ");
+                 common.newwhatsapp (withdrw_no.toString (),"Hello! Admin");
+             }
+         });
+
 
          rl_whts.setOnClickListener(new View.OnClickListener() {
              @Override

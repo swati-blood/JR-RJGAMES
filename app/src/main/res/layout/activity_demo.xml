@@ -37,7 +37,7 @@
         android:src="@drawable/logo2"
        android:padding="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
 
         />
 
@@ -90,8 +90,8 @@ android:visibility="visible"
                 android:textSize="16dp"
                 android:inputType="number"
                 android:maxLength="10"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark"/>
+                android:textColor="@color/black"
+                />
         </RelativeLayout>
 
 
@@ -200,8 +200,8 @@ android:visibility="visible"
                 android:textSize="16dp"
                 android:inputType="number"
                 android:maxLength="6"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark"/>
+                android:textColor="@color/black"
+              />
         </RelativeLayout>
 
 

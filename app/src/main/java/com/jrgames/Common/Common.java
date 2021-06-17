@@ -3,6 +3,7 @@ package com.jrgames.Common;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -41,6 +42,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -96,7 +98,20 @@ public class Common {
 
     }
 
+    public void newwhatsapp(String phone, String message) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent i = new Intent(Intent.ACTION_VIEW);
 
+        try {
+            String url = "whatsapp://send?phone=91"+ phone +"&text=" + URLEncoder.encode(message, "UTF-8");
+            i.setData(Uri.parse(url));
+            if (i.resolveActivity(packageManager) != null) {
+                context.startActivity(i);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void setMobileNumber(final TextView txt)
     {
         String json_tag_request="json_mobile_request";

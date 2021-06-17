@@ -120,9 +120,7 @@ holder.game_name.setOnClickListener(new View.OnClickListener() {
                     case "Full Sangam":
                     i = new Intent(activity, FullSangamActivity.class);
                     break;
-
-//
-            }
+}
             if (i != null) {
                 i.putExtra("game_name", model.getName());
                 i.putExtra("game_id", model.getId());
