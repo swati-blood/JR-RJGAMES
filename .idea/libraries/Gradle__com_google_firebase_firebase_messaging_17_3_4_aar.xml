@@ -10,6 +10,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f72e7dae0c31a6e80fead1d4f20823bd/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f72e7dae0c31a6e80fead1d4f20823bd/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f72e7dae0c31a6e80fead1d4f20823bd/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8e29bbe74bfa4b618829b890dd5c7527/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8e29bbe74bfa4b618829b890dd5c7527/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8e29bbe74bfa4b618829b890dd5c7527/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-messaging/17.3.4/5a0ecbcab24f4136e8ae8a99f2fd80a3a05a4a68/firebase-messaging-17.3.4-javadoc.jar!/" />
