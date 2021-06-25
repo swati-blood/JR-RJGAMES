@@ -40,6 +40,7 @@
             android:background="@drawable/edittextcorner"
             android:inputType="number"
             android:hint="Amount"
+            android:textCursorDrawable="@drawable/cursor_color"
             android:imeOptions="actionNext"
             android:nextFocusRight="@id/et_2"
             android:layout_margin="@dimen/_2sdp"

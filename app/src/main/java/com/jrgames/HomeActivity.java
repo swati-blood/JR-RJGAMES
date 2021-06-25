@@ -73,13 +73,14 @@ import static com.jrgames.Config.BaseUrl.IMG_STARLINE_URL;
 import static com.jrgames.Config.Constants.KEY_ID;
 import static com.jrgames.Config.Constants.KEY_NAME;
 import static com.jrgames.splash_activity.message;
+import static com.jrgames.splash_activity.satrline_name;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
     FrameLayout frame_home;
 //    SwipeRefreshLayout swipe;
     private TextView txtWallet,txtNotification ,txt_tagline;
-    TextView tv_vername,tv_name;
+    TextView tv_vername,tv_name,tv_star;
     NavigationView navigationView;
     SessionMangement sessionMangement;
 //    Module module;
@@ -111,6 +112,8 @@ public class HomeActivity extends AppCompatActivity
         sessionMangement=new SessionMangement(HomeActivity.this);
 //        tv_name.getText(sessionMangement.getUserDetails().get(KEY_NAME)).toString();
 //swipe=findViewById (R.id.swipe);
+        tv_star= findViewById(R.id.tv_star);
+        tv_star.setText (satrline_name);
         tv_vername = findViewById(R.id.tv_version);
         PackageManager pm = getApplicationContext().getPackageManager();
         String pkgName = getApplicationContext().getPackageName();
@@ -464,15 +467,18 @@ public class HomeActivity extends AppCompatActivity
             startActivity(intent);
 
         }
-//        else if (id == R.id.nav_allchart) {
-//            Toast.makeText (this, "dfgh", Toast.LENGTH_SHORT).show ( );
-//            if(chart_url==null || chart_url.isEmpty() || chart_url.equals("")){
-//                common.showToast(no_chart_msg);
-//            }else{
-//                common.clickUrl(chart_url);
-//            }
-//
-//        }
+        else if (id == R.id.nav_chart) {
+            //Toast.makeText (this, "dfgh", Toast.LENGTH_SHORT).show ( );
+            if(chart_url==null || chart_url.isEmpty() || chart_url.equals("")){
+                common.showToast(no_chart_msg);
+            }else{
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(chart_url));
+                startActivity(intent);
+                //common.clickUrl(chart_url);
+            }
+
+        }
         else if (id == R.id.nav_logout) {
 
             AlertDialog.Builder builder=new AlertDialog.Builder(this);

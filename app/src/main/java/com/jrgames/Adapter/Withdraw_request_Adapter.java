@@ -56,7 +56,7 @@ viewHolder.txttime.setText (common.changeTimeFormat(arrTime[1].toString()));
         {
             viewHolder.txtAmount.setText(postion.getWithdraw_points());
         }
-        viewHolder.txtStatus.setText(type);
+        viewHolder.txtStatus.setText(type+"( "+postion.getWithdraw_status ()+" )");
 
 //        String st=postion.getWithdraw_status().toString().trim();
 //        if(st.equals("pending"))

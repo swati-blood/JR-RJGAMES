@@ -401,8 +401,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rel_login"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimaryDark"
+           android:layout_below="@+id/relativeLayout1"
+
             android:padding="5dp">
 
             <LinearLayout
@@ -416,7 +416,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:src="@drawable/user_24px"
-                    app:tint="@color/white" />
+                    app:tint="@color/colorPrimaryDark" />
 
                 <TextView
                     android:id="@+id/txtLogin"
@@ -424,7 +424,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Existing User ? Login Here"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/colorPrimaryDark" />
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>

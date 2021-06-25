@@ -116,11 +116,11 @@
         android:title="Notice Board/Rules" />
     </group>
     <group
-android:visible="false"
+
         android:id="@+id/nav_allchart"
         android:checkableBehavior="single">
         <item
-            android:visible="false"
+
             android:id="@+id/nav_chart"
             android:icon="@drawable/icons8_bulleted_list_128px"
             android:title="All Chart" />

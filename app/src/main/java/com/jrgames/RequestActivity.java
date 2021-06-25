@@ -117,7 +117,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
                         String description = upi_desc;
                         String amount = p.toString()+".00";
 //                        String user_id= common.getUserID();
-                        if(upi_status.equals("1")){
+                        if(upi_status.equals("0")){
                             addRequest(user_id,p,"pending","");
 
                         }else{
@@ -328,7 +328,7 @@ public class RequestActivity extends AppCompatActivity implements PaymentStatusL
 
 
         switch (upi_type) {
-            case "None":
+            case "":
                 mEasyUpiPayment.setDefaultPaymentApp(PaymentApp.NONE);
                 break;
             case "AMAZON_PAY":

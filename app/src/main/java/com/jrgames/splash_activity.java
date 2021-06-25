@@ -32,7 +32,7 @@ public class splash_activity extends AppCompatActivity {
    SessionMangement sessionMangement;
    Common common;
    public static String home_text ="", withdrw_text="",tagline= "",withdrw_no="" ,min_add_amount="",message="",
-           msg_status="",app_link="",share_link="",update_msg="";
+           msg_status="",app_link="",share_link="",update_msg="",satrline_name;
    // ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +82,7 @@ public class splash_activity extends AppCompatActivity {
                     msg_status = dataObj.getString("msg_status");
                     app_link = dataObj.getString("app_link");
                     share_link = dataObj.getString("share_link");
+                    satrline_name = dataObj.getString("starline_name");
 //                        update_msg = dataObj.getString("update_msg");
                     ver_code=Float.parseFloat(dataObj.getString("version"));
                     msg=dataObj.getString("message");
