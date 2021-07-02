@@ -13,6 +13,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8837e1cb684c6b1299eaaea86837e1a/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8837e1cb684c6b1299eaaea86837e1a/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8837e1cb684c6b1299eaaea86837e1a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aa276d561934cd9470c587fd57522adb/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aa276d561934cd9470c587fd57522adb/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aa276d561934cd9470c587fd57522adb/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.shreyaspatil/EasyUpiPayment/2.2/2703593012c4bf3edfbaec89244d1899b78cc4ff/EasyUpiPayment-2.2-javadoc.jar!/" />

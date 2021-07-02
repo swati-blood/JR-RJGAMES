@@ -13,6 +13,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/48271287e5ad0e4e05ddf500a9c205ea/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/48271287e5ad0e4e05ddf500a9c205ea/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/48271287e5ad0e4e05ddf500a9c205ea/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bde2d39a6061458ca69023afe4d55fb2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bde2d39a6061458ca69023afe4d55fb2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bde2d39a6061458ca69023afe4d55fb2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-auth-api-phone/17.1.0/f7687a81343a48ab0fe37a68e596e95054600b9d/play-services-auth-api-phone-17.1.0-javadoc.jar!/" />
