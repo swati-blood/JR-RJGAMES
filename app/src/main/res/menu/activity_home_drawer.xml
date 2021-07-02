@@ -30,7 +30,6 @@
     <item
             android:id="@+id/nav_mpin"
             android:icon="@drawable/mpin_generate"
-
             android:title="Generate MPIN" />
     </group>
     <group
@@ -39,8 +38,6 @@
     <item
         android:id="@+id/nav_history"
         android:icon="@drawable/icons8_order_history_100px"
-
-
         android:title="Game History" />
     </group>
     <group
@@ -49,8 +46,6 @@
         <item
             android:id="@+id/nav_s_history"
             android:icon="@drawable/time_machine_50px"
-
-
             android:title="Starline History" />
     </group>
     <group
